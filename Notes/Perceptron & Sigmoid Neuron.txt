@@ -214,7 +214,7 @@ Because of these limitations, modern neural networks usually use Sigmoid Neurons
 SIGMOID NEURON
 
 A Sigmoid Neuron is an improved version of a Perceptron.
-It was introduced to solve a major problem of perceptrons: small changes in weights could cause large, sudden changes in output.
+It was introduced to solve a major problem of perceptrons, small changes in weights could cause large, sudden changes in output.
 A Sigmoid Neuron produces smooth outputs, making learning possible.
 
 ------------------------------------------------------------
@@ -446,12 +446,12 @@ INTERPRETING THE OUTPUT
 Sigmoid outputs a value between 0 and 1.
 
 Example:
-Output = 0.92
 
+Output = 0.92
 Can be interpreted as:
 Very likely TRUE
-Output = 0.12
 
+Output = 0.12
 Can be interpreted as:
 Very likely FALSE
 
