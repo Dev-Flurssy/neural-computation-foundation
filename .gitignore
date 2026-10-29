@@ -9,9 +9,14 @@ env/
 ENV/
 .venv/
 
-# Jupyter
-.ipynb_checkpoints/
+# JupyterLab workspace files
 *.jupyterlab-workspace
+
+# Jupyter desktop
+.jupyter/
+
+# Jupyter checkpoints
+.ipynb_checkpoints/
 
 # Distribution
 build/
