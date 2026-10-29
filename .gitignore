@@ -11,6 +11,7 @@ ENV/
 
 # Jupyter
 .ipynb_checkpoints/
+*.jupyterlab-workspace
 
 # Distribution
 build/
