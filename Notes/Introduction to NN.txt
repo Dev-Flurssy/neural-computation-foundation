@@ -1,0 +1,473 @@
+PERCEPTRON
+
+A Perceptron is the simplest type of Artificial Neuron used in Neural Networks.
+It takes one or more binary inputs (0 or 1), processes them using weights and a bias, and produces a single binary output (0 or 1).
+Frank Rosenblatt developed the Perceptron in the 1950s and 1960s, inspired by earlier work by McCulloch and Pitts.
+
+------------------------------------------------------------
+WHAT IS THE PURPOSE OF A PERCEPTRON?
+
+A Perceptron is used to make simple decisions based on input data.
+Think of it as a decision-making device that weighs evidence and decides whether the answer should be YES (1) or NO (0).
+
+------------------------------------------------------------
+
+BASIC STRUCTURE OF A PERCEPTRON
+
+          x1
+           \
+            \
+          x2 ---> [ Perceptron ] ---> Output
+            /
+           /
+          x3
+
+Inputs:
+x1, x2, x3
+
+Weights:
+w1, w2, w3
+
+Bias:
+b
+
+Output:
+0 or 1
+
+------------------------------------------------------------
+HOW A PERCEPTRON WORKS
+
+Step 1:
+Multiply each input by its corresponding weight.
+
+Step 2:
+Add all the weighted inputs together.
+
+Step 3:
+Add the bias.
+
+Step 4:
+Apply the decision rule.
+
+Formula:
+z = w1x1 + w2x2 + w3x3 + b
+
+Decision Rule:
+Output = 1 if z > 0
+Output = 0 if z ≤ 0
+
+------------------------------------------------------------
+MEANING OF WEIGHTS
+
+Weights determine the importance of each input.
+
+Large Weight:
+Input has a strong influence on the decision.
+
+Small Weight:
+Input has less influence on the decision.
+
+Example:
+
+Weather Weight = 6
+Friend Weight = 2
+Transport Weight = 2
+
+The weather affects the decision much more than the other factors.
+
+------------------------------------------------------------
+MEANING OF BIAS
+
+Bias determines how easy or difficult it is for the neuron to output 1.
+
+Large Positive Bias:
+Neuron easily outputs 1.
+
+Large Negative Bias:
+Neuron rarely outputs 1.
+
+Bias acts like an adjustment value for the decision boundary.
+
+------------------------------------------------------------
+CHEESE FESTIVAL EXAMPLE
+
+Suppose you decide whether to attend a cheese festival.
+
+Inputs:
+
+x1 = Good Weather
+x2 = Boyfriend/Girlfriend Wants To Go
+x3 = Public Transport Available
+
+Values:
+1 = Yes
+0 = No
+
+Weights:
+w1 = 6
+w2 = 2
+w3 = 2
+
+The weather is most important because it has the largest weight.
+
+------------------------------------------------------------
+PERCEPTRON AS A DECISION MAKER
+
+The Perceptron collects evidence from all inputs.
+Each input contributes according to its weight.
+The final weighted sum determines whether the output becomes 0 or 1.
+
+Therefore:
+Perceptron = Evidence + Weights + Decision
+
+------------------------------------------------------------
+PERCEPTRONS CAN FORM NETWORKS
+
+One Perceptron can make simple decisions.
+Many Perceptrons connected together form a Neural Network.
+
+Example:
+Inputs
+  ↓
+Perceptrons (Layer 1)
+  ↓
+Perceptrons (Layer 2)
+  ↓
+Perceptrons (Layer 3)
+  ↓
+Final Decision
+
+Each layer makes more complex decisions than the previous layer.
+
+------------------------------------------------------------
+LAYERS IN A NEURAL NETWORK
+
+First Layer:
+Makes simple decisions from raw inputs.
+
+Second Layer:
+Uses outputs from the first layer to make more advanced decisions.
+
+Third Layer:
+Combines previous decisions to make even more sophisticated decisions.
+
+More layers allow more complex problem solving.
+
+------------------------------------------------------------
+PERCEPTRON CAN IMPLEMENT LOGIC GATES
+
+Perceptrons can perform logical operations such as:
+
+• AND
+• OR
+• NAND
+
+These logical functions are the foundation of digital computation.
+
+------------------------------------------------------------
+EXAMPLE: NAND GATE
+
+Weights:
+w1 = -2
+w2 = -2
+
+Bias:
+b = 3
+
+Formula:
+z = -2x1 - 2x2 + 3
+
+Truth Table:
+x1  x2  Output
+
+0   0     1
+0   1     1
+1   0     1
+1   1     0
+
+This is exactly the behavior of a NAND gate.
+
+------------------------------------------------------------
+WHY IS THE NAND GATE IMPORTANT?
+
+The NAND gate is called a Universal Gate.
+This means any logical function can be built using only NAND gates.
+
+Therefore:
+Perceptron → NAND Gate
+NAND Gate → Any Logic Circuit
+Any Logic Circuit → Computation
+
+This shows that networks of perceptrons can perform computation.
+
+------------------------------------------------------------
+LIMITATIONS OF PERCEPTRONS
+
+• Output is only 0 or 1.
+• Uses a hard decision boundary.
+• Small input changes may cause sudden output changes.
+• Difficult to train using Gradient Descent.
+
+Because of these limitations, modern neural networks usually use Sigmoid Neurons instead of Perceptrons.
+
+------------------------------------------------------------
+SIGMOID NEURON
+
+A Sigmoid Neuron is an improved version of a Perceptron.
+It was introduced to solve a major problem of perceptrons: small changes in weights could cause large, sudden changes in output.
+A Sigmoid Neuron produces smooth outputs, making learning possible.
+
+------------------------------------------------------------
+WHY DO WE NEED SIGMOID NEURONS?
+
+Suppose a neural network incorrectly recognizes a handwritten 9 as an 8.
+To correct the mistake, we want to make small changes to the weights and biases.
+
+Ideally:
+Small Change in Weight
+        ↓
+Small Change in Output
+
+This allows the network to gradually improve and learn.
+
+------------------------------------------------------------
+PROBLEM WITH PERCEPTRONS
+
+A Perceptron only outputs:
+
+0 or 1
+
+Example:
+Weight changes slightly
+Before → Output = 0
+After → Output = 1
+
+A tiny change can completely flip the output.
+This can cause unpredictable changes throughout the network.
+
+Therefore:
+Perceptrons are difficult to train using learning algorithms.
+
+------------------------------------------------------------
+WHAT IS A SIGMOID NEURON?
+
+A Sigmoid Neuron is similar to a Perceptron.
+
+It has:
+• Inputs
+• Weights
+• Bias
+
+However, the output is not limited to 0 or 1.
+
+Instead, the output can be any value between 0 and 1.
+
+Examples:
+0.15
+0.42
+0.76
+0.98
+
+------------------------------------------------------------
+
+STRUCTURE OF A SIGMOID NEURON
+
+          x1
+           \
+            \
+          x2 ---> [ Sigmoid Neuron ] ---> Output
+            /
+           /
+          x3
+
+Inputs:
+x1, x2, x3
+
+Weights:
+w1, w2, w3
+
+Bias:
+b
+
+Output:
+Any value between 0 and 1
+
+------------------------------------------------------------
+HOW A SIGMOID NEURON WORKS
+
+Step 1:
+Calculate the weighted sum:
+z = w1x1 + w2x2 + w3x3 + b
+
+Step 2:
+Apply the Sigmoid Function:
+σ(z) = 1 / (1 + e^(-z))
+
+Step 3:
+Produce an output between 0 and 1.
+
+------------------------------------------------------------
+THE SIGMOID FUNCTION
+
+Formula:
+
+σ(z) = 1 / (1 + e^(-z))
+
+The symbol σ (sigma) represents the sigmoid function.
+The value of z is the weighted sum:
+
+z = w·x + b
+
+where:
+
+w = weights
+x = inputs
+b = bias
+
+------------------------------------------------------------
+
+OUTPUT VALUES OF THE SIGMOID FUNCTION
+
+Example:
+
+z = -4 → 0.018
+z = -2 → 0.119
+z =  0 → 0.500
+z =  2 → 0.881
+z =  4 → 0.982
+
+Notice:
+
+As z increases, the output moves smoothly toward 1.
+As z decreases, the output moves smoothly toward 0.
+
+------------------------------------------------------------
+
+SIGMOID CURVE
+
+Output
+
+1.0 |                 *****
+    |             ****
+0.8 |          ***
+    |        **
+0.5 |------**
+    |    **
+0.2 | ***
+    |**
+0.0 |______________________ z
+          0
+
+This smooth S-shaped curve is called the Sigmoid Curve.
+
+------------------------------------------------------------
+RELATIONSHIP BETWEEN SIGMOID AND PERCEPTRON
+
+When z is very large and positive:
+z → +∞
+e^(-z) ≈ 0
+σ(z) ≈ 1
+
+Result:
+Sigmoid behaves like a Perceptron outputting 1.
+
+------------------------------------------------------------
+WHEN z IS VERY NEGATIVE
+
+z → -∞
+e^(-z) becomes very large
+σ(z) ≈ 0
+
+Result:
+Sigmoid behaves like a Perceptron outputting 0.
+
+------------------------------------------------------------
+WHERE IS THE DIFFERENCE?
+
+The main difference occurs when z is near 0.
+
+Example:
+z = -1 → 0.27
+z =  0 → 0.50
+z =  1 → 0.73
+
+Perceptron:
+Either 0 or 1
+
+Sigmoid:
+Any value between 0 and 1
+
+------------------------------------------------------------
+SIGMOID VS PERCEPTRON
+
+Perceptron
+
+• Output is only 0 or 1
+• Sudden jump
+• Hard decision boundary
+• Difficult to train
+
+Sigmoid Neuron
+
+• Output ranges between 0 and 1
+• Smooth transition
+• Small input changes produce small output changes
+• Easy to train
+
+------------------------------------------------------------
+WHY IS SMOOTHNESS IMPORTANT?
+
+Suppose:
+Output = 0.60
+
+Desired Output = 0.65
+The network only needs a small adjustment.
+
+With a Sigmoid Neuron:
+Small Weight Change
+        ↓
+Small Output Change
+
+This allows gradual learning.
+
+------------------------------------------------------------
+ADVANTAGES OF SIGMOID NEURONS
+
+• Smooth output
+• Continuous function
+• Supports learning algorithms
+• Supports Gradient Descent
+• Supports Backpropagation
+• Useful for Neural Networks
+
+------------------------------------------------------------
+INTERPRETING THE OUTPUT
+
+Sigmoid outputs a value between 0 and 1.
+
+Example:
+Output = 0.92
+
+Can be interpreted as:
+Very likely TRUE
+Output = 0.12
+
+Can be interpreted as:
+Very likely FALSE
+
+A common rule is:
+Output ≥ 0.5 → 1
+Output < 0.5 → 0
+
+------------------------------------------------------------
+WHY IS THE SIGMOID FUNCTION USED?
+
+The exact formula is less important than its shape.
+
+The important property is:
+Smoothness
+Because the curve is smooth, calculus can determine exactly how changes in weights affect the output.
+This makes learning efficient.
+
+------------------------------------------------------------
+
