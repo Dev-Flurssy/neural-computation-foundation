@@ -1,0 +1,194 @@
+ARTIFICIAL NEURON
+
+An Artificial Neuron is the basic building block of a Neural Network.
+It is a mathematical model inspired by biological neurons in the human brain.
+Its purpose is to receive inputs, process them, and produce an output.
+
+------------------------------------------------------------
+SIMPLE DEFINITION
+
+Artificial Neuron = Inputs + Weights + Bias + Activation Function + Output
+
+------------------------------------------------------------
+HOW AN ARTIFICIAL NEURON WORKS
+
+Step 1:
+Receive inputs.
+
+Example:
+x1 = 1
+x2 = 0
+x3 = 1
+
+Step 2:
+Multiply each input by its weight.
+
+Example:
+w1x1
+w2x2
+w3x3
+
+Step 3:
+Add all weighted inputs together.
+
+Step 4:
+Add the bias.
+
+Step 5:
+Pass the result through an activation function.
+
+Step 6:
+Produce the final output.
+
+------------------------------------------------------------
+STRUCTURE OF AN ARTIFICIAL NEURON
+
+          x1
+           \
+            \
+          x2 ---> [ Neuron ] ---> Output
+            /
+           /
+          x3
+
+Inputs:
+x1, x2, x3
+
+Weights:
+w1, w2, w3
+
+Bias:
+b
+
+Activation Function:
+Step Function, Sigmoid, ReLU, etc.
+
+------------------------------------------------------------
+NEURON FORMULA
+
+Weighted Sum:
+z = w1x1 + w2x2 + w3x3 + b
+
+Output:
+Output = Activation(z)
+
+------------------------------------------------------------
+WHAT ARE INPUTS?
+
+Inputs are the information given to the neuron.
+
+Examples:
+
+• Pixel values in an image
+• Temperature readings
+• Exam scores
+• Sensor data
+
+------------------------------------------------------------
+WHAT ARE WEIGHTS?
+
+Weights determine the importance of each input.
+
+Large Weight:
+Input has strong influence.
+
+Small Weight:
+Input has weak influence.
+
+Example:
+Weather Weight = 8
+Transport Weight = 2
+Weather affects the decision more than transport.
+
+------------------------------------------------------------
+WHAT IS BIAS?
+
+Bias helps the neuron adjust its decision.
+Think of bias as an extra value that makes it easier or harder for the neuron to activate.
+
+Large Positive Bias:
+Neuron activates easily.
+
+Large Negative Bias:
+Neuron activates less easily.
+
+------------------------------------------------------------
+WHAT IS AN ACTIVATION FUNCTION?
+
+The Activation Function decides the final output.
+
+Common Activation Functions:
+• Step Function
+• Sigmoid Function
+• ReLU Function
+• Tanh Function
+
+------------------------------------------------------------
+PERCEPTRON AS AN ARTIFICIAL NEURON
+
+The Perceptron is the simplest Artificial Neuron.
+
+Output:
+0 or 1
+
+Characteristics:
+• Hard decision boundary
+• Sudden output changes
+• Difficult to train
+
+------------------------------------------------------------
+SIGMOID NEURON AS AN ARTIFICIAL NEURON
+
+The Sigmoid Neuron is an improved Artificial Neuron.
+
+Output:
+Any value between 0 and 1
+
+Characteristics:
+• Smooth output
+• Easy to train
+• Supports learning algorithms
+
+------------------------------------------------------------
+BIOLOGICAL VS ARTIFICIAL NEURON
+
+Biological Neuron
+• Found in the brain
+• Uses electrical and chemical signals
+• Very complex
+
+Artificial Neuron
+• Used in computers
+• Uses mathematical calculations
+• Simplified model of a biological neuron
+
+------------------------------------------------------------
+WHY ARE ARTIFICIAL NEURONS IMPORTANT?
+
+A single neuron can make a simple decision.
+Many neurons connected together can:
+
+• Recognize images
+• Recognize speech
+• Translate languages
+• Detect spam emails
+• Predict outcomes
+
+This collection of neurons forms a Neural Network.
+
+------------------------------------------------------------
+NEURAL NETWORK
+
+Input Layer
+     ↓
+Artificial Neurons
+     ↓
+Hidden Layer(s)
+     ↓
+Artificial Neurons
+     ↓
+Output Layer
+
+Each neuron performs calculations and passes information forward.
+
+------------------------------------------------------------
