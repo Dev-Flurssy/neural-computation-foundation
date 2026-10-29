@@ -1,0 +1,533 @@
+LEARNING WITH GRADIENT DESCENT
+
+Gradient Descent is a learning algorithm used to train Neural Networks.
+Its goal is to find the best weights and biases that minimize the network's errors.
+
+------------------------------------------------------------
+WHY DO NEURAL NETWORKS NEED LEARNING?
+
+Initially, the weights and biases are random.
+Because of this, the network makes many mistakes.
+
+Example:
+Image of 9
+      ↓
+Network predicts 8
+
+The network must adjust its weights and biases to improve its predictions.
+
+------------------------------------------------------------
+WHAT IS TRAINING DATA?
+
+Training Data is a collection of examples used to teach the network.
+
+Example:
+Input Image
+      ↓
+Correct Answer
+
+Image of 5
+      ↓
+5
+
+Image of 9
+      ↓
+9
+
+The network learns by comparing its predictions with the correct answers.
+
+------------------------------------------------------------
+MNIST DATASET
+
+MNIST is a famous dataset used to train neural networks to recognize handwritten digits.
+
+It contains:
+• 60,000 training images
+• 10,000 test images
+
+Image Size:
+28 × 28 pixels
+
+Number of inputs:
+28 × 28 = 784
+
+Therefore each image is represented by:
+784 input values
+
+------------------------------------------------------------
+WHAT IS THE GOAL OF TRAINING?
+
+We want:
+Network Output ≈ Correct Output
+
+Example:
+
+Desired Output:
+(0,0,0,0,0,0,1,0,0,0)
+
+Meaning:
+The image is a digit 6.
+The network should produce values close to this output.
+
+------------------------------------------------------------
+WHAT IS A COST FUNCTION?
+
+A Cost Function measures how wrong the neural network is.
+
+Small Cost:
+Predictions are accurate.
+
+Large Cost:
+Predictions are inaccurate.
+
+------------------------------------------------------------
+QUADRATIC COST FUNCTION
+
+Also called:
+• Mean Squared Error (MSE)
+• Quadratic Error
+
+Formula:
+C = (1/2n) Σ (Desired Output − Actual Output)²
+
+Main Idea:
+Cost Function = Measure of Error
+
+------------------------------------------------------------
+INTERPRETING THE COST
+
+If: C ≈ 0
+Then:
+Network predictions are very accurate.
+
+If: C is large
+Then:
+Network predictions are poor.
+
+Therefore:
+Training Goal
+       ↓
+Minimize Cost Function
+
+------------------------------------------------------------
+WHY NOT COUNT CORRECT ANSWERS DIRECTLY?
+
+We could try:
+Maximize Correct Predictions
+However, this causes a problem.
+
+Small changes in weights often produce:
+No change in accuracy
+This makes learning difficult.
+
+------------------------------------------------------------
+WHY USE THE COST FUNCTION?
+
+The Cost Function changes smoothly.
+
+Small Weight Change
+        ↓
+Small Cost Change
+
+This makes it easier to determine how weights should be adjusted.
+
+------------------------------------------------------------
+WHAT IS GRADIENT DESCENT?
+
+Gradient Descent is a method for finding the minimum value of the Cost Function.
+Think of the Cost Function as a valley.
+
+Example:
+
+      Hill
+       /\
+      /  \
+     /    \
+    /      \
+   /        \
+__/__________\__
+
+      Minimum
+
+Gradient Descent moves toward the lowest point.
+
+------------------------------------------------------------
+BALL ROLLING ANALOGY
+
+Imagine placing a ball on a hill.
+The ball naturally rolls downhill.
+Eventually the ball reaches the valley.
+
+Similarly:
+Gradient Descent moves toward lower cost values until a minimum is reached.
+
+------------------------------------------------------------
+WHAT IS THE GRADIENT?
+
+The Gradient tells us:
+Which direction increases the cost the fastest.
+
+Symbol:
+∇C
+It points uphill.
+
+------------------------------------------------------------
+KEY IDEA OF GRADIENT DESCENT
+
+Since the gradient points uphill,
+To reduce error, we move in the opposite direction.
+
+Gradient
+      ↑
+
+Move Here
+      ↓
+
+This causes the cost to decrease.
+
+------------------------------------------------------------
+LEARNING RATE
+
+Symbol: η (eta)
+The Learning Rate controls the size of each step.
+
+Small η
+• Small steps
+• Slow learning
+
+Large η
+• Large steps
+• May overshoot the minimum
+
+------------------------------------------------------------
+GRADIENT DESCENT UPDATE RULE
+
+Formula:
+New Value = Old Value − η∇C
+
+Meaning:
+New Parameters = Current Parameters − Learning Rate × Gradient
+
+------------------------------------------------------------
+
+HOW GRADIENT DESCENT WORKS
+
+Step 1:
+Calculate the Cost Function.
+
+Step 2:
+Calculate the Gradient.
+
+Step 3:
+Move opposite the Gradient.
+
+Step 4:
+Update weights and biases.
+
+Step 5:
+Repeat.
+
+After many repetitions:
+Cost decreases.
+
+------------------------------------------------------------
+WHY DOES THIS WORK?
+
+The Gradient points in the direction of the steepest increase.
+Moving opposite to it gives:
+Greatest immediate decrease in cost.
+
+Therefore:
+Gradient Descent is an efficient way to reduce error.
+
+------------------------------------------------------------
+ROLE IN NEURAL NETWORKS
+
+Gradient Descent adjusts:
+• Weights
+• Biases
+
+to minimize the Cost Function.
+
+As the cost decreases:
+Predictions become more accurate.
+The network learns.
+
+------------------------------------------------------------
+GRADIENT DESCENT PROCESS
+
+Random Weights
+       ↓
+Make Prediction
+       ↓
+Compute Error
+       ↓
+Calculate Gradient
+       ↓
+Update Weights & Biases
+       ↓
+Lower Error
+       ↓
+Repeat
+
+------------------------------------------------------------
+IMPORTANT TERMS
+
+Training Data
+→ Examples used for learning
+
+Cost Function
+→ Measures error
+
+Gradient
+→ Direction of maximum increase
+
+Learning Rate (η)
+→ Step size
+
+Gradient Descent
+→ Algorithm that minimizes error
+
+------------------------------------------------------------
+
+STOCHASTIC GRADIENT DESCENT (SGD)
+
+Stochastic Gradient Descent (SGD) is a faster version of Gradient Descent.
+Instead of using the entire training dataset to calculate the gradient, SGD uses a small random subset of the data.
+This greatly speeds up learning.
+
+------------------------------------------------------------
+PROBLEM WITH STANDARD GRADIENT DESCENT
+
+To update the weights, Gradient Descent must calculate the gradient using all training examples.
+
+Example:
+MNIST Training Set
+60,000 images
+
+For every update:
+All 60,000 images must be processed.
+This can be very slow.
+
+------------------------------------------------------------
+THE SOLUTION
+
+Instead of using all training examples,
+Use only a small random sample.
+This sample is called a Mini-Batch.
+
+Example:
+Training Data = 60,000 images
+Mini-Batch Size = 10 images
+Use only those 10 images to estimate the gradient.
+
+------------------------------------------------------------
+WHAT IS A MINI-BATCH?
+
+A Mini-Batch is a small randomly selected group of training examples.
+
+Example:
+
+Training Data
+Image 1
+Image 2
+Image 3
+...
+Image 60,000
+
+Random Mini-Batch
+Image 57
+Image 842
+Image 1450
+...
+10 Images
+
+------------------------------------------------------------
+WHY DOES THIS WORK?
+
+The gradient calculated from a random mini-batch is usually close to the true gradient.
+
+Therefore:
+Small Sample
+      ↓
+Good Gradient Estimate
+      ↓
+Faster Learning
+
+------------------------------------------------------------
+HOW SGD WORKS
+
+Step 1
+Randomly select a mini-batch.
+
+Step 2
+Calculate the gradient using only that mini-batch.
+
+Step 3
+Update weights and biases.
+
+Step 4
+Select another mini-batch.
+
+Step 5
+Repeat.
+
+------------------------------------------------------------
+SGD LEARNING PROCESS
+
+Training Data
+      ↓
+Pick Mini-Batch
+      ↓
+Calculate Gradient
+      ↓
+Update Weights
+      ↓
+Pick New Mini-Batch
+      ↓
+Repeat
+
+------------------------------------------------------------
+EPOCH
+
+An Epoch means the network has processed all training examples once.
+
+Example:
+Training Set = 60,000 Images
+Mini-Batch Size = 10
+
+Number of Updates:
+60,000 / 10
+= 6,000 updates
+
+After all images have been used once:
+1 Epoch Completed
+
+------------------------------------------------------------
+WHY IS SGD FASTER?
+
+Standard Gradient Descent:
+Uses all 60,000 images per update.
+
+SGD:
+Uses only a small mini-batch.
+
+Example:
+60,000 Images
+Mini-Batch = 10 Images
+
+Speedup:
+60,000 / 10
+= 6,000 times fewer samples per update.
+
+------------------------------------------------------------
+STANDARD GRADIENT DESCENT VS SGD
+
+Standard Gradient Descent
+• Uses entire dataset
+• Very accurate gradient
+• Slow
+• Computationally expensive
+
+Stochastic Gradient Descent
+• Uses mini-batches
+• Approximate gradient
+• Much faster
+• Commonly used in practice
+
+------------------------------------------------------------
+WHY NOT USE SECOND DERIVATIVES?
+
+Some optimization methods use:
+Second Partial Derivatives
+
+Example:
+∂²C / ∂vj∂vk
+
+These methods can mimic a real rolling ball and may be more accurate.
+
+However:
+If there are 1,000,000 variables,
+
+We may need roughly:
+1,000,000²
+= 1,000,000,000,000 (1 Trillion) second derivative calculations.
+
+This is extremely expensive.
+
+------------------------------------------------------------
+WHY GRADIENT DESCENT IS PREFERRED
+
+Gradient Descent only needs:
+First Derivatives
+
+Example:
+∂C / ∂w
+
+This makes it much more practical for large neural networks.
+
+------------------------------------------------------------
+GRADIENT DESCENT UPDATE RULE
+
+General Formula:
+New Value = Old Value − η∇C
+
+Where:
+η = Learning Rate
+∇C = Gradient
+
+------------------------------------------------------------
+SGD UPDATE RULE
+
+Pick a Mini-Batch
+Calculate the average gradient for only the examples in that Mini-Batch.
+
+Update:
+Weights
+     ↓
+Biases
+     ↓
+Lower Cost
+     ↓
+Better Predictions
+
+------------------------------------------------------------
+POLITICAL POLLING ANALOGY
+
+Imagine determining who will win an election.
+
+Option 1:
+Ask every voter.
+Accurate but slow.
+
+Option 2:
+Survey a small random sample.
+Much faster and usually gives a good estimate.
+SGD works the same way.
+
+Mini-Batch
+        ↓
+Estimate Gradient
+        ↓
+Update Network
+
+------------------------------------------------------------
+
+KEY TERMS
+
+Gradient Descent
+→ Uses entire dataset
+
+Stochastic Gradient Descent (SGD)
+→ Uses random mini-batches
+
+Mini-Batch
+→ Small random sample of training data
+
+Epoch
+→ One complete pass through the training data
+
+Learning Rate (η)
+→ Controls update size
+
+------------------------------------------------------------
