@@ -10,6 +10,181 @@ SIMPLE DEFINITION
 Artificial Neuron = Inputs + Weights + Bias + Activation Function + Output
 
 ------------------------------------------------------------
+NEURAL NETWORK
+
+A Neural Network is a collection of interconnected artificial neurons that work together to solve problems, 
+make predictions, recognize patterns, and learn from data.
+
+It is inspired by the way neurons are connected in the human brain.
+
+------------------------------------------------------------
+SIMPLE DEFINITION
+
+Neural Network = Many Artificial Neurons Connected Together
+
+------------------------------------------------------------
+PURPOSE OF A NEURAL NETWORK
+
+A Neural Network learns from examples and improves its performance over time.
+
+It can be used to:
+• Recognize handwritten digits
+• Recognize faces
+• Translate languages
+• Predict outcomes
+• Detect spam emails
+• Process speech
+
+------------------------------------------------------------
+HOW A NEURAL NETWORK WORKS
+
+Step 1:
+Receive input data.
+
+Step 2:
+Pass the data through several neurons.
+
+Step 3:
+Each neuron performs calculations.
+
+Step 4:
+The final layer produces the output.
+
+------------------------------------------------------------
+BASIC STRUCTURE OF A NEURAL NETWORK
+
+Input Layer
+     ↓
+Hidden Layer
+     ↓
+Output Layer
+
+Example:
+
+     x1      x2      x3
+      \      |      /
+       \     |     /
+        [ Hidden ]
+        [ Layer  ]
+            |
+            |
+        [ Output ]
+
+------------------------------------------------------------
+LAYERS OF A NEURAL NETWORK
+
+-------------------------------
+1. INPUT LAYER
+
+The input layer receives data from the outside world.
+
+Examples:
+
+• Image pixels
+• Text
+• Audio signals
+• Sensor readings
+
+The input layer only passes information forward.
+
+-------------------------------
+2. HIDDEN LAYERS
+
+Hidden layers perform calculations and extract useful features from the input.
+They are called "hidden" because their values are not directly seen by the user.
+
+A network may have:
+• One hidden layer
+• Multiple hidden layers
+
+More hidden layers usually allow more complex learning.
+
+-------------------------------
+3. OUTPUT LAYER
+
+The output layer gives the final answer.
+
+Examples:
+
+Digit Recognition:
+Input Image
+      ↓
+Neural Network
+      ↓
+Output = 9
+
+Spam Detection:
+Input Email
+      ↓
+Neural Network
+      ↓
+Output = Spam
+
+------------------------------------------------------------
+HOW NEURONS WORK TOGETHER
+
+A single neuron can make a simple decision.
+Many neurons working together can make complex decisions.
+
+Example:
+First Layer:
+Detects simple features.
+
+Second Layer:
+Combines these features.
+
+Third Layer:
+Recognizes complex patterns.
+
+Final Layer:
+Makes the final prediction.
+
+------------------------------------------------------------
+HANDWRITTEN DIGIT EXAMPLE
+
+Suppose we show the network an image of the digit 9.
+
+Input:
+Pixel values from the image.
+
+Hidden Layers:
+Detect lines, curves, and shapes.
+
+Output Layer:
+Decides which digit is present.
+
+Output:
+9
+
+------------------------------------------------------------
+LEARNING IN A NEURAL NETWORK
+
+Initially:
+The weights and biases are random.
+The network makes many mistakes.
+
+During training:
+• Errors are calculated
+• Weights are adjusted
+• Biases are adjusted
+
+Over time:
+The network becomes more accurate.
+This process is called Learning.
+
+------------------------------------------------------------
+KEY COMPONENTS OF A NEURAL NETWORK
+
+• Inputs
+• Artificial Neurons
+• Weights
+• Biases
+• Activation Functions
+• Outputs
+
+All work together to process information.
+
+------------------------------------------------------------
 HOW AN ARTIFICIAL NEURON WORKS
 
 Step 1:
@@ -78,7 +253,6 @@ WHAT ARE INPUTS?
 Inputs are the information given to the neuron.
 
 Examples:
-
 • Pixel values in an image
 • Temperature readings
 • Exam scores
@@ -127,9 +301,7 @@ Common Activation Functions:
 PERCEPTRON AS AN ARTIFICIAL NEURON
 
 The Perceptron is the simplest Artificial Neuron.
-
-Output:
-0 or 1
+Output: 0 or 1
 
 Characteristics:
 • Hard decision boundary
@@ -140,9 +312,7 @@ Characteristics:
 SIGMOID NEURON AS AN ARTIFICIAL NEURON
 
 The Sigmoid Neuron is an improved Artificial Neuron.
-
-Output:
-Any value between 0 and 1
+Output: Any value between 0 and 1
 
 Characteristics:
 • Smooth output
@@ -192,3 +362,28 @@ Output Layer
 Each neuron performs calculations and passes information forward.
 
 ------------------------------------------------------------
+QUESTION 
+
+Suppose we take all the weights and biases in a network of perceptrons, 
+and multiply them by a positive constant,  c > .
+Show that the behaviour of the network doesn't change.
+
+------------------------------------------------------------
+ANSWER
+
+Suppose a perceptron computes:
+Output = 1 if w·x + b > 0
+Output = 0 if w·x + b ≤ 0
+
+The new expression becomes: c(w·x + b)
+Since c is positive, multiplying by c does not change whether the value is positive, negative, or zero.
+
+If: w·x + b > 0
+then: c(w·x + b) > 0
+
+And if: w·x + b ≤ 0
+then: c(w·x + b) ≤ 0
+
+Therefore, every perceptron produces exactly the same output as before.
+Since the output of each perceptron remains unchanged, all inputs to later perceptrons also remain unchanged.
+Hence, the behaviour of the entire network does not change.
