@@ -1,0 +1,242 @@
+ARCHITECTURE OF NEURAL NETWORKS
+
+The Architecture of a Neural Network refers to the way neurons are organized and connected into layers.
+It defines how data moves through the network from input to output.
+
+------------------------------------------------------------
+SIMPLE DEFINITION
+
+Neural Network Architecture = Input Layer + Hidden Layer(s) + Output Layer
+
+------------------------------------------------------------
+BASIC STRUCTURE
+
+Input Layer
+      ↓
+Hidden Layer(s)
+      ↓
+Output Layer
+
+Example:
+Input Layer
+     ↓
+ [ Hidden Layer ]
+     ↓
+ [ Output Layer ]
+
+------------------------------------------------------------
+INPUT LAYER
+
+The Input Layer is the first layer of the neural network.
+It receives data from the outside world.
+The neurons in this layer are called Input Neurons.
+
+Examples of inputs:
+• Image pixels
+• Text data
+• Audio signals
+• Sensor readings
+
+------------------------------------------------------------
+HIDDEN LAYER
+
+The Hidden Layer is the layer between the input and output layers.
+The neurons in this layer are called Hidden Neurons.
+It is called "hidden" simply because it is neither an input layer nor an output layer.
+
+Purpose:
+• Processes information
+• Detects patterns
+• Extracts useful features
+
+------------------------------------------------------------
+OUTPUT LAYER
+
+The Output Layer is the final layer of the neural network.
+The neurons in this layer are called Output Neurons.
+The output layer produces the network's final prediction or decision.
+
+Examples:
+Output = 9
+
+Meaning:
+The network believes the image is the digit 9.
+
+------------------------------------------------------------
+EXAMPLE: DIGIT RECOGNITION
+
+Suppose we want to determine whether an image contains the digit 9.
+
+Input Layer:
+Receives pixel values from the image.
+
+Hidden Layer(s):
+Analyzes shapes, curves, and patterns.
+
+Output Layer:
+Produces the final answer.
+
+Example:
+Output < 0.5
+Not a 9
+
+Output ≥ 0.5
+Is a 9
+
+------------------------------------------------------------
+WHAT DOES A HIDDEN LAYER DO?
+
+First Hidden Layer:
+Learns simple features.
+
+Examples:
+• Lines
+• Edges
+• Curves
+
+Second Hidden Layer:
+Combines simple features.
+
+Examples:
+• Shapes
+• Parts of digits
+
+Third Hidden Layer:
+Recognizes more complex patterns.
+
+Examples:
+• Entire digits
+• Objects
+
+------------------------------------------------------------
+NETWORK WITH ONE HIDDEN LAYER
+
+Input Layer
+      ↓
+Hidden Layer
+      ↓
+Output Layer
+
+This is a 3-layer network.
+
+Layers:
+1. Input Layer
+2. Hidden Layer
+3. Output Layer
+
+------------------------------------------------------------
+NETWORK WITH TWO HIDDEN LAYERS
+
+Input Layer
+      ↓
+Hidden Layer 1
+      ↓
+Hidden Layer 2
+      ↓
+Output Layer
+
+This is a 4-layer network.
+
+Layers:
+1. Input Layer
+2. Hidden Layer 1
+3. Hidden Layer 2
+4. Output Layer
+
+------------------------------------------------------------
+MULTILAYER PERCEPTRON (MLP)
+
+A network with multiple layers is often called a:
+MLP = Multilayer Perceptron
+
+Important:
+Modern MLPs usually use Sigmoid Neurons or other activation functions.
+They are not necessarily built from Perceptrons.
+
+------------------------------------------------------------
+FEEDFORWARD NEURAL NETWORK
+
+A Feedforward Neural Network sends information in only one direction.
+
+Input
+  ↓
+Hidden Layer
+  ↓
+Output
+
+Information always moves forward.
+There are no loops.
+
+------------------------------------------------------------
+CHARACTERISTICS OF FEEDFORWARD NETWORKS
+
+• Data moves from input to output
+• No feedback connections
+• Most common neural network architecture
+• Easier to train than recurrent networks
+
+------------------------------------------------------------
+WHY NO LOOPS?
+
+If loops existed, a neuron's input could immediately depend on its own output.
+This could create circular dependencies that are difficult to compute.
+Therefore, feedforward networks do not contain loops.
+
+------------------------------------------------------------
+RECURRENT NEURAL NETWORKS (RNN)
+
+A Recurrent Neural Network allows feedback connections.
+
+Example:
+Neuron A
+   ↓
+Neuron B
+   ↓
+Neuron C
+   ↓
+Neuron A
+
+The output from a neuron can affect future inputs.
+
+------------------------------------------------------------
+CHARACTERISTICS OF RNNs
+
+• Contain loops
+• Can remember previous information
+• Useful for sequences and time-based data
+• More difficult to train
+
+Examples:
+• Speech recognition
+• Language translation
+• Text generation
+
+------------------------------------------------------------
+FEEDFORWARD VS RECURRENT NETWORKS
+
+Feedforward Neural Network
+• No loops
+• Data moves forward only
+• Easier to train
+• Most commonly used
+
+Recurrent Neural Network
+• Contains loops
+• Remembers previous information
+• Handles sequences
+• More difficult to train
+
+------------------------------------------------------------
+DIGIT RECOGNITION EXAMPLE
+
+Suppose an image is:
+64 × 64 pixels
+
+Number of input neurons:
+64 × 64
+= 4096 input neurons
+
+Each neuron receives one pixel value.
+Pixel values are usually scaled between: 0 and 1
+
+------------------------------------------------------------
