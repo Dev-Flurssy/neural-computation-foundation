@@ -1,0 +1,59 @@
+# Python
+__pycache__/
+*.py[cod]
+*$py.class
+
+# Virtual environments
+venv/
+env/
+ENV/
+.venv/
+
+# Jupyter
+.ipynb_checkpoints/
+
+# Distribution
+build/
+dist/
+*.egg-info/
+
+# IDEs
+.vscode/
+.idea/
+
+# Operating System
+.DS_Store
+Thumbs.db
+
+# Logs
+*.log
+
+# Coverage
+.coverage
+htmlcov/
+
+# Environment variables
+.env
+
+# Pytest
+.pytest_cache/
+
+# mypy
+.mypy_cache/
+
+# Notebook outputs
+*.nbconvert.ipynb
+
+# Temporary files
+tmp/
+temp/
+*.tmp
+
+# Model files (optional)
+*.h5
+*.pt
+*.pth
+*.ckpt
+
+# Data files (optional)
+data/raw/
