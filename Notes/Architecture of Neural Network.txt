@@ -10,8 +10,7 @@ It defines:
 ------------------------------------------------------------
 SIMPLE DEFINITION
 
-Neural Network Architecture
-= Input Layer + Hidden Layer(s) + Output Layer
+Neural Network Architecture = Input Layer + Hidden Layer(s) + Output Layer
 
 ------------------------------------------------------------
 BASIC STRUCTURE
@@ -59,19 +58,14 @@ The Output Layer is the final layer of the network.
 Its purpose is to produce the network's prediction.
 
 Examples:
-
 Output = 9
-Meaning:
-The network predicts the digit is 9.
-
+Meaning: The network predicts the digit is 9.
 Output = 0.95
-Meaning:
-95% confidence in a prediction.
+Meaning: 95% confidence in a prediction.
 
 The neurons in this layer are called Output Neurons.
 
 ------------------------------------------------------------
-
 EXAMPLE: DIGIT RECOGNITION
 
 Goal:
@@ -94,20 +88,17 @@ Learns simple features:
 • Edges
 • Curves
 
-      ↓
 Second Hidden Layer
 Learns combinations of features:
 • Shapes
 • Parts of digits
 
-      ↓
 Third Hidden Layer
 Learns complex patterns:
 • Complete digits
 • Objects
 
 ------------------------------------------------------------
-
 NETWORK WITH ONE HIDDEN LAYER
 
 Input Layer → Hidden Layer → Output Layer
@@ -133,8 +124,7 @@ Layers:
 ------------------------------------------------------------
 MULTI-LAYER PERCEPTRON (MLP)
 
-A neural network containing one or more hidden layers is commonly called a:
-MLP = Multi-Layer Perceptron
+A neural network containing one or more hidden layers is commonly called a MLP (Multi-Layer Perceptron)
 
 Structure:
 Input Layer → Hidden Layer → Hidden Layer  → Output Layer
@@ -163,6 +153,7 @@ WHY NO LOOPS?
 
 If loops existed, a neuron's input could immediately depend on its own output.
 This creates circular dependencies that are difficult to compute.
+
 Therefore: Feedforward networks do not contain loops.
 
 ------------------------------------------------------------
@@ -327,9 +318,7 @@ An MLP treats all pixels separately.
 A CNN shares filters and learns patterns efficiently.
 
 Result:
-Less Computation
-      ↓
-Better Image Recognition
+Less Computation  → Better Image Recognition
 
 ------------------------------------------------------------
 RNN (RECURRENT NEURAL NETWORK)
@@ -441,17 +430,4 @@ Data Compression           → Autoencoder
 Feature Extraction         → Autoencoder
 Anomaly Detection          → Autoencoder
 
-------------------------------------------------------------
-
-QUICK MEMORY TRICK
-
-MLP → Tables & Features
-
-CNN → Images & Spatial Patterns
-
-RNN / LSTM → Sequences & Memory
-
-Autoencoder → Compression & Reconstruction
-
-------------------------------------------------------------
-
+------------------------------------------------------------=
