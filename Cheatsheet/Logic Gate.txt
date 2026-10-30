@@ -1,0 +1,124 @@
+LOGIC GATES CHEAT SHEET
+
+AND
+Rule: Output = 1 only when ALL inputs are 1.
+
+Example:
+1 AND 1 = 1
+Everything else = 0
+
+Memory Trick:
+AND = Everyone agrees.
+
+------------------------------------------------------------
+OR
+
+Rule: Output = 1 when AT LEAST ONE input is 1.
+
+Example:
+1 OR 0 = 1
+0 OR 1 = 1
+1 OR 1 = 1
+
+Memory Trick:
+OR = One is enough.
+
+------------------------------------------------------------
+NOT
+
+Rule: Flips the input.
+0 → 1
+1 → 0
+
+Memory Trick:
+NOT = Opposite.
+
+------------------------------------------------------------
+NAND
+
+Rule: NAND = NOT(AND)
+Output = 0 only when ALL inputs are 1.
+
+Memory Trick:
+NAND = AND then flip.
+
+------------------------------------------------------------
+NOR
+
+Rule: NOR = NOT(OR)
+
+Output = 1 only when ALL inputs are 0.
+
+Memory Trick:
+NOR = OR then flip.
+
+------------------------------------------------------------
+XOR (Exclusive OR)
+
+Rule:
+Output = 1 when inputs are DIFFERENT.
+
+Memory Trick:
+XOR = Different = 1
+
+------------------------------------------------------------
+XNOR (Exclusive NOR)
+
+Rule:
+Output = 1 when inputs are THE SAME.
+
+Memory Trick:
+XNOR = Same = 1
+
+------------------------------------------------------------
+
+COMPLETE TRUTH TABLE
+
+x₁  x₂ | AND OR NAND NOR XOR XNOR
+----------------------------------
+0   0  |  0   0   1    1   0   1
+0   1  |  0   1   1    0   1   0
+1   0  |  0   1   1    0   1   0
+1   1  |  1   1   0    0   0   1
+
+------------------------------------------------------------
+WHICH ARE LINEARLY SEPARABLE?
+
+AND   ✅ Yes
+OR    ✅ Yes
+NAND  ✅ Yes
+NOR   ✅ Yes
+XNOR  ❌ No
+XOR   ❌ No
+
+------------------------------------------------------------
+PERCEPTRON EXAM FACT
+
+Single Perceptron Can Learn:
+✅ AND
+✅ OR
+✅ NAND
+✅ NOR
+
+Single Perceptron Cannot Learn:
+❌ XOR
+❌ XNOR
+
+Reason:
+XOR and XNOR are NOT linearly separable.
+
+They require:
+• Hidden Layers
+• Multiple Neurons
+• Multilayer Perceptrons (MLPs)
+
+------------------------------------------------------------
+SUPER MEMORY TRICK
+
+AND  = All 1s needed
+OR   = One 1 needed
+NOT  = Opposite
+NAND = AND + NOT
+NOR  = OR + NOT
+XOR  = Different = 1
+XNOR = Same = 1
