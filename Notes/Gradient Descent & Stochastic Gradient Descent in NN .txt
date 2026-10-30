@@ -124,7 +124,6 @@ This makes learning difficult.
 WHY USE THE COST FUNCTION?
 
 The Cost Function changes smoothly.
-
 Small Weight Change
         ↓
 Small Cost Change
@@ -164,11 +163,9 @@ Gradient Descent moves toward lower cost values until a minimum is reached.
 ------------------------------------------------------------
 WHAT IS THE GRADIENT?
 
-The Gradient tells us:
-Which direction increases the cost the fastest.
+The Gradient tells us: Which direction increases the cost the fastest.
 
-Symbol:
-∇C
+Symbol: ∇C
 It points uphill.
 
 ------------------------------------------------------------
@@ -179,10 +176,8 @@ To reduce error, we move in the opposite direction.
 
 Gradient
       ↑
-
 Move Here
       ↓
-
 This causes the cost to decrease.
 
 ------------------------------------------------------------
@@ -209,7 +204,6 @@ Meaning:
 New Parameters = Current Parameters − Learning Rate × Gradient
 
 ------------------------------------------------------------
-
 HOW GRADIENT DESCENT WORKS
 
 Step 1:
@@ -234,11 +228,9 @@ Cost decreases.
 WHY DOES THIS WORK?
 
 The Gradient points in the direction of the steepest increase.
-Moving opposite to it gives:
-Greatest immediate decrease in cost.
+Moving opposite to it gives: Greatest immediate decrease in cost.
 
-Therefore:
-Gradient Descent is an efficient way to reduce error.
+Therefore: Gradient Descent is an efficient way to reduce error.
 
 ------------------------------------------------------------
 ROLE IN NEURAL NETWORKS

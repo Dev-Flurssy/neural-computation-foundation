@@ -1,3 +1,61 @@
+NEURAL COMPUTATION
+
+Neural Computation is the study of how information is processed by neural systems, both biological and artificial.
+Its goal is to understand how neurons learn, store information, recognize patterns, and produce intelligent behavior.
+
+------------------------------------------------------------
+WHAT IS NEURAL COMPUTATION?
+
+Neural Computation combines:
+• Neuroscience (study of the brain)
+• Mathematics
+• Computer Science
+
+It investigates how networks of neurons process information and solve problems.
+
+------------------------------------------------------------
+WHY STUDY NEURAL COMPUTATION?
+
+The human brain can:
+• Learn from experience
+• Recognize objects
+• Understand language
+• Make decisions
+• Solve complex problems
+
+Neural Computation attempts to explain these abilities and reproduce them in computers.
+
+------------------------------------------------------------
+BIOLOGICAL NEURONS
+
+The brain contains billions of neurons.
+
+Each neuron can:
+Receive Signals
+      ↓
+Process Information
+      ↓
+Send Signals to other neurons.
+
+The interaction of many neurons produces intelligent behavior.
+
+------------------------------------------------------------
+HOW A BIOLOGICAL NEURON WORKS
+
+Step 1:
+Receive inputs from other neurons.
+      ↓
+Step 2:
+Combine incoming signals.
+      ↓
+Step 3:
+If the signal is strong enough,
+the neuron fires.
+      ↓
+Step 4:
+Output is sent to other neurons.
+
+------------------------------------------------------------
 ARTIFICIAL NEURON
 
 An Artificial Neuron is the basic building block of a Neural Network.
@@ -347,19 +405,31 @@ Many neurons connected together can:
 This collection of neurons forms a Neural Network.
 
 ------------------------------------------------------------
-NEURAL NETWORK
 
-Input Layer
-     ↓
-Artificial Neurons
-     ↓
-Hidden Layer(s)
-     ↓
-Artificial Neurons
-     ↓
-Output Layer
+APPLICATIONS OF NEURAL COMPUTATION
 
-Each neuron performs calculations and passes information forward.
+Neural Computation is used in:
+
+• Artificial Intelligence
+• Machine Learning
+• Deep Learning
+• Computer Vision
+• Natural Language Processing
+• Robotics
+• Brain-Computer Interfaces
+
+------------------------------------------------------------
+
+WHY IS NEURAL COMPUTATION IMPORTANT?
+
+It helps us:
+
+• Understand how the brain works
+• Build intelligent machines
+• Develop learning systems
+• Solve complex real-world problems
+
+Neural Computation forms the foundation of modern AI.
 
 ------------------------------------------------------------
 QUESTION 
