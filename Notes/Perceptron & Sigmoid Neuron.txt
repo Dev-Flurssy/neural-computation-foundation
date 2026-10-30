@@ -8,6 +8,7 @@ Frank Rosenblatt developed the Perceptron in the 1950s and 1960s, inspired by ea
 WHAT IS THE PURPOSE OF A PERCEPTRON?
 
 A Perceptron is used to make simple decisions based on input data.
+It is a neuron that can change its parameters when its prediction is wrong.
 Think of it as a decision-making device that weighs evidence and decides whether the answer should be YES (1) or NO (0).
 
 ------------------------------------------------------------

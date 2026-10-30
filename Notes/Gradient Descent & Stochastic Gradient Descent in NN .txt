@@ -306,6 +306,7 @@ Training Data → Pick Mini-Batch → Calculate Gradient → Update Weights → 
 EPOCH
 
 An Epoch means the network has processed all training examples once.
+During one epoch, the Perceptron processes every training example once.
 
 Example:
 Training Set = 60,000 Images
@@ -317,6 +318,276 @@ Number of Updates:
 
 After all images have been used once:
 1 Epoch Completed
+
+------------------------------------------------------------
+IST  EPOCH
+
+Training Data:
+(0, 0)
+(0, 1)
+(1, 0)
+(1, 1)
+
+After the Perceptron has seen all four examples one time:
+Epoch = 1 complete
+
+------------------------------------------------------------
+WHY DO WE NEED MULTIPLE EPOCHS?
+
+After one epoch, the Perceptron may still make mistakes.
+The weights may have improved, but they may not yet classify all examples correctly.
+Therefore, the training data is presented again. 
+This starts another epoch.
+
+Training continues until:
+• All examples are classified correctly, or
+• A maximum number of epochs is reached
+
+------------------------------------------------------------
+SECOND EPOCH: WHY TRAINING CONTINUES
+
+At the end of the first epoch:
+w₁ = 0.1
+w₂ = 0.1
+b = 0
+
+Test input: (0, 0)
+
+Calculate:
+z = (0.1)(0) + (0.1)(0) + 0
+z = 0
+
+Apply Step Function:
+z ≥ 0 → y = 1
+
+Prediction: y = 1
+Target: t = 0
+Since: t ≠ y
+
+The Perceptron made a mistake.
+Training must continue.
+
+------------------------------------------------------------
+CORRECTING THE REMAINING ERROR
+
+Calculate the error:
+t - y = 0 - 1
+t - y = -1
+
+Update weights:
+w₁(new) = 0.1 + (0.1)(-1)(0)
+w₁(new) = 0.1
+w₂(new) = 0.1 + (0.1)(-1)(0)
+w₂(new) = 0.1
+
+Update bias:
+b(new) = 0 + (0.1)(-1)
+b(new) = -0.1
+
+New Parameters:
+w₁ = 0.1
+w₂ = 0.1
+b = -0.1
+
+------------------------------------------------------------
+TESTING THE LEARNED OR PERCEPTRON
+
+Using:
+w₁ = 0.1
+w₂ = 0.1
+b = -0.1
+
+---------------------------------------
+Input: (0, 0)
+z = (0.1)(0) + (0.1)(0) - 0.1
+z = -0.1
+y = 0
+Correct ✓
+
+---------------------------------------
+Input: (0, 1)
+z = (0.1)(0) + (0.1)(1) - 0.1
+z = 0
+y = 1
+Correct ✓
+
+---------------------------------------
+Input: (1, 0)
+z = (0.1)(1) + (0.1)(0) - 0.1
+z = 0
+y = 1
+Correct ✓
+
+---------------------------------------
+Input: (1, 1)
+z = (0.1)(1) + (0.1)(1) - 0.1
+z = 0.1
+y = 1
+Correct ✓
+
+------------------------------------------------------------
+RESULT
+
+The Perceptron has successfully learned the OR function.
+
+------------------------------------------------------------
+WHAT DID THE PERCEPTRON ACTUALLY LEARN?
+
+The Perceptron did NOT memorize: "OR Gate"
+Instead, it learned suitable parameter values:
+w₁ = 0.1
+w₂ = 0.1
+b = -0.1
+
+These parameters create a decision boundary that correctly separates the classes.
+
+Decision Boundary:
+0.1x₁ + 0.1x₂ - 0.1 = 0
+Dividing by 0.1:
+x₁ + x₂ = 1
+
+Learning means finding parameter values that produce the correct mapping from inputs to outputs.
+
+------------------------------------------------------------
+PERCEPTRON TRAINING ALGORITHM
+
+Step 1: Initialize weights and bias.
+Step 2: Present a training example.
+Step 3: Calculate
+z = w·x + b
+Step 4: Apply the Step Function.
+If z ≥ 0 → y = 1
+If z < 0 → y = 0
+Step 5: Compare prediction y with target t.
+Step 6: If prediction is wrong:
+Update weights and bias.
+Step 7: Repeat for all training examples.
+Step 8: Repeat additional epochs if necessary.
+
+------------------------------------------------------------
+WHAT IF THE DATA CANNOT BE SEPARATED BY ONE LINE?
+
+Consider the XOR Gate:
+x₁  x₂  XOR
+0   0   0
+0   1   1
+1   0   1
+1   1   0
+
+The classes cannot be separated using a single straight line.
+
+------------------------------------------------------------
+XOR IS NOT LINEARLY SEPARABLE
+
+Class 0:
+• (0, 0)
+• (1, 1)
+
+Class 1:
+• (0, 1)
+• (1, 0)
+
+No single straight line can separate these points.
+Therefore: A Single Perceptron Cannot Solve XOR
+
+------------------------------------------------------------
+WHY XOR IS IMPORTANT
+
+XOR reveals a major limitation of the Perceptron.
+A single linear classifier cannot solve every problem.
+Some problems require nonlinear decision boundaries.
+
+To solve these problems we need:
+• Multiple neurons
+• Hidden layers
+• Nonlinear activation functions
+• Multilayer Perceptrons (MLPs)
+
+------------------------------------------------------------
+ONE PERCEPTRON VS MULTILAYER NETWORK
+
+Single Perceptron:
+• One neuron
+• One decision boundary
+• Learns linear relationships
+• Solves AND and OR
+
+---------------------------------------
+Multilayer Network:
+
+• Multiple neurons
+• Hidden layers
+• Learns nonlinear relationships
+• Can solve XOR
+
+------------------------------------------------------------
+PREDICTION
+
+The model already has weights.
+Process:
+Input → z → Output
+This is called the Forward Pass.
+
+Prediction answers: "What class does this input belong to?"
+
+------------------------------------------------------------
+LEARNING
+
+The model compares prediction with the target.
+Prediction → Compare → Update Parameters
+
+Learning answers: "How should the model improve?"
+
+------------------------------------------------------------
+WEIGHT VS LEARNING RATE
+
+Weight (w)
+
+• Controls predictions
+• Determines the decision boundary
+• Learned from data
+
+------------------------------------------------------------
+BIAS IS LEARNED TOO
+
+The bias is also a trainable parameter.
+
+During training we update:
+• Weights
+• Bias
+
+Update Equations:
+wᵢ(new) = wᵢ(old) + η(t − y)xᵢ
+b(new) = b(old) + η(t − y)
+
+The bias shifts the decision boundary.
+Without bias, the decision boundary would be less flexible.
+
+------------------------------------------------------------
+EXAMPLE
+
+Given:
+w₁ = 1
+w₂ = 1
+b = -1
+x₁ = 0
+x₂ = 1
+
+Calculate:
+z = (1)(0) + (1)(1) - 1
+z = 0
+
+Apply Step Function:
+z ≥ 0 → y = 1
+
+Suppose:
+Target t = 0
+
+Then:
+t - y = 0 - 1
+t - y = -1
+
+Since the prediction is wrong, the Perceptron must update its weights and bias.
 
 ------------------------------------------------------------
 WHY IS SGD FASTER?
