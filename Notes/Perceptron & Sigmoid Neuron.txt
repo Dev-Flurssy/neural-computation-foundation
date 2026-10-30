@@ -11,7 +11,6 @@ A Perceptron is used to make simple decisions based on input data.
 Think of it as a decision-making device that weighs evidence and decides whether the answer should be YES (1) or NO (0).
 
 ------------------------------------------------------------
-
 BASIC STRUCTURE OF A PERCEPTRON
 
           x1
@@ -22,34 +21,20 @@ BASIC STRUCTURE OF A PERCEPTRON
            /
           x3
 
-Inputs:
-x1, x2, x3
-
-Weights:
-w1, w2, w3
-
-Bias:
-b
-
-Output:
-0 or 1
+Inputs: x1, x2, x3
+Weights: w1, w2, w3
+Bias: b
+Output: 0 or 1
 
 ------------------------------------------------------------
 HOW A PERCEPTRON WORKS
 
-Step 1:
-Multiply each input by its corresponding weight.
+Step 1: Multiply each input by its corresponding weight.
+Step 2: Add all the weighted inputs together.
+Step 3: Add the bias.
+Step 4: Apply the decision rule.
 
-Step 2:
-Add all the weighted inputs together.
-
-Step 3:
-Add the bias.
-
-Step 4:
-Apply the decision rule.
-
-Formula:
+Formula: 
 z = w1x1 + w2x2 + w3x3 + b
 
 Decision Rule:
@@ -121,35 +106,246 @@ Therefore:
 Perceptron = Evidence + Weights + Decision
 
 ------------------------------------------------------------
+PERCEPTRON AS A BINARY CLASSIFIER
+
+A Perceptron is commonly used to separate two classes.
+
+Examples:
+• Spam / Not Spam
+• Pass / Fail
+• Disease / No Disease
+• Approved / Rejected
+
+The possible outputs are:
+y = 0 → Class A
+y = 1 → Class B
+
+Because there are only two possible classes, this is called Binary Classification.
+
+------------------------------------------------------------
+SIMPLE DEFINITION
+
+Binary Classification = Assigning an input to one of two possible classes.
+
+A Perceptron makes this decision by calculating:
+z = w₁x₁ + w₂x₂ + b
+
+Then applying the activation function:
+If z ≥ 0 → y = 1
+If z < 0 → y = 0
+
+------------------------------------------------------------
+SIMPLE CLASSIFICATION EXAMPLE
+
+Suppose we want to classify a student as:
+
+y = 1 → Pass
+y = 0 → Fail
+
+Inputs:
+x₁ = Assignment Performance
+x₂ = Attendance
+
+Given:
+x₁ = 1
+x₂ = 1
+w₁ = 0.6
+w₂ = 0.4
+b = -0.5
+
+Calculation:
+z = (0.6)(1) + (0.4)(1) - 0.5
+z = 0.5
+
+Since: z ≥ 0
+Therefore: y = 1
+Prediction: Pass
+
+------------------------------------------------------------
+CLASSIFICATION IS A SEPARATION PROBLEM
+
+Every data sample can be represented as a point in a feature space.
+With two inputs:
+x₁ → Horizontal Axis
+x₂ → Vertical Axis
+
+Each data point belongs to either:
+• Class 0
+• Class 1
+
+The goal of the Perceptron is to find a boundary that separates the two classes.
+
+------------------------------------------------------------
+DECISION BOUNDARY
+
+The decision boundary is the line where the Perceptron changes its prediction.
+
+Equation: w₁x₁ + w₂x₂ + b = 0
+At this boundary: z = 0
+
+Points on one side belong to Class 0.
+Points on the other side belong to Class 1.
+
+------------------------------------------------------------
+EXAMPLE OF A DECISION BOUNDARY
+
+Suppose:
+
+w₁ = 1
+w₂ = 1
+b = -1.5
+
+Then:
+x₁ + x₂ - 1.5 = 0
+Rearranging:
+x₂ = 1.5 - x₁
+
+This line divides the feature space into two regions.
+
+One side:
+y = 0
+Other side:
+y = 1
+
+------------------------------------------------------------
+WHY IT IS CALLED LINEAR CLASSIFICATION
+
+The equation
+w₁x₁ + w₂x₂ + b = 0
+
+forms a straight line in two dimensions.
+
+In higher dimensions:
+• 2D → Line
+• 3D → Plane
+• Higher Dimensions → Hyperplane
+
+Since the boundary is linear, the Perceptron is called a Linear Classifier.
+
+------------------------------------------------------------
+LINEARLY SEPARABLE DATA
+
+A dataset is linearly separable if one straight line can correctly separate all classes.
+
+Example:
+Class 0 ● ● ●
+------------ Line ------------
+
+Class 1 ▲ ▲ ▲
+A single Perceptron can solve linearly separable problems.
+
+------------------------------------------------------------
+WHY WE DO NOT CHOOSE WEIGHTS MANUALLY
+
+Instead of setting weights ourselves, the Perceptron learns them automatically.
+
+Training Process:
+Input → Prediction → Compare With Target → Calculate Error → Update Weights and Bias → Try Again
+This process is called Perceptron Training.
+
+------------------------------------------------------------
+TARGET VS PREDICTION
+
+During supervised learning:
+t = Correct Answer (Target)
+y = Perceptron Prediction
+
+Error:
+e = t - y
+If: t = y
+Then: e = 0
+
+The prediction is correct.
+
+If: t ≠ y
+The weights and bias must be adjusted.
+
+------------------------------------------------------------
+PERCEPTRON LEARNING RULE
+
+Weight Update:
+wᵢ(new) = wᵢ(old) + η(t - y)xᵢ
+
+Bias Update:
+b(new) = b(old) + η(t - y)
+
+Where:
+• η = Learning Rate
+• t = Target
+• y = Prediction
+• xᵢ = Input
+
+------------------------------------------------------------
+UNDERSTANDING THE LEARNING RULE
+
+wᵢ(old) → Current weight
+η → Learning rate (Controls update size)
+t → Correct answer
+y → Predicted answer
+t - y →  Prediction error
+xᵢ → Input value
+
+The Perceptron changes weights only when a correction is needed.
+
+------------------------------------------------------------
+THREE POSSIBLE SITUATIONS
+
+Case 1: Correct Prediction
+t = 1
+y = 1
+
+t - y = 0
+Δw = 0
+
+No update needed.
+
+------------------------------------------------------------
+Case 2: Output Too Low
+
+t = 1
+y = 0
+
+t - y = 1
+
+The Perceptron increases relevant weights.
+
+------------------------------------------------------------
+Case 3: Output Too High
+
+t = 0
+y = 1
+
+t - y = -1
+
+The Perceptron decreases relevant weights.
+
+------------------------------------------------------------
+LEARNING RATE
+
+The learning rate is represented by: η
+Its purpose is to control the size of each correction.
+
+Small η: Slow learning
+Large η: Faster learning
+
+Learning Rate determines how much the weights change during training.
+
+------------------------------------------------------------
 PERCEPTRONS CAN FORM NETWORKS
 
 One Perceptron can make simple decisions.
 Many Perceptrons connected together form a Neural Network.
 
 Example:
-Inputs
-  ↓
-Perceptrons (Layer 1)
-  ↓
-Perceptrons (Layer 2)
-  ↓
-Perceptrons (Layer 3)
-  ↓
-Final Decision
-
+Inputs → Perceptrons (Layer 1) → Perceptrons (Layer 2) → Perceptrons (Layer 3) → Final Decision
 Each layer makes more complex decisions than the previous layer.
 
 ------------------------------------------------------------
 LAYERS IN A NEURAL NETWORK
 
-First Layer:
-Makes simple decisions from raw inputs.
-
-Second Layer:
-Uses outputs from the first layer to make more advanced decisions.
-
-Third Layer:
-Combines previous decisions to make even more sophisticated decisions.
+First Layer: Makes simple decisions from raw inputs.
+Second Layer: Uses outputs from the first layer to make more advanced decisions.
+Third Layer: Combines previous decisions to make even more sophisticated decisions.
 
 More layers allow more complex problem solving.
 
@@ -157,12 +353,79 @@ More layers allow more complex problem solving.
 PERCEPTRON CAN IMPLEMENT LOGIC GATES
 
 Perceptrons can perform logical operations such as:
-
 • AND
 • OR
 • NAND
 
 These logical functions are the foundation of digital computation.
+
+------------------------------------------------------------
+AND GATE AS A CLASSIFICATION PROBLEM
+
+Truth Table:
+x₁  x₂  AND
+0   0   0
+0   1   0
+1   0   0
+1   1   1
+
+Class 0:
+• (0,0)
+• (0,1)
+• (1,0)
+
+Class 1:
+• (1,1)
+
+These classes are linearly separable.
+Therefore, one Perceptron can implement the AND gate.
+
+------------------------------------------------------------
+PERCEPTRON FOR AND
+
+Given:
+w₁ = 1
+w₂ = 1
+b = -1.5
+
+Equation: z = x₁ + x₂ - 1.5
+
+Results:
+(0,0) → z = -1.5 → y = 0
+(0,1) → z = -0.5 → y = 0
+(1,0) → z = -0.5 → y = 0
+(1,1) → z = 0.5 → y = 1
+
+The Perceptron correctly implements the AND gate.
+
+------------------------------------------------------------
+OR GATE AS A CLASSIFICATION PROBLEM
+
+Truth Table:
+x₁  x₂  OR
+0   0   0
+0   1   1
+1   0   1
+1   1   1
+
+OR is also linearly separable.
+
+One possible solution:
+w₁ = 1
+w₂ = 1
+b = -0.5
+
+Equation: z = x₁ + x₂ - 0.5
+
+------------------------------------------------------------
+TESTING THE OR PERCEPTRON
+
+(0,0) → z = -0.5 → y = 0
+(0,1) → z = 0.5 → y = 1
+(1,0) → z = 0.5 → y = 1
+(1,1) → z = 1.5 → y = 1
+
+The Perceptron correctly classifies all OR examples.
 
 ------------------------------------------------------------
 EXAMPLE: NAND GATE
@@ -224,18 +487,13 @@ Suppose a neural network incorrectly recognizes a handwritten 9 as an 8.
 To correct the mistake, we want to make small changes to the weights and biases.
 
 Ideally:
-Small Change in Weight
-        ↓
-Small Change in Output
-
+Small Change in Weight → Small Change in Output
 This allows the network to gradually improve and learn.
 
 ------------------------------------------------------------
 PROBLEM WITH PERCEPTRONS
 
-A Perceptron only outputs:
-
-0 or 1
+A Perceptron only outputs: 0 or 1
 
 Example:
 Weight changes slightly
@@ -259,7 +517,6 @@ It has:
 • Bias
 
 However, the output is not limited to 0 or 1.
-
 Instead, the output can be any value between 0 and 1.
 
 Examples:
@@ -269,7 +526,6 @@ Examples:
 0.98
 
 ------------------------------------------------------------
-
 STRUCTURE OF A SIGMOID NEURON
 
           x1
@@ -280,17 +536,10 @@ STRUCTURE OF A SIGMOID NEURON
            /
           x3
 
-Inputs:
-x1, x2, x3
-
-Weights:
-w1, w2, w3
-
-Bias:
-b
-
-Output:
-Any value between 0 and 1
+Inputs: x1, x2, x3
+Weights: w1, w2, w3
+Bias: b
+Output: Any value between 0 and 1
 
 ------------------------------------------------------------
 HOW A SIGMOID NEURON WORKS
@@ -310,26 +559,21 @@ Produce an output between 0 and 1.
 THE SIGMOID FUNCTION
 
 Formula:
-
 σ(z) = 1 / (1 + e^(-z))
 
 The symbol σ (sigma) represents the sigmoid function.
 The value of z is the weighted sum:
-
 z = w·x + b
 
 where:
-
 w = weights
 x = inputs
 b = bias
 
 ------------------------------------------------------------
-
 OUTPUT VALUES OF THE SIGMOID FUNCTION
 
 Example:
-
 z = -4 → 0.018
 z = -2 → 0.119
 z =  0 → 0.500
@@ -342,7 +586,6 @@ As z increases, the output moves smoothly toward 1.
 As z decreases, the output moves smoothly toward 0.
 
 ------------------------------------------------------------
-
 SIGMOID CURVE
 
 Output
@@ -401,14 +644,12 @@ Any value between 0 and 1
 SIGMOID VS PERCEPTRON
 
 Perceptron
-
 • Output is only 0 or 1
 • Sudden jump
 • Hard decision boundary
 • Difficult to train
 
 Sigmoid Neuron
-
 • Output ranges between 0 and 1
 • Smooth transition
 • Small input changes produce small output changes
@@ -424,10 +665,7 @@ Desired Output = 0.65
 The network only needs a small adjustment.
 
 With a Sigmoid Neuron:
-Small Weight Change
-        ↓
-Small Output Change
-
+Small Weight Change → Small Output Change
 This allows gradual learning.
 
 ------------------------------------------------------------

@@ -22,17 +22,9 @@ WHAT IS TRAINING DATA?
 Training Data is a collection of examples used to teach the network.
 
 Example:
-Input Image
-      ↓
-Correct Answer
-
-Image of 5
-      ↓
-5
-
-Image of 9
-      ↓
-9
+Input Image → Correct Answer
+Image of 5 → 5
+Image of 9 → 9
 
 The network learns by comparing its predictions with the correct answers.
 
@@ -124,10 +116,7 @@ This makes learning difficult.
 WHY USE THE COST FUNCTION?
 
 The Cost Function changes smoothly.
-Small Weight Change
-        ↓
-Small Cost Change
-
+Small Weight Change → Small Cost Change
 This makes it easier to determine how weights should be adjusted.
 
 ------------------------------------------------------------
@@ -174,11 +163,7 @@ KEY IDEA OF GRADIENT DESCENT
 Since the gradient points uphill,
 To reduce error, we move in the opposite direction.
 
-Gradient
-      ↑
-Move Here
-      ↓
-This causes the cost to decrease.
+Gradient  ← Move Here → This causes the cost to decrease.
 
 ------------------------------------------------------------
 LEARNING RATE
@@ -206,20 +191,11 @@ New Parameters = Current Parameters − Learning Rate × Gradient
 ------------------------------------------------------------
 HOW GRADIENT DESCENT WORKS
 
-Step 1:
-Calculate the Cost Function.
-
-Step 2:
-Calculate the Gradient.
-
-Step 3:
-Move opposite the Gradient.
-
-Step 4:
-Update weights and biases.
-
-Step 5:
-Repeat.
+Step 1: Calculate the Cost Function.
+Step 2: Calculate the Gradient.
+Step 3: Move opposite the Gradient.
+Step 4: Update weights and biases.
+Step 5: Repeat.
 
 After many repetitions:
 Cost decreases.
@@ -248,37 +224,7 @@ The network learns.
 ------------------------------------------------------------
 GRADIENT DESCENT PROCESS
 
-Random Weights
-       ↓
-Make Prediction
-       ↓
-Compute Error
-       ↓
-Calculate Gradient
-       ↓
-Update Weights & Biases
-       ↓
-Lower Error
-       ↓
-Repeat
-
-------------------------------------------------------------
-IMPORTANT TERMS
-
-Training Data
-→ Examples used for learning
-
-Cost Function
-→ Measures error
-
-Gradient
-→ Direction of maximum increase
-
-Learning Rate (η)
-→ Step size
-
-Gradient Descent
-→ Algorithm that minimizes error
+Random Weights → Make Prediction → Compute Error → Calculate Gradient → Update Weights & Biases → Lower Error → Repeat
 
 ------------------------------------------------------------
 
@@ -340,44 +286,21 @@ WHY DOES THIS WORK?
 The gradient calculated from a random mini-batch is usually close to the true gradient.
 
 Therefore:
-Small Sample
-      ↓
-Good Gradient Estimate
-      ↓
-Faster Learning
+Small Sample → Good Gradient Estimate → Faster Learning
 
 ------------------------------------------------------------
 HOW SGD WORKS
 
-Step 1
-Randomly select a mini-batch.
-
-Step 2
-Calculate the gradient using only that mini-batch.
-
-Step 3
-Update weights and biases.
-
-Step 4
-Select another mini-batch.
-
-Step 5
-Repeat.
+Step 1: Randomly select a mini-batch.
+Step 2: Calculate the gradient using only that mini-batch.
+Step 3: Update weights and biases.
+Step 4: Select another mini-batch.
+Step 5: Repeat.
 
 ------------------------------------------------------------
 SGD LEARNING PROCESS
 
-Training Data
-      ↓
-Pick Mini-Batch
-      ↓
-Calculate Gradient
-      ↓
-Update Weights
-      ↓
-Pick New Mini-Batch
-      ↓
-Repeat
+Training Data → Pick Mini-Batch → Calculate Gradient → Update Weights → Pick New Mini-Batch → Repeat
 
 ------------------------------------------------------------
 EPOCH
@@ -475,13 +398,7 @@ Pick a Mini-Batch
 Calculate the average gradient for only the examples in that Mini-Batch.
 
 Update:
-Weights
-     ↓
-Biases
-     ↓
-Lower Cost
-     ↓
-Better Predictions
+Weights → Biases → Lower Cost → Better Predictions
 
 ------------------------------------------------------------
 POLITICAL POLLING ANALOGY
@@ -497,29 +414,7 @@ Survey a small random sample.
 Much faster and usually gives a good estimate.
 SGD works the same way.
 
-Mini-Batch
-        ↓
-Estimate Gradient
-        ↓
-Update Network
+Mini-Batch → Estimate Gradient → Update Network
 
 ------------------------------------------------------------
 
-KEY TERMS
-
-Gradient Descent
-→ Uses entire dataset
-
-Stochastic Gradient Descent (SGD)
-→ Uses random mini-batches
-
-Mini-Batch
-→ Small random sample of training data
-
-Epoch
-→ One complete pass through the training data
-
-Learning Rate (η)
-→ Controls update size
-
-------------------------------------------------------------
