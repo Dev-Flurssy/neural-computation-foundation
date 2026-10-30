@@ -155,7 +155,7 @@ Neural-Computation-Foundations/
 ├── Practicals/
 ├── Assignments/
 ├── Projects/
-├── Resources/
+├── Cheatsheet/
 └── README.md
 ```
 
