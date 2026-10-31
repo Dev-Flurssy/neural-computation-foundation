@@ -1,0 +1,433 @@
+WHAT DOES “LEARNING” MEAN IN A NEURAL NETWORK?
+
+Humans learn by connecting new information with experience. In a Neural Network, 
+learning means adjusting parameters so the model can make better decisions or predictions.
+
+Main Parameters:
+Weights (w)
+Bias (b)
+
+Formula: z = w₁x₁ + w₂x₂ + ... + wₙxₙ + b
+Changing the weights and bias changes the neuron's behavior.
+
+------------------------------------------------------------
+WHAT IS THE PURPOSE OF LEARNING?
+
+Learning allows a neural network to improve over time.
+Wrong Prediction → Adjust Parameters → Better Prediction
+The more the network learns, the better its future predictions become.
+
+------------------------------------------------------------
+WHAT IS A LEARNING RULE?
+
+A Learning Rule answers one question: 
+"How should the weights change?"
+Different learning rules calculate weight updates in different ways.
+
+Current Weight:
+w_old
+
+Calculated Change:
+Δw
+
+New Weight:
+w_new = w_old + Δw
+
+The learning rule determines the value of Δw.
+
+------------------------------------------------------------
+CONNECT THIS TO THE PERCEPTRON
+
+Perceptron Learning focuses on prediction error.
+Input → Prediction → Compare With Target → Update Weights
+If the prediction is wrong, the weights are adjusted.
+
+Hebbian Learning is different.
+Instead of looking at prediction errors, it asks:
+"Were the neurons active together?"
+
+------------------------------------------------------------
+BIOLOGICAL MOTIVATION
+
+Neurons communicate through connections called synapses.
+These synaptic connections can become stronger or weaker through experience.
+This ability to change is called Synaptic Plasticity.
+
+Hebbian Learning is inspired by this biological process.
+Neuron A → Synapse → Neuron B
+Repeated experience can strengthen this connection.
+
+------------------------------------------------------------
+HEBB'S THEORY (1949)
+
+Donald Hebb proposed:
+"If two neurons repeatedly activate together, their connection becomes stronger."
+
+Memory Aid:
+"Neurons that fire together, wire together."
+This is the foundation of Hebbian Learning.
+
+------------------------------------------------------------
+HEBBIAN INTUITION
+
+Initially:
+Neuron A ── weak connection ──► Neuron B
+
+After repeated co-activation:
+Neuron A ── strong connection ──► Neuron B
+
+The more often they activate together, the stronger the connection becomes.
+
+------------------------------------------------------------
+EVERYDAY LIFE ANALOGY
+
+Imagine hearing a school bell every day before lunch.
+Bell → Lunch
+Bell → Lunch
+Bell → Lunch
+
+Eventually, hearing the bell automatically makes you think about lunch.
+The association becomes stronger because both events repeatedly occur together.
+Hebbian Learning models this idea mathematically.
+
+------------------------------------------------------------
+HEBBIAN LEARNING RULE
+
+Formula:
+Δwᵢⱼ = ηxᵢyⱼ
+
+Symbols:
+wᵢⱼ = Weight between neuron i and neuron j
+η = Learning Rate
+xᵢ = Input Activity
+yⱼ = Output Activity
+
+------------------------------------------------------------
+MEANING OF THE LEARNING RATE (η)
+
+The Learning Rate determines the size of the weight update.
+
+Large Learning Rate:
+Learns faster
+Bigger weight changes
+
+Small Learning Rate:
+Learns slower
+Smaller weight changes
+
+Think of η as the learning step size.
+
+------------------------------------------------------------
+HOW TO READ THE HEBBIAN EQUATION
+
+Δw = ηxy
+
+η → How large is the update?
+x → Is the input active?
+y → Is the output active?
+
+If x > 0 and y > 0, then Δw > 0
+The connection becomes stronger.
+
+------------------------------------------------------------
+SIMPLE BINARY CASE
+
+Input x = 0, Output y = 0 → No Change
+Input x = 0, Output y = 1 → No Change
+Input x = 1, Output y = 0 → No Change
+Input x = 1, Output y = 1 → Strengthen Connection
+
+The weight changes only when both input and output are active together.
+
+------------------------------------------------------------
+NUMERICAL EXAMPLE: ACTIVE TOGETHER
+
+Given:
+x = 1
+y = 1
+η = 0.1
+Current Weight w = 0.4
+
+Calculate:
+Δw = (0.1)(1)(1)
+Δw = 0.1
+
+New Weight:
+w_new = 0.4 + 0.1
+w_new = 0.5
+
+The connection became stronger.
+
+------------------------------------------------------------
+WHAT IF THE OUTPUT IS INACTIVE?
+
+Given:
+x = 1
+y = 0
+η = 0.1
+
+Calculate:
+Δw = (0.1)(1)(0)
+Δw = 0
+
+No co-activation → No weight change
+
+------------------------------------------------------------
+HEBBIAN NETWORK EXAMPLE
+
+Initial Values:
+w₁ = 0.2
+w₂ = -0.1
+η = 0.1
+
+Training Patterns:
+(1, 0) → y = 1
+(0, 1) → y = 0
+(1, 1) → y = 1
+
+------------------------------------------------------------
+PATTERN 1: (1,0) → y = 1
+
+Δw₁ = (0.1)(1)(1) = 0.1
+w₁ = 0.2 + 0.1 = 0.3
+
+Δw₂ = (0.1)(0)(1) = 0
+w₂ = -0.1
+
+Only x₁ was active, so only w₁ increased.
+
+------------------------------------------------------------
+INTERPRETING PATTERN 1
+
+Why did w₁ increase?
+Because x₁ = 1 and y = 1.
+They were active together.
+
+Why did w₂ stay unchanged?
+Because x₂ = 0.
+The input was inactive.
+
+Interpretation is more important than memorizing the arithmetic.
+
+------------------------------------------------------------
+PATTERN 2: (0,1) → y = 0
+
+Δw₁ = (0.1)(0)(0) = 0
+w₁ = 0.3
+
+Δw₂ = (0.1)(1)(0) = 0
+w₂ = -0.1
+
+Output inactive → No Hebbian strengthening.
+
+------------------------------------------------------------
+PATTERN 3: (1,1) → y = 1
+
+Δw₁ = (0.1)(1)(1) = 0.1
+w₁ = 0.3 + 0.1 = 0.4
+
+Δw₂ = (0.1)(1)(1) = 0.1
+w₂ = -0.1 + 0.1 = 0
+
+Both inputs were active together with the output.
+Both connections became stronger.
+
+------------------------------------------------------------
+WHAT DID THE NETWORK LEARN?
+
+Before Learning:
+(w₁,w₂) = (0.2,-0.1)
+
+After Learning:
+(w₁,w₂) = (0.4,0)
+
+Connections associated with repeated co-activation became stronger.
+The network strengthened connections that frequently occurred together.
+
+------------------------------------------------------------
+HEBBIAN LEARNING vs ERROR-BASED LEARNING
+
+Hebbian Learning focuses on CO-ACTIVITY.
+Question Asked:
+"Were the connected neurons active together?"
+
+Error-Based Learning focuses on PREDICTION ERROR.
+Question Asked:
+"Was the prediction correct or wrong?"
+
+Hebbian Learning strengthens connections based on neuron activity.
+Error-Based Learning changes connections based on mistakes.
+Different neural networks can learn using different learning signals.
+
+------------------------------------------------------------
+WHY IS HEBBIAN LEARNING INTERESTING?
+
+Hebbian Learning shows that very simple rules can create useful associations.
+
+The weight update depends only on local information:
+Input (x)
+Output (y)
+Weight (w)
+
+No global target or error signal is required.
+This makes Hebbian Learning strongly inspired by biological learning.
+
+Local Information Used:
+w
+x
+y
+
+No target output needed.
+
+------------------------------------------------------------
+LIMITATION 1: WEIGHT EXPLOSION
+
+Hebbian Rule:
+Δw = ηxy
+
+Suppose:
+x = 1
+y = 1
+
+Repeatedly.
+
+Weight values might become:
+0.2 → 0.3 → 0.4 → 0.5 → 0.6 → ...
+The weight keeps growing.
+
+Basic Hebbian Learning has no built-in mechanism to stop unlimited growth.
+This problem is called Weight Explosion.
+
+------------------------------------------------------------
+LIMITATION 2: NO NATURAL WEIGHT DECAY
+
+Hebbian Learning mainly strengthens connections.
+
+Useful Co-Activation:
+Connection becomes stronger.
+
+Unnecessary Connection:
+Little or no natural weakening.
+
+As a result, weights can continue accumulating strength.
+There is no strong built-in mechanism to reduce large weights.
+
+------------------------------------------------------------
+
+WHY DO WE NEED OJA'S RULE?
+
+We want to keep the good part of Hebbian Learning:
+Strengthening useful associations
+
+But also add:
+Weight control
+Weight stability
+Prevention of unlimited growth
+
+Oja's Rule was created to solve this problem.
+
+------------------------------------------------------------
+WHAT IS OJA'S RULE?
+
+Oja's Rule is an improved version of Hebbian Learning.
+
+Formula:
+Δwᵢⱼ = ηxᵢ(yⱼ − wᵢⱼyⱼ²)
+
+It contains two parts.
+Part 1: ηxᵢyⱼ
+This is the original Hebbian strengthening term.
+
+Part 2: −ηxᵢwᵢⱼyⱼ²
+This is the stabilization term.
+
+The stabilization term prevents weights from growing forever.
+
+------------------------------------------------------------
+UNDERSTANDING OJA'S RULE
+
+Hebbian Part: ηxy
+Increases the weight when neurons are active together.
+
+Stabilization Part: −ηxwy²
+Reduces excessive growth.
+
+Result:
+Weights still learn useful associations,
+but they remain controlled and stable.
+
+------------------------------------------------------------
+HEBBIAN vs OJA: INTUITION
+
+Hebbian Learning:
+Co-Activation
+↓
+Strengthen Connection
+↓
+Can Grow Forever
+
+Oja's Learning:
+Co-Activation
+↓
+Strengthen Connection
+↓
+Self-Normalization
+↓
+Stable Weight Values
+
+------------------------------------------------------------
+ADVANTAGES OF OJA'S RULE
+
+Prevents weight divergence
+Controls unlimited growth
+Keeps biological inspiration
+Adds self-normalization
+Produces PCA-like learning behavior
+More stable than basic Hebbian Learning
+
+------------------------------------------------------------
+LIMITATION OF OJA'S RULE
+
+Although Oja's Rule is more stable, it may learn more slowly than simple Hebbian Learning.
+
+Trade-off:
+Hebbian Learning:
+Faster but unstable.
+
+Oja's Rule:
+More stable but sometimes slower.
+
+------------------------------------------------------------
+CLASSROOM CONCEPT CHECK
+
+Given:
+η = 0.1
+x = 1
+y = 1
+
+Calculate: Δw = ηxy
+Δw = (0.1)(1)(1)
+Δw = 0.1
+Weight increases by 0.1.
+
+------------------------------------------------------------
+WHAT IF y = 0?
+
+Given:
+η = 0.1
+x = 1
+y = 0
+
+Δw = (0.1)(1)(0)
+Δw = 0
+
+No co-activation.
+No weight change.
+
+Key Question:
+"Were the neurons active together?"
+
+If YES → Strengthen
+If NO → No Hebbian update
+
+------------------------------------------------------------
