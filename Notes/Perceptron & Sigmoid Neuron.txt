@@ -139,7 +139,6 @@ If z < 0 → y = 0
 SIMPLE CLASSIFICATION EXAMPLE
 
 Suppose we want to classify a student as:
-
 y = 1 → Pass
 y = 0 → Fail
 
@@ -191,7 +190,6 @@ Points on the other side belong to Class 1.
 EXAMPLE OF A DECISION BOUNDARY
 
 Suppose:
-
 w₁ = 1
 w₂ = 1
 b = -1.5
@@ -202,7 +200,6 @@ Rearranging:
 x₂ = 1.5 - x₁
 
 This line divides the feature space into two regions.
-
 One side:
 y = 0
 Other side:
@@ -213,7 +210,6 @@ WHY IT IS CALLED LINEAR CLASSIFICATION
 
 The equation
 w₁x₁ + w₂x₂ + b = 0
-
 forms a straight line in two dimensions.
 
 In higher dimensions:
@@ -371,12 +367,12 @@ x₁  x₂  AND
 1   1   1
 
 Class 0:
-• (0,0)
-• (0,1)
-• (1,0)
+• (0, 0)
+• (0, 1)
+• (1, 0)
 
 Class 1:
-• (1,1)
+• (1, 1)
 
 These classes are linearly separable.
 Therefore, one Perceptron can implement the AND gate.
@@ -392,10 +388,10 @@ b = -1.5
 Equation: z = x₁ + x₂ - 1.5
 
 Results:
-(0,0) → z = -1.5 → y = 0
-(0,1) → z = -0.5 → y = 0
-(1,0) → z = -0.5 → y = 0
-(1,1) → z = 0.5 → y = 1
+(0, 0) → z = -1.5 → y = 0
+(0, 1) → z = -0.5 → y = 0
+(1, 0) → z = -0.5 → y = 0
+(1, 1) → z = 0.5 → y = 1
 
 The Perceptron correctly implements the AND gate.
 

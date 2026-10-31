@@ -10,10 +10,7 @@ Initially, the weights and biases are random.
 Because of this, the network makes many mistakes.
 
 Example:
-Image of 9
-      ↓
-Network predicts 8
-
+Image of 9 → Network predicts 8
 The network must adjust its weights and biases to improve its predictions.
 
 ------------------------------------------------------------
@@ -97,9 +94,7 @@ Then:
 Network predictions are poor.
 
 Therefore:
-Training Goal
-       ↓
-Minimize Cost Function
+Training Goal →  Minimize Cost Function
 
 ------------------------------------------------------------
 WHY NOT COUNT CORRECT ANSWERS DIRECTLY?
@@ -197,8 +192,7 @@ Step 3: Move opposite the Gradient.
 Step 4: Update weights and biases.
 Step 5: Repeat.
 
-After many repetitions:
-Cost decreases.
+After many repetitions: Cost decreases.
 
 ------------------------------------------------------------
 WHY DOES THIS WORK?
@@ -227,7 +221,6 @@ GRADIENT DESCENT PROCESS
 Random Weights → Make Prediction → Compute Error → Calculate Gradient → Update Weights & Biases → Lower Error → Repeat
 
 ------------------------------------------------------------
-
 STOCHASTIC GRADIENT DESCENT (SGD)
 
 Stochastic Gradient Descent (SGD) is a faster version of Gradient Descent.
@@ -265,7 +258,6 @@ WHAT IS A MINI-BATCH?
 A Mini-Batch is a small randomly selected group of training examples.
 
 Example:
-
 Training Data
 Image 1
 Image 2
