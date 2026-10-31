@@ -2,7 +2,7 @@ BACKPROPAGATION IN MULTILAYER NEURAL NETWORKS
 
 Backpropagation is the learning algorithm used by multilayer neural networks.
 
-Its purpose is to:
+It's purpose is to:
 • Measure prediction errors
 • Determine which weights caused the errors
 • Update the weights to improve future predictions
@@ -37,7 +37,6 @@ Output = 0.85
 
 Interpretation:
 85% probability that the email is spam.
-
 This prediction is the result of the Forward Pass.
 
 Key Points:

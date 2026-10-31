@@ -104,45 +104,6 @@ Example:
         [ Output ]
 
 ------------------------------------------------------------
-LAYERS OF A NEURAL NETWORK
-
--------------------------------
-1. INPUT LAYER
-
-The input layer receives data from the outside world.
-
-Examples:
-• Image pixels
-• Text
-• Audio signals
-• Sensor readings
-
-The input layer only passes information forward.
-
--------------------------------
-2. HIDDEN LAYERS
-
-Hidden layers perform calculations and extract useful features from the input.
-They are called "hidden" because their values are not directly seen by the user.
-
-A network may have:
-• One hidden layer
-• Multiple hidden layers
-
-More hidden layers usually allow more complex learning.
-
--------------------------------
-3. OUTPUT LAYER
-
-The output layer gives the final answer.
-
-Examples:
-Digit Recognition:
-Input Image → Neural Network → Output = 9
-Spam Detection:
-Input Email → Neural Network → Output = Spam
-
-------------------------------------------------------------
 HOW NEURONS WORK TOGETHER
 
 A single neuron can make a simple decision.
@@ -195,34 +156,27 @@ All work together to process information.
 ------------------------------------------------------------
 HOW AN ARTIFICIAL NEURON WORKS
 
-Step 1:
-Receive inputs.
-
+Step 1: Receive inputs.
 Example:
 x1 = 1
 x2 = 0
-x3 = 1
 
-Step 2:
-Multiply each input by its weight.
-
+Step 2: Multiply each input by its weight.
 Example:
 w1x1
 w2x2
-w3x3
 
-Step 3:
-Add all weighted inputs together.
+Step 3: Add all weighted inputs together.
+w3x3 = w1x1 + w2x2
 
-Step 4:
-Add the bias.
+Step 4: Add the bias.
+z = w3x3 + b
 
-Step 5:
-Pass the result through an activation function.
+Step 5: Pass the result through an activation function.
+f(z) = Activation function(z)
 
-Step 6:
-Produce the final output.
-
+Step 6: Produce the final output.
+y = f(z)
 ------------------------------------------------------------
 STRUCTURE OF AN ARTIFICIAL NEURON
 
@@ -234,17 +188,10 @@ STRUCTURE OF AN ARTIFICIAL NEURON
            /
           x3
 
-Inputs:
-x1, x2, x3
-
-Weights:
-w1, w2, w3
-
-Bias:
-b
-
-Activation Function:
-Step Function, Sigmoid, ReLU, etc.
+Inputs: x1, x2, x3
+Weights: w1, w2, w3
+Bias: b
+Activation Function: Step Function, Sigmoid, ReLU, etc.
 
 ------------------------------------------------------------
 NEURON FORMULA
@@ -355,11 +302,9 @@ Many neurons connected together can:
 This collection of neurons forms a Neural Network.
 
 ------------------------------------------------------------
-
 APPLICATIONS OF NEURAL COMPUTATION
 
 Neural Computation is used in:
-
 • Artificial Intelligence
 • Machine Learning
 • Deep Learning
@@ -372,7 +317,6 @@ Neural Computation is used in:
 WHY IS NEURAL COMPUTATION IMPORTANT?
 
 It helps us:
-
 • Understand how the brain works
 • Build intelligent machines
 • Develop learning systems

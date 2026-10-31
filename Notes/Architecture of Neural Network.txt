@@ -163,7 +163,6 @@ Unlike feedforward networks, RNNs contain feedback connections.
 
 Example:
 Neuron A → Neuron B → Neuron C → Neuron A
-
 Previous outputs can influence future predictions.
 
 ------------------------------------------------------------
@@ -214,14 +213,13 @@ NEURAL NETWORK ARCHITECTURES FOR DIFFERENT TASKS
 
 There is NO single neural network architecture that is best for every problem.
 Different tasks require different architectures.
-Think of architectures as tools:
 
+Think of architectures as tools:
 Hammer → good for nails
 Screwdriver → good for screws
 Wrench → good for bolts
 
 Similarly:
-
 MLP → tabular data
 CNN → images
 RNN/LSTM → sequences
@@ -231,7 +229,6 @@ Autoencoder → data compression and reconstruction
 WHY DO WE NEED DIFFERENT ARCHITECTURES?
 
 Different data types have different characteristics.
-
 Images → Spatial Patterns
 Text → Sequence & Context
 Tabular Data → Features & Attributes
@@ -264,7 +261,6 @@ MLPs learn relationships between features and variables.
 LIMITATIONS OF MLP
 
 MLPs do not naturally understand:
-
 • Images
 • Spatial patterns
 • Sequential data
@@ -290,7 +286,6 @@ Final Layer → Image Classification
 CNN EXAMPLE
 
 Image: Cat
-
 CNN Learns:
 Edges → Eyes & Ears → Cat Face → Cat
 
