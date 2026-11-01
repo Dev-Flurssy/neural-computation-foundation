@@ -24,14 +24,9 @@ A Learning Rule answers one question:
 "How should the weights change?"
 Different learning rules calculate weight updates in different ways.
 
-Current Weight:
-w_old
-
-Calculated Change:
-Δw
-
-New Weight:
-w_new = w_old + Δw
+Current Weight: w_old
+Calculated Change: Δw
+New Weight: w_new = w_old + Δw
 
 The learning rule determines the value of Δw.
 
@@ -93,8 +88,7 @@ Hebbian Learning models this idea mathematically.
 ------------------------------------------------------------
 HEBBIAN LEARNING RULE
 
-Formula:
-Δwᵢⱼ = ηxᵢyⱼ
+Formula: Δwᵢⱼ = ηxᵢyⱼ
 
 Symbols:
 wᵢⱼ = Weight between neuron i and neuron j
@@ -186,7 +180,7 @@ Training Patterns:
 (1, 1) → y = 1
 
 ------------------------------------------------------------
-PATTERN 1: (1,0) → y = 1
+PATTERN 1: (1, 0) → y = 1
 
 Δw₁ = (0.1)(1)(1) = 0.1
 w₁ = 0.2 + 0.1 = 0.3
@@ -210,7 +204,7 @@ The input was inactive.
 Interpretation is more important than memorizing the arithmetic.
 
 ------------------------------------------------------------
-PATTERN 2: (0,1) → y = 0
+PATTERN 2: (0, 1) → y = 0
 
 Δw₁ = (0.1)(0)(0) = 0
 w₁ = 0.3
@@ -221,7 +215,7 @@ w₂ = -0.1
 Output inactive → No Hebbian strengthening.
 
 ------------------------------------------------------------
-PATTERN 3: (1,1) → y = 1
+PATTERN 3: (1, 1) → y = 1
 
 Δw₁ = (0.1)(1)(1) = 0.1
 w₁ = 0.3 + 0.1 = 0.4
@@ -236,10 +230,10 @@ Both connections became stronger.
 WHAT DID THE NETWORK LEARN?
 
 Before Learning:
-(w₁,w₂) = (0.2,-0.1)
+(w₁, w₂) = (0.2, -0.1)
 
 After Learning:
-(w₁,w₂) = (0.4,0)
+(w₁, w₂) = (0.4 0)
 
 Connections associated with repeated co-activation became stronger.
 The network strengthened connections that frequently occurred together.
@@ -313,7 +307,6 @@ As a result, weights can continue accumulating strength.
 There is no strong built-in mechanism to reduce large weights.
 
 ------------------------------------------------------------
-
 WHY DO WE NEED OJA'S RULE?
 
 We want to keep the good part of Hebbian Learning:
@@ -332,13 +325,13 @@ WHAT IS OJA'S RULE?
 Oja's Rule is an improved version of Hebbian Learning.
 
 Formula:
-Δwᵢⱼ = ηxᵢ(yⱼ − wᵢⱼyⱼ²)
+Δwᵢⱼ = Δwᵢ = ηyⱼ(xᵢ − yⱼwᵢ)
 
 It contains two parts.
 Part 1: ηxᵢyⱼ
 This is the original Hebbian strengthening term.
 
-Part 2: −ηxᵢwᵢⱼyⱼ²
+Part 2: −ηwᵢyⱼ²
 This is the stabilization term.
 
 The stabilization term prevents weights from growing forever.
@@ -349,7 +342,7 @@ UNDERSTANDING OJA'S RULE
 Hebbian Part: ηxy
 Increases the weight when neurons are active together.
 
-Stabilization Part: −ηxwy²
+Stabilization Part: −ηwy²
 Reduces excessive growth.
 
 Result:
@@ -360,20 +353,10 @@ but they remain controlled and stable.
 HEBBIAN vs OJA: INTUITION
 
 Hebbian Learning:
-Co-Activation
-↓
-Strengthen Connection
-↓
-Can Grow Forever
+Co-Activation → Strengthen Connection → Can Grow Forever
 
 Oja's Learning:
-Co-Activation
-↓
-Strengthen Connection
-↓
-Self-Normalization
-↓
-Stable Weight Values
+Co-Activation → Strengthen Connection → Self-Normalization → Stable Weight Values
 
 ------------------------------------------------------------
 ADVANTAGES OF OJA'S RULE
@@ -431,3 +414,146 @@ If YES → Strengthen
 If NO → No Hebbian update
 
 ------------------------------------------------------------
+OJA'S RULE EXAMPLE
+
+Important Rule:
+
+Do NOT use an updated w₁ while calculating Δw₂ for the same input pattern.
+
+For one input pattern:
+
+1. Calculate y using the current weights.
+2. Calculate ALL Δw values using the same y and same current weights.
+3. Update all weights together.
+
+------------------------------------------------------------
+OJA EXAMPLE SETUP
+
+Initial Values:
+w₁ = 0.2
+w₂ = -0.1
+
+Learning Rate:
+η = 0.1
+
+Training Patterns:
+Pattern 1 = (1, 0)
+Pattern 2 = (0, 1)
+Pattern 3 = (1, 1)
+
+------------------------------------------------------------
+OJA'S RULE
+
+Formula:
+Δwᵢ = ηy(xᵢ − ywᵢ)
+
+Where:
+η = Learning Rate
+xᵢ = Input
+y = Output
+wᵢ = Current Weight
+
+---------------------------------
+PATTERN 1: INPUT (1, 0)
+
+STEP 1: COMPUTE THE OUTPUT
+y = w₁x₁ + w₂x₂
+y = (0.2)(1) + (-0.1)(0)
+y = 0.2
+
+Use this same y = 0.2 when calculating BOTH Δw₁ and Δw₂.
+
+---------------------------------
+STEP 2: UPDATE w₁
+
+Δw₁ = ηy(x₁ − yw₁)
+Δw₁ = (0.1)(0.2)[1 − (0.2)(0.2)]
+Δw₁ = (0.1)(0.2)(0.96)
+Δw₁ = 0.0192
+
+New Weight:
+w₁(new) = 0.2 + 0.0192
+w₁(new) = 0.2192
+
+---------------------------------
+STEP 3: UPDATE w₂
+
+Use the ORIGINAL weights and the SAME y.
+Δw₂ = ηy(x₂ − yw₂)
+Δw₂ = (0.1)(0.2)[0 − (0.2)(-0.1)]
+Δw₂ = (0.1)(0.2)(0.02)
+Δw₂ = 0.0004
+
+New Weight:
+w₂(new) = -0.1 + 0.0004
+w₂(new) = -0.0996
+
+---------------------------------
+AFTER PATTERN 1
+
+(w₁,w₂) = (0.2192, -0.0996)
+
+---------------------------------
+PATTERN 2: INPUT (0, 1)
+
+Use the updated weights from Pattern 1.
+
+STEP 1: COMPUTE OUTPUT
+y = (0.2192)(0) + (-0.0996)(1)
+y = -0.0996
+
+-----------------------------------
+STEP 2: COMPUTE WEIGHT CHANGES
+
+Δw₁ ≈ -0.000217
+Δw₂ ≈ -0.00986
+
+---------------------------------
+STEP 3: UPDATE WEIGHTS
+
+w₁ ≈ 0.2190
+w₂ ≈ -0.1095
+
+------------------------------------------------------------
+AFTER PATTERN 2
+
+(w₁,w₂) ≈ (0.2190, -0.1095)
+
+------------------------------------------------------------
+PATTERN 3: INPUT (1, 1)
+
+Use the updated weights from Pattern 2.
+
+---------------------------------
+STEP 1: COMPUTE OUTPUT
+
+y = (0.2190)(1) + (-0.1095)(1)
+y ≈ 0.1095
+
+---------------------------------
+STEP 2: COMPUTE WEIGHT CHANGES
+
+Δw₁ ≈ 0.01069
+Δw₂ ≈ 0.01108
+
+---------------------------------
+STEP 3: UPDATE WEIGHTS
+
+w₁ ≈ 0.2297
+w₂ ≈ -0.0984
+
+------------------------------------------------------------
+FINAL WEIGHTS AFTER ALL THREE PATTERNS
+
+(w₁,w₂) ≈ (0.2297, -0.0984)
+
+------------------------------------------------------------
+WHAT DID OJA'S RULE LEARN?
+
+The weights increased when useful patterns appeared.
+However, the normalization term prevented uncontrolled growth.
+Unlike Hebbian Learning, the weights remained stable.
+Oja's Rule learns associations while controlling weight size.
+
+------------------------------------------------------------
+

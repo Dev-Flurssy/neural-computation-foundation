@@ -39,8 +39,8 @@ Formula:
 z = w1x1 + w2x2 + w3x3 + b
 
 Decision Rule:
-Output = 1 if z > 0
-Output = 0 if z ≤ 0
+Output = 1 if z ≥ 0
+Output = 0 if z < 0 
 
 ------------------------------------------------------------
 MEANING OF WEIGHTS
@@ -417,10 +417,10 @@ Equation: z = x₁ + x₂ - 0.5
 ------------------------------------------------------------
 TESTING THE OR PERCEPTRON
 
-(0,0) → z = -0.5 → y = 0
-(0,1) → z = 0.5 → y = 1
-(1,0) → z = 0.5 → y = 1
-(1,1) → z = 1.5 → y = 1
+(0, 0) → z = -0.5 → y = 0
+(0, 1) → z = 0.5 → y = 1
+(1, 0) → z = 0.5 → y = 1
+(1, 1) → z = 1.5 → y = 1
 
 The Perceptron correctly classifies all OR examples.
 
