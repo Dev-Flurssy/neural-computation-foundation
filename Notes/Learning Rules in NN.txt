@@ -556,4 +556,191 @@ Unlike Hebbian Learning, the weights remained stable.
 Oja's Rule learns associations while controlling weight size.
 
 ------------------------------------------------------------
+OJA'S RULE: CALCULATION PROCESS
 
+When solving Oja's Rule problems, always follow this order:
+Step 1: Read the current weights
+Step 2: Compute the output
+y = wᵀx
+Step 3: Compute all weight changes (Δwᵢ)
+Step 4: Update all weights
+Step 5: Move to the next input pattern
+
+Important:
+Each new pattern starts with the updated weights from the previous pattern.
+
+------------------------------------------------------------
+IMPORTANT DIFFERENCE BETWEEN HEBBIAN LEARNING AND OJA'S RULE
+
+Hebbian Learning:
+
+The output y is often given in the training table.
+
+Example:
+Input → Output
+
+(1, 0) → 1
+(0, 1) → 0
+(1, 1) → 1
+
+The output is provided.
+
+------------------------------------------------------------
+Oja's Rule:
+
+The output is NOT given.
+We must calculate it using the current weights.
+
+Formula:
+y = wᵀx or
+y = w₁x₁ + w₂x₂ + ... + wₙxₙ
+
+Because the weights change during learning, the output also changes.
+
+Important:
+As weights change,
+y changes too.
+
+------------------------------------------------------------
+OJA EXAMPLE SETUP
+
+Initial Weights:
+w₁ = 0.2
+w₂ = -0.1
+
+Learning Rate:
+η = 0.1
+
+Training Patterns:
+P1 = (1, 0)
+P2 = (0, 1)
+P3 = (1, 1)
+
+Output Formula:
+y = w₁x₁ + w₂x₂
+
+--------------------------------------
+PATTERN 1: INPUT (1,0)
+
+STEP 1: COMPUTE OUTPUT
+y = (0.2)(1) + (-0.1)(0)
+y = 0.2
+
+Use this SAME y = 0.2 for BOTH Δw₁ and Δw₂.
+
+--------------------------------------
+STEP 2: UPDATE w₁
+
+Formula:
+Δw₁ = ηy(x₁ − yw₁)
+
+Substitute values:
+Δw₁ = (0.1)(0.2)[1 − (0.2)(0.2)]
+Δw₁ = (0.1)(0.2)(0.96)
+Δw₁ = 0.0192
+
+Update:
+w₁(new) = 0.2 + 0.0192
+w₁(new) = 0.2192
+
+Observation:
+The weight increases, but less aggressively than simple Hebbian Learning.
+
+--------------------------------------
+STEP 3: UPDATE w₂
+
+Formula:
+Δw₂ = ηy(x₂ − yw₂)
+
+Substitute values:
+Δw₂ = (0.1)(0.2)[0 − (0.2)(-0.1)]
+Δw₂ = (0.1)(0.2)(0.02)
+Δw₂ = 0.0004
+
+Update:
+w₂(new) = -0.1 + 0.0004
+w₂(new) = -0.0996
+
+Observation:
+Unlike simple Hebbian Learning, an inactive input can still receive a small update.
+
+--------------------------------------
+AFTER PATTERN 1
+
+Before: 
+(w₁, w₂) = (0.2, -0.1)
+After: 
+(w₁, w₂) = (0.2192, -0.0996)
+
+These become the starting weights for Pattern 2.
+
+--------------------------------------
+PATTERN 2: INPUT (0, 1)
+
+STEP 1: COMPUTE OUTPUT
+y = (0.2192)(0) + (-0.0996)(1)
+y = -0.0996
+
+Important:
+Oja's output is continuous.
+
+It can be:
+Positive
+Negative
+Zero
+
+It is NOT restricted to 0 or 1.
+
+--------------------------------------
+STEP 2: COMPUTE WEIGHT CHANGES
+
+Δw₁ ≈ -0.000217
+Δw₂ ≈ -0.00986
+
+--------------------------------------
+STEP 3: UPDATE WEIGHTS
+
+w₁ ≈ 0.2190
+w₂ ≈ -0.1095
+
+--------------------------------------
+AFTER PATTERN 2
+
+(w₁, w₂) ≈ (0.2190, -0.1095)
+
+--------------------------------------
+PATTERN 3: INPUT (1,1)
+
+STEP 1: COMPUTE OUTPUT
+y = (0.2190)(1) + (-0.1095)(1)
+y ≈ 0.1095
+
+Use this SAME y for both updates.
+
+--------------------------------------
+STEP 2: COMPUTE WEIGHT CHANGES
+
+Δw₁ ≈ 0.01069
+Δw₂ ≈ 0.01108
+
+------------------------------------------------------------
+STEP 3: UPDATE WEIGHTS
+
+w₁ ≈ 0.2297
+w₂ ≈ -0.0984
+
+------------------------------------------------------------
+FINAL WEIGHTS
+
+After all three patterns:
+(w₁, w₂) ≈ (0.2297, -0.0984)
+
+------------------------------------------------------------
+
+WHAT DOES THIS SHOW?
+
+Hebbian Learning:
+Keeps strengthening connections.
+Weights can grow very large.
+
+------------------------------------------------------------
