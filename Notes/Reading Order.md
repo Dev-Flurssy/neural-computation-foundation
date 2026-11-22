@@ -7,3 +7,5 @@
 5. Gradient Descent & Stochastic Gradient Descent in NN
 6. Backpropagation in NN
 7. Learning Paradigm
+8. Feed Forward NN
+9. Loss Function & Learning Rate 
