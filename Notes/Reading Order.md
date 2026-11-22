@@ -6,3 +6,4 @@
 4. Learning Rules in NN
 5. Gradient Descent & Stochastic Gradient Descent in NN
 6. Backpropagation in NN
+7. Learning Paradigm
