@@ -47,14 +47,10 @@ MEANING OF WEIGHTS
 
 Weights determine the importance of each input.
 
-Large Weight:
-Input has a strong influence on the decision.
-
-Small Weight:
-Input has less influence on the decision.
+Large Weight: Input has a strong influence on the decision.
+Small Weight: Input has less influence on the decision.
 
 Example:
-
 Weather Weight = 6
 Friend Weight = 2
 Transport Weight = 2
@@ -66,11 +62,8 @@ MEANING OF BIAS
 
 Bias determines how easy or difficult it is for the neuron to output 1.
 
-Large Positive Bias:
-Neuron easily outputs 1.
-
-Large Negative Bias:
-Neuron rarely outputs 1.
+Large Positive Bias: Neuron easily outputs 1.
+Large Negative Bias: Neuron rarely outputs 1.
 
 Bias acts like an adjustment value for the decision boundary.
 
@@ -80,7 +73,6 @@ CHEESE FESTIVAL EXAMPLE
 Suppose you decide whether to attend a cheese festival.
 
 Inputs:
-
 x1 = Good Weather
 x2 = Boyfriend/Girlfriend Wants To Go
 x3 = Public Transport Available
@@ -200,10 +192,8 @@ Rearranging:
 x₂ = 1.5 - x₁
 
 This line divides the feature space into two regions.
-One side:
-y = 0
-Other side:
-y = 1
+One side: y = 0
+Other side: y = 1
 
 ------------------------------------------------------------
 WHY IT IS CALLED LINEAR CLASSIFICATION
@@ -541,16 +531,13 @@ Output: Any value between 0 and 1
 ------------------------------------------------------------
 HOW A SIGMOID NEURON WORKS
 
-Step 1:
-Calculate the weighted sum:
+Step 1: Calculate the weighted sum:
 z = w1x1 + w2x2 + w3x3 + b
 
-Step 2:
-Apply the Sigmoid Function:
+Step 2: Apply the Sigmoid Function:
 σ(z) = 1 / (1 + e^(-z))
 
-Step 3:
-Produce an output between 0 and 1.
+Step 3: Produce an output between 0 and 1.
 
 ------------------------------------------------------------
 THE SIGMOID FUNCTION
@@ -608,8 +595,7 @@ z → +∞
 e^(-z) ≈ 0
 σ(z) ≈ 1
 
-Result:
-Sigmoid behaves like a Perceptron outputting 1.
+Result: sigmoid behaves like a Perceptron outputting 1.
 
 ------------------------------------------------------------
 WHEN z IS VERY NEGATIVE
@@ -618,8 +604,7 @@ z → -∞
 e^(-z) becomes very large
 σ(z) ≈ 0
 
-Result:
-Sigmoid behaves like a Perceptron outputting 0.
+Result: Sigmoid behaves like a Perceptron outputting 0.
 
 ------------------------------------------------------------
 WHERE IS THE DIFFERENCE?
@@ -631,11 +616,8 @@ z = -1 → 0.27
 z =  0 → 0.50
 z =  1 → 0.73
 
-Perceptron:
-Either 0 or 1
-
-Sigmoid:
-Any value between 0 and 1
+Perceptron: Either 0 or 1
+Sigmoid: Any value between 0 and 1
 
 ------------------------------------------------------------
 SIGMOID VS PERCEPTRON
