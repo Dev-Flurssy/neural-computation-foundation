@@ -15,13 +15,13 @@ WHAT IS THE PURPOSE OF LEARNING?
 
 Learning allows a neural network to improve over time.
 Wrong Prediction → Adjust Parameters → Better Prediction
+
 The more the network learns, the better its future predictions become.
 
 ------------------------------------------------------------
 WHAT IS A LEARNING RULE?
 
-A Learning Rule answers one question: 
-"How should the weights change?"
+A Learning Rule answers one question: "How should the weights change?"
 Different learning rules calculate weight updates in different ways.
 
 Current Weight: w_old
@@ -37,9 +37,8 @@ Perceptron Learning focuses on prediction error.
 Input → Prediction → Compare With Target → Update Weights
 If the prediction is wrong, the weights are adjusted.
 
-Hebbian Learning is different.
-Instead of looking at prediction errors, it asks:
-"Were the neurons active together?"
+Hebbian Learning is different. Instead of looking at prediction errors,
+it asks: "Were the neurons active together?"
 
 ------------------------------------------------------------
 BIOLOGICAL MOTIVATION
@@ -65,11 +64,8 @@ This is the foundation of Hebbian Learning.
 ------------------------------------------------------------
 HEBBIAN INTUITION
 
-Initially:
-Neuron A ── weak connection ──► Neuron B
-
-After repeated co-activation:
-Neuron A ── strong connection ──► Neuron B
+Initially: Neuron A ── weak connection ──► Neuron B
+After repeated co-activation: Neuron A ── strong connection ──► Neuron B
 
 The more often they activate together, the stronger the connection becomes.
 
@@ -242,12 +238,10 @@ The network strengthened connections that frequently occurred together.
 HEBBIAN LEARNING vs ERROR-BASED LEARNING
 
 Hebbian Learning focuses on CO-ACTIVITY.
-Question Asked:
-"Were the connected neurons active together?"
+Question Asked: "Were the connected neurons active together?"
 
 Error-Based Learning focuses on PREDICTION ERROR.
-Question Asked:
-"Was the prediction correct or wrong?"
+Question Asked: "Was the prediction correct or wrong?"
 
 Hebbian Learning strengthens connections based on neuron activity.
 Error-Based Learning changes connections based on mistakes.
@@ -297,11 +291,8 @@ LIMITATION 2: NO NATURAL WEIGHT DECAY
 
 Hebbian Learning mainly strengthens connections.
 
-Useful Co-Activation:
-Connection becomes stronger.
-
-Unnecessary Connection:
-Little or no natural weakening.
+Useful Co-Activation: Connection becomes stronger.
+Unnecessary Connection: Little or no natural weakening.
 
 As a result, weights can continue accumulating strength.
 There is no strong built-in mechanism to reduce large weights.
@@ -407,8 +398,7 @@ y = 0
 No co-activation.
 No weight change.
 
-Key Question:
-"Were the neurons active together?"
+Key Question: "Were the neurons active together?"
 
 If YES → Strengthen
 If NO → No Hebbian update
@@ -417,11 +407,9 @@ If NO → No Hebbian update
 OJA'S RULE EXAMPLE
 
 Important Rule:
-
 Do NOT use an updated w₁ while calculating Δw₂ for the same input pattern.
 
 For one input pattern:
-
 1. Calculate y using the current weights.
 2. Calculate ALL Δw values using the same y and same current weights.
 3. Update all weights together.
@@ -560,8 +548,7 @@ OJA'S RULE: CALCULATION PROCESS
 
 When solving Oja's Rule problems, always follow this order:
 Step 1: Read the current weights
-Step 2: Compute the output
-y = wᵀx
+Step 2: Compute the output: y = wᵀx
 Step 3: Compute all weight changes (Δwᵢ)
 Step 4: Update all weights
 Step 5: Move to the next input pattern
@@ -572,9 +559,7 @@ Each new pattern starts with the updated weights from the previous pattern.
 ------------------------------------------------------------
 IMPORTANT DIFFERENCE BETWEEN HEBBIAN LEARNING AND OJA'S RULE
 
-Hebbian Learning:
-
-The output y is often given in the training table.
+Hebbian Learning: The output y is often given in the training table.
 
 Example:
 Input → Output

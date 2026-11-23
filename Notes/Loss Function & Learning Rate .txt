@@ -1,723 +1,472 @@
 FROM PREDICTION TO LEARNING
+
 A neural network must evaluate how good its prediction is before it can learn.
 
 Flow:
+Input x → Neural Network → Prediction ŷ → Evaluate Prediction Quality
 
-Input x
-    ↓
-Neural Network
-    ↓
-Prediction ŷ
-    ↓
-Evaluate Prediction Quality
-
-Question:
-
-How good is the prediction?
+Question: How good is the prediction?
 
 ------------------------------------------------------------
-
 TARGET VS PREDICTION
+
 Learning begins by comparing the prediction with the correct answer.
 
 Example:
-
-Target:
-
-y = 10
-
-Prediction:
-
-ŷ = 8
+Target: y = 10
+Prediction: ŷ = 8
 
 Difference Exists:
-
 10 ≠ 8
 
 A numerical measure is needed to quantify this difference.
 
 ------------------------------------------------------------
-
 LOSS
+
 Loss measures how wrong a prediction is.
 
-Good Prediction:
+Good Prediction: Small Loss
+Poor Prediction: Large Loss
 
-Small Loss
-
-Poor Prediction:
-
-Large Loss
-
-Purpose:
-
-Provide a numerical measure of prediction quality.
+Purpose: Provide a numerical measure of prediction quality.
 
 ------------------------------------------------------------
-
 LOSS FUNCTION
+
 A loss function converts prediction errors into a number that can be minimized.
 
 Input:
-
 Target y
-
 Prediction ŷ
 
-Output:
-
-Loss L
-
-Goal:
-
-Make L as small as possible.
+Output: Loss L
+Goal: Make L as small as possible.
 
 ------------------------------------------------------------
-
 NEURAL NETWORK TRAINING IDEA
+
 Training adjusts parameters to reduce the loss.
 
 Process:
+Input → Forward Propagation → Prediction → Loss Calculation → Parameter Updates
 
-Input
- ↓
-Forward Propagation
- ↓
-Prediction
- ↓
-Loss Calculation
- ↓
-Parameter Updates
-
-Goal:
-
-Minimize
-
-L(W,b)
+Goal: Minimize L(W, b)
 
 Where:
-
 W = Weights
-
 b = Biases
 
 ------------------------------------------------------------
-
 ERROR
+
 Error is the difference between the target and prediction.
 
 Formula:
-
 e = y - ŷ
 
 Example 1:
-
 y = 10
-
 ŷ = 8
-
 e = 2
 
 Example 2:
-
 y = 8
-
 ŷ = 10
-
 e = -2
 
 ------------------------------------------------------------
-
 ERROR VS LOSS
+
 Error and loss are related but not identical.
 
 Error:
-
 e = y - ŷ
-
 Can be positive or negative.
 
 Loss:
-
 Transforms error into a value suitable for optimization.
-
 Always measures prediction quality.
 
 ------------------------------------------------------------
-
 WHY NOT ADD ERRORS DIRECTLY?
 
 Example:
-
 e₁ = +3
-
 e₂ = -3
 
 Total Error:
-
 e₁ + e₂ = 0
 
 Problem:
-
 Total error appears perfect even though both predictions are wrong.
-
 Loss functions prevent this cancellation problem.
 
 ------------------------------------------------------------
-
 SQUARED ERROR
+
 Squared Error squares the prediction error.
 
 Formula:
-
 L = (y - ŷ)²
 
 Example:
-
 y = 5
-
 ŷ = 3
-
 L = (5 - 3)²
-
 L = 4
 
 Properties:
-
 • Always non-negative
 • Larger mistakes produce much larger losses
 
 ------------------------------------------------------------
-
 EFFECT OF SQUARING
 
 Small Error:
-
 |e| = 1
-
 e² = 1
 
 Large Error:
-
 |e| = 4
-
 e² = 16
 
 Observation:
-
 Large errors are penalized much more heavily.
 
 ------------------------------------------------------------
-
 MEAN SQUARED ERROR (MSE)
+
 MSE is the average of all squared errors.
 
 Formula:
-
 MSE = (1/N) Σ(yᵢ - ŷᵢ)²
 
 Where:
-
 N = Number of Examples
-
 yᵢ = Target
-
 ŷᵢ = Prediction
 
 Used For:
-
 Regression Problems
 
 ------------------------------------------------------------
-
 MSE EXAMPLE
 
-Targets:
-
-3 5 7
-
-Predictions:
-
-2 4 9
+Targets: 3 5 7
+Predictions: 2 4 9
 
 Step 1: Calculate Squared Errors
-
 (3 - 2)² = 1
-
 (5 - 4)² = 1
-
 (7 - 9)² = 4
 
 Squared Errors:
-
 1, 1, 4
 
 ------------------------------------------------------------
-
 MSE CALCULATION
 
 Formula:
-
 MSE = (1 + 1 + 4)/3
-
 MSE = 6/3
-
 MSE = 2
 
 Final Answer:
-
 MSE = 2
 
 ------------------------------------------------------------
-
 INTERPRETING MSE
 
 MSE = 0
-
 Perfect Predictions
 
-Smaller MSE:
+Smaller MSE: Better Model Fit
+Larger MSE: Worse Model Fit
 
-Better Model Fit
-
-Larger MSE:
-
-Worse Model Fit
-
-Note:
-
-Meaning depends on the scale of the target values.
+Note: Meaning depends on the scale of the target values.
 
 ------------------------------------------------------------
-
 MEAN ABSOLUTE ERROR (MAE)
+
 MAE is the average absolute prediction error.
 
 Formula:
-
 MAE = (1/N) Σ|yᵢ - ŷᵢ|
 
-Used For:
-
-Regression Problems
+Used For: Regression Problems
 
 ------------------------------------------------------------
-
 MAE EXAMPLE
 
 Absolute Errors:
-
 1, 1, 2
 
 MAE = (1 + 1 + 2)/3
-
 MAE = 4/3
-
 MAE = 1.33
 
 ------------------------------------------------------------
-
 MSE VS MAE
 
 MSE:
-
 • Uses Squared Error
 • Penalizes Large Errors Strongly
 • More Sensitive to Outliers
 
 MAE:
-
 • Uses Absolute Error
 • Less Sensitive to Outliers
 • Easier Interpretation
 
 ------------------------------------------------------------
-
 LOSS FUNCTIONS DEPEND ON THE TASK
+
 Different tasks require different loss functions.
-
-Regression:
-
-Predict Numerical Values
+Regression: Predict Numerical Values
 
 Examples:
-
 • House Price
 • Temperature
 
 Common Losses:
-
 • MSE
 • MAE
 
 ------------------------------------------------------------
-
 CLASSIFICATION
+
 Classification predicts categories.
 
 Examples:
-
 • Cat or Dog
 • Healthy or Sick
 
 Common Loss:
-
 Binary Cross-Entropy (BCE)
 
 ------------------------------------------------------------
-
 BINARY CLASSIFICATION OUTPUT
+
 Binary classification outputs probabilities.
 
 Possible Targets:
-
-y ∈ {0,1}
+y ∈ {0, 1}
 
 Examples:
 
 y = 1
-
-Meaning:
-
-Positive Class
+Meaning: Positive Class
 
 y = 0
-
-Meaning:
-
-Negative Class
+Meaning: Negative Class
 
 ------------------------------------------------------------
-
 BINARY CROSS-ENTROPY (BCE)
+
 BCE measures prediction quality for binary classification.
 
 Formula:
-
 L = -[y ln(ŷ) + (1-y)ln(1-ŷ)]
 
-Purpose:
-
-Evaluate probability predictions.
+Purpose: Evaluate probability predictions.
 
 ------------------------------------------------------------
-
 BCE INTUITION WHEN y = 1
 
 Formula Simplifies To:
-
 L = -ln(ŷ)
 
 Good Prediction:
-
 ŷ = 0.9
-
 L ≈ 0.105
 
 Poor Prediction:
-
 ŷ = 0.1
-
 L ≈ 2.303
 
-Observation:
-
-Better predictions give much smaller loss.
+Observation: Better predictions give much smaller loss.
 
 ------------------------------------------------------------
-
 BCE INTUITION WHEN y = 0
 
 Formula Simplifies To:
-
 L = -ln(1 - ŷ)
 
 Good Prediction:
-
 ŷ = 0.1
-
 Small Loss
 
 Poor Prediction:
-
 ŷ = 0.9
-
 Large Loss
 
 ------------------------------------------------------------
-
 LOSS FUNCTION SELECTION
 
 Regression:
+Output: Continuous Numbers
 
-Output:
-Continuous Numbers
-
-Common Loss:
-MSE, MAE
+Common Loss: MSE, MAE
 
 ------------------------------------------------------------
-
 Binary Classification:
+Output: Probability
 
-Output:
-Probability
-
-Common Loss:
-Binary Cross-Entropy
+Common Loss: Binary Cross-Entropy
 
 ------------------------------------------------------------
-
 Multiclass Classification:
+Output: Class Probabilities
 
-Output:
-Class Probabilities
-
-Common Loss:
-Categorical Cross-Entropy
+Common Loss: Categorical Cross-Entropy
 
 ------------------------------------------------------------
-
 OPTIMIZATION
+
 Optimization is the process of finding parameters that minimize loss.
+Question: Which weights and biases produce the smallest loss?
 
-Question:
-
-Which weights and biases produce the smallest loss?
-
-Objective:
-
-Minimize
-
-L(W,b)
+Objective: Minimize L(W, b)
 
 ------------------------------------------------------------
-
 LOSS LANDSCAPE
+
 A loss landscape shows how loss changes as parameters change.
+Goal: Move toward lower loss values.
 
-Goal:
-
-Move toward lower loss values.
-
-Highest Point:
-
-Large Loss
-
-Lowest Point:
-
-Minimum Loss
+Highest Point: Large Loss
+Lowest Point: Minimum Loss
 
 Training tries to reach the minimum.
 
 ------------------------------------------------------------
-
 DERIVATIVE
+
 A derivative measures how a function changes when a parameter changes.
+Notation: dL/dw
 
-Notation:
-
-dL/dw
-
-Meaning:
-
-How much loss changes when weight changes.
+Meaning: How much loss changes when weight changes.
 
 ------------------------------------------------------------
-
 WHAT DOES A DERIVATIVE TELL US?
 
-Direction:
-
-Should the parameter increase or decrease?
-
-Magnitude:
-
-How strongly does the loss change?
-
-Purpose:
-
-Guide parameter updates.
+Direction: Should the parameter increase or decrease?
+Magnitude: How strongly does the loss change?
+Purpose: Guide parameter updates.
 
 ------------------------------------------------------------
-
 POSITIVE DERIVATIVE
 
-Condition:
+Condition: dL/dw > 0
 
-dL/dw > 0
-
-Meaning:
-
-Increasing w increases loss.
-
-Action:
-
-Decrease w
-
+Meaning: Increasing w increases loss.
+Action: Decrease w
 Move Downward
 
 ------------------------------------------------------------
-
 NEGATIVE DERIVATIVE
 
-Condition:
+Condition: dL/dw < 0
 
-dL/dw < 0
-
-Meaning:
-
-Increasing w decreases loss.
-
-Action:
-
-Increase w
-
+Meaning: Increasing w decreases loss.
+Action: Increase w
 Move Upward
 
 ------------------------------------------------------------
-
 GRADIENT
+
 The gradient contains derivatives of all parameters.
-
-Notation:
-
-∇L
+Notation: ∇L
 
 Example:
+∇L = (∂L/∂w₁, ∂L/∂w₂, ∂L/∂w₃)
 
-∇L =
-
-(∂L/∂w₁,
- ∂L/∂w₂,
- ∂L/∂w₃)
-
-Meaning:
-
-Direction of greatest increase in loss.
+Meaning: Direction of greatest increase in loss.
 
 ------------------------------------------------------------
-
 GRADIENT DESCENT
+
 Gradient Descent updates parameters to reduce loss.
 
 Formula:
-
 wnew = wold - η(∂L/∂w)
 
 Where:
-
 η = Learning Rate
 
 ------------------------------------------------------------
-
 WHY DO WE SUBTRACT THE GRADIENT?
 
-Gradient:
-
-∇L
-
+Gradient: ∇L
 Points Toward Higher Loss
 
-Negative Gradient:
-
--∇L
-
+Negative Gradient: -∇L
 Points Toward Lower Loss
 
-Goal:
-
-Minimize Loss
-
-Therefore:
-
-Move Opposite The Gradient
+Goal: Minimize Loss
+Therefore: Move Opposite The Gradient
 
 ------------------------------------------------------------
-
 GRADIENT DESCENT EXAMPLE
 
 Given:
-
 wold = 2
-
 ∂L/∂w = 3
-
 η = 0.1
 
 Calculation:
-
 wnew = 2 - (0.1)(3)
-
 wnew = 1.7
 
 ------------------------------------------------------------
-
 NEGATIVE GRADIENT EXAMPLE
 
 Given:
-
 wold = 2
-
 ∂L/∂w = -4
-
 η = 0.1
 
 Calculation:
-
 wnew = 2 - (0.1)(-4)
-
 wnew = 2.4
 
 ------------------------------------------------------------
-
 LEARNING RATE
+
 The learning rate controls how large parameter updates are.
 
-Notation:
-
-η
+Notation: η
 
 Formula:
-
 Update Size = η × Gradient
 
-Purpose:
-
-Control movement during training.
+Purpose: Control movement during training.
 
 ------------------------------------------------------------
-
 SMALL LEARNING RATE
 
 Example:
-
 η = 0.00001
 
 Advantages:
-
 • Stable Learning
 • Low Overshooting Risk
 
 Disadvantages:
-
 • Very Slow Training
 • Many Updates Required
 
 ------------------------------------------------------------
-
 LARGE LEARNING RATE
 
 Example:
-
 η = 2
 
 Advantages:
-
 • Large Updates
 
 Disadvantages:
-
 • Overshooting
 • Oscillation
 • Divergence
@@ -725,17 +474,11 @@ Disadvantages:
 May jump past the minimum.
 
 ------------------------------------------------------------
-
 APPROPRIATE LEARNING RATE
 
-Goal:
-
-Fast Learning
-+
-Stable Updates
+Goal: Fast Learning + Stable Updates
 
 Properties:
-
 • Reasonable Progress
 • Little Overshooting
 • Efficient Optimization
@@ -743,21 +486,17 @@ Properties:
 No single learning rate works best for every problem.
 
 ------------------------------------------------------------
-
 LEARNING RATE COMPARISON
 
 Too Small:
-
 • Stable
 • Slow
 
 Appropriate:
-
 • Stable
 • Fast Enough
 
 Too Large:
-
 • Unstable
 • Overshoots Minimum
 
@@ -765,302 +504,163 @@ Too Large:
 
 COMPLETE LEARNING EXAMPLE
 
-Model:
-
-ŷ = wx
-
-Input:
-
-x = 2
-
-Target:
-
-y = 4
-
-Initial Weight:
-
-w = 1
+Model: ŷ = wx
+Input: x = 2
+Target: y = 4
+Initial Weight: w = 1
 
 ------------------------------------------------------------
-
 STEP 1: PREDICTION
 
 ŷ = wx
 
 ŷ = (1)(2)
-
 ŷ = 2
 
-Prediction:
-
-2
+Prediction: 2
 
 ------------------------------------------------------------
-
 STEP 2: LOSS CALCULATION
 
 Using Squared Error:
-
 L = (ŷ - y)²
-
 L = (2 - 4)²
-
 L = 4
 
-Loss:
-
-4
+Loss: 4
 
 ------------------------------------------------------------
-
 STEP 3: CALCULATE GRADIENT
 
 Formula:
-
 L = (wx - y)²
 
 Derivative:
-
 dL/dw = 2(wx - y)x
 
 Substitution:
-
 dL/dw = 22
-
 dL/dw = -8
 
-Gradient:
-
--8
+Gradient: -8
 
 ------------------------------------------------------------
-
 STEP 4: UPDATE WEIGHT
 
 Learning Rate:
-
 η = 0.1
 
 Formula:
-
 wnew = wold - η(dL/dw)
 
 Substitution:
-
 wnew = 1 - (0.1)(-8)
-
 wnew = 1.8
 
-Updated Weight:
-
-1.8
+Updated Weight: 1.8
 
 ------------------------------------------------------------
-
 STEP 5: NEW PREDICTION
 
-Using:
+Using: w = 1.8
 
-w = 1.8
-
-Prediction:
-
-ŷ = wx
-
+Prediction: ŷ = wx
 ŷ = (1.8)(2)
-
 ŷ = 3.6
 
-New Prediction:
-
-3.6
-
+New Prediction: 3.6
 Closer to target value 4.
 
 ------------------------------------------------------------
-
 STEP 6: NEW LOSS
 
 Lnew = (3.6 - 4)²
-
 Lnew = 0.16
 
-Old Loss:
+Old Loss: 4
+New Loss: 0.16
 
-4
-
-New Loss:
-
-0.16
-
-Result:
-
-Loss Decreased
+Result: Loss Decreased
 
 ------------------------------------------------------------
-
 COMPLETE LEARNING STEP
 
-Input:
+Input: x = 2
+Prediction: ŷ = 2
+Loss: L = 4
+Gradient: -8
+Weight Update: 1 → 1.8
 
-x = 2
-
-Prediction:
-
-ŷ = 2
-
-Loss:
-
-L = 4
-
-Gradient:
-
--8
-
-Weight Update:
-
-1 → 1.8
-
-New Prediction:
-
-3.6
-
-New Loss:
-
-0.16
+New Prediction: 3.6
+New Loss: 0.16
 
 One update improved the prediction and reduced the loss.
 
 ------------------------------------------------------------
-
 ITERATIVE LEARNING
+
 Training repeatedly performs the same steps.
-
-Prediction
- ↓
-Loss
- ↓
-Gradient
- ↓
-Update
- ↓
-Repeat
-
-Over time:
-
-Loss decreases and predictions improve.
+Prediction → Loss → Gradient → Update → Repeat
+Over time: Loss decreases and predictions improve.
 
 ------------------------------------------------------------
-
 WEIGHT UPDATE RULE
 
-Formula:
-
-wnew = wold - η(∂L/∂w)
-
-Updates:
-
-Weights
+Formula: wnew = wold - η(∂L/∂w)
+Updates: Weights
 
 ------------------------------------------------------------
-
 BIAS UPDATE RULE
 
-Formula:
-
-bnew = bold - η(∂L/∂b)
-
-Updates:
-
-Biases
+Formula: bnew = bold - η(∂L/∂b)
+Updates: Biases
 
 ------------------------------------------------------------
-
 BACKPROPAGATION
+
 Backpropagation computes gradients throughout the neural network.
 
-Purpose:
-
-Find
-
-∂L/∂w
-
+Purpose: Find ∂L/∂w
 for every parameter.
 
-Output:
-
-Gradients
+Output: Gradients
 
 ------------------------------------------------------------
-
 GRADIENT DESCENT VS BACKPROPAGATION
 
-Backpropagation:
-
-Computes Gradients
+Backpropagation: Computes Gradients
 
 Example:
-
 ∂L/∂w
 
 ------------------------------------------------------------
 
-Gradient Descent:
-
-Uses Gradients
-
-Updates:
-
-Weights and Biases
+Gradient Descent: Uses Gradients
+Updates: Weights and Biases
 
 ------------------------------------------------------------
-
 TRAINING PIPELINE
 
-Input
- ↓
-Forward Propagation
- ↓
-Prediction
- ↓
-Loss
- ↓
-Backpropagation
- ↓
-Gradients
- ↓
-Gradient Descent
- ↓
-Updated Parameters
+Input → Forward Propagation → Prediction → Loss → Backpropagation → Gradients → Gradient Descent → Updated Parameters
 
 ------------------------------------------------------------
-
 COMMON MISTAKES
 
 Loss ≠ Accuracy
-
 Two models can have identical accuracy but different losses.
 
 ------------------------------------------------------------
-
 Gradient ≠ Updated Weight
 
 Gradient only tells the direction and rate of change.
 
 The updated weight depends on:
-
-Current Weight
-+
-Learning Rate
-+
-Gradient
+Current Weight + Learning Rate + Gradient
 
 ------------------------------------------------------------
-
 Larger Learning Rate ≠ Faster Learning
 
 Too large a learning rate may:
-
 • Overshoot
 • Oscillate
 • Diverge
@@ -1069,49 +669,3 @@ Large learning rates can slow or completely prevent learning.
 
 ------------------------------------------------------------
 
-CHEAT SHEET
-
-Prediction:
-Network Output
-
-Target:
-Correct Answer
-
-Error:
-y - ŷ
-
-Loss:
-Measures Prediction Quality
-
-MSE:
-Average Squared Error
-
-MAE:
-Average Absolute Error
-
-BCE:
-Binary Classification Loss
-
-Optimization:
-Minimize Loss
-
-Derivative:
-Rate of Change
-
-Gradient:
-Collection of Derivatives
-
-Gradient Descent:
-Parameter Update Algorithm
-
-Learning Rate (η):
-Controls Update Size
-
-Backpropagation:
-Computes Gradients
-
-Training:
-Prediction → Loss → Gradient → Update
-
-Goal:
-Minimize Loss and Improve Predictions
