@@ -1,5 +1,3 @@
-FROM PREDICTION TO TRAINING
-
 BACKPROPAGATION
 
 Backpropagation is an algorithm that computes how the loss changes with respect to every weight and bias in a neural network.
@@ -10,7 +8,6 @@ Notation:
 
 Main Idea:
 Start from the error at the output layer and move backward through the network.
-
 Purpose: Determine how much each parameter contributed to the final error.
 
 When Used: During training after the loss has been calculated.
@@ -27,7 +24,9 @@ Computes:
 • Prediction
 
 Backward Pass: Output Layer → Hidden Layer → Earlier Layers
-Computes: Gradients
+
+Computes: 
+Gradients
 
 Important:
 Backpropagation does NOT reverse the prediction.
