@@ -428,232 +428,78 @@ COMMON MISTAKE 3
 Updating Parameters Too Early
 
 Incorrect Order:
-
-Forward
-↓
-Loss
-↓
-Update
+Forward → Loss → Update
 
 Correct Order:
+Forward → Loss → All Gradients → Update
 
-Forward
-↓
-Loss
-↓
-All Gradients
-↓
-Update
-
-Reason:
-All gradients must be computed before updating parameters.
+Reason: All gradients must be computed before updating parameters.
 
 ------------------------------------------------------------
-
 COMMON MISTAKE 4
 
 Prediction Error Is Not The Weight Gradient
 
-Prediction Error:
-
-ŷ − y
-
-Weight Gradient:
-
-∂L/∂w
+Prediction Error: ŷ − y
+Weight Gradient: ∂L/∂w
 
 To obtain a weight gradient, the full chain rule must be applied.
 
 ------------------------------------------------------------
-
 COMMON MISTAKE 5
 
 Forgetting The Activation Derivative
 
-Incorrect:
+Incorrect: Incoming Error Only
 
-Incoming Error Only
+Correct: Incoming Error × Activation Derivative
 
-Correct:
-
-Incoming Error × Activation Derivative
-
-Example:
-
+Example: 
 δ × a(1 − a)
 
 ------------------------------------------------------------
-
 TRAINING DATASET TERMINOLOGY
 
-Single Example:
-
-One data point.
-
-Mini-Batch:
-
-Small group of examples.
-
-Dataset:
-
-All training examples.
+Single Example: One data point.
+Mini-Batch: Small group of examples.
+Dataset: All training examples.
 
 Backpropagation works the same way for all cases.
 
 ------------------------------------------------------------
-
 EPOCH
-
-Definition:
 
 1 Epoch = One complete pass through the entire training dataset.
 
 Example:
-
 Dataset:
-
 1000 training examples
 
 After processing all 1000 examples once:
-
 1 Epoch Completed
 
 ------------------------------------------------------------
-
 WHY REPEAT TRAINING?
 
 One update rarely finds the best parameters.
 
 Process:
-
-Forward Pass
-↓
-Loss
-↓
-Backpropagation
-↓
-Update
-↓
-Repeat
+Forward Pass → Loss → Backpropagation → Update → Repeat
 
 Repeated updates gradually improve the model.
 
 ------------------------------------------------------------
-
 BACKPROPAGATION IN MULTILAYER NETWORKS
 
 Forward:
-
-Input
-↓
-Hidden Layer 1
-↓
-Hidden Layer 2
-↓
-Output
+Input → Hidden Layer 1 → Hidden Layer 2 → Output
 
 Backward:
-
-Output
-↓
-Hidden Layer 2
-↓
-Hidden Layer 1
+Output → Hidden Layer 2 → Hidden Layer 1
 
 Key Idea:
-
 At every layer:
-
 Downstream Gradient × Local Derivative
 
 ------------------------------------------------------------
 
-CONCEPT CHECK
-
-Main Job of Backpropagation:
-
-Compute gradients.
-
-Main Job of Gradient Descent:
-
-Update parameters.
-
-Why Do We Need The Chain Rule?
-
-Nested dependencies between variables.
-
-Sigmoid Derivative:
-
-a(1 − a)
-
-Does A Hidden Neuron Have A Target Label?
-
-Usually No.
-
-------------------------------------------------------------
-
-BACKPROPAGATION CHECKLIST
-
-1. Complete the forward pass.
-2. Store activations.
-3. Calculate prediction.
-4. Calculate loss.
-5. Calculate output error term.
-6. Calculate output gradients.
-7. Calculate hidden error term(s).
-8. Calculate hidden gradients.
-9. Update weights and biases.
-10. Run another forward pass if needed.
-11. Verify loss decreases.
-
-------------------------------------------------------------
-
-KEY FORMULAS
-
-Loss Function:
-
-L = ½(ŷ − y)²
-
-Loss Derivative:
-
-∂L/∂ŷ = ŷ − y
-
-Sigmoid Derivative:
-
-σ'(z) = a(1 − a)
-
-Output Error Term:
-
-δo = (ŷ − y)ŷ(1 − ŷ)
-
-Hidden Error Term:
-
-δh = (vδo)h(1 − h)
-
-Weight Gradient:
-
-∂L/∂w = δ × Input
-
-Weight Update:
-
-wnew = wold − η(∂L/∂w)
-
-Bias Update:
-
-bnew = bold − η(∂L/∂b)
-
-------------------------------------------------------------
-
-GOLDEN RULE OF BACKPROPAGATION
-
-Forward Pass:
-Compute Predictions
-
-Backpropagation:
-Compute Gradients
-
-Gradient Descent:
-Update Parameters
-
-Backpropagation computes gradients.
-Gradient Descent uses them.
