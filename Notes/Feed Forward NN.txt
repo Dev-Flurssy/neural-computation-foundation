@@ -59,9 +59,7 @@ MULTILAYER PERCEPTRON (MLP)
 
 An MLP is a neural network consisting of multiple layers of neurons.
 
-Structure:
-Input Layer → Hidden Layer(s) → Output Layer
-
+Structure:Input Layer → Hidden Layer(s) → Output Layer
 Purpose: Allow learning of complex patterns and nonlinear relationships.
 
 ------------------------------------------------------------
@@ -87,8 +85,7 @@ Input Layer: Receives features.
 Hidden Layer: Performs computations.
 Output Layer: Produces predictions.
 
-Flow:
-Input → Hidden → Output
+Flow: Input → Hidden → Output
 
 ------------------------------------------------------------
 INPUT LAYER
@@ -231,8 +228,7 @@ FEEDFORWARD NETWORK
 
 A feedforward network passes information only forward.
 
-Flow:
-Input → Hidden Layer → Output
+Flow: Input → Hidden Layer → Output
 
 Properties:
 • No loops
@@ -260,9 +256,7 @@ FORWARD PROPAGATION
 Forward propagation calculates the network output using current weights and biases.
 Purpose: Determine what the network predicts for a given input.
 
-Flow:
-Input → Weighted Sums → Activations → Output
-
+Flow: Input → Weighted Sums → Activations → Output
 Main Question: "What does the network predict?"
 
 ------------------------------------------------------------
@@ -274,8 +268,7 @@ Weighted Sum: z⁽ˡ⁾ = W⁽ˡ⁾a⁽ˡ⁻¹⁾ + b⁽ˡ⁾
 Activation: a⁽ˡ⁾ = f(z⁽ˡ⁾)
 Input Layer: a⁽⁰⁾ = x
 
-Meaning:
-Current Layer = Previous Outputs × Weights + Biases
+Meaning: Current Layer = Previous Outputs × Weights + Biases
 
 ------------------------------------------------------------
 LAYER NOTATION
@@ -357,8 +350,7 @@ Inputs:
 x₁ = 1
 x₂ = 0
 
-Hidden Neurons:
-h₁, h₂
+Hidden Neurons: h₁, h₂
 Output: y
 
 ------------------------------------------------------------
@@ -469,9 +461,7 @@ WHY HIDDEN LAYERS MATTER
 
 Hidden layers transform raw input features into useful internal representations.
 
-Flow:
-Original Features → Hidden Representation → Final Decision
-
+Flow: Original Features → Hidden Representation → Final Decision
 This transformation helps solve problems that a single perceptron cannot solve.
 
 ------------------------------------------------------------
@@ -482,8 +472,7 @@ FORWARD PROPAGATION
 • Computes Prediction
 • No Parameter Updates
 
-Flow:
-Input → Prediction
+Flow: Input → Prediction
 
 ------------------------------------------------------------
 TRAINING
@@ -493,7 +482,6 @@ TRAINING
 • Calculates Error
 • Updates Weights and Biases
 
-Flow:
-Input → Prediction → Target Comparison → Error → Parameter Update
+Flow: Input → Prediction → Target Comparison → Error → Parameter Update
 
 ------------------------------------------------------------
