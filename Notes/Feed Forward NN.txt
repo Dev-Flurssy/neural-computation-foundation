@@ -94,9 +94,7 @@ Input → Hidden → Output
 INPUT LAYER
 
 The input layer receives the original features.
-
-Notation:
-x = [x₁ x₂ x₃]ᵀ
+Notation: x = [x₁ x₂ x₃]ᵀ
 
 Example:
 Medical Data
@@ -309,11 +307,8 @@ ACTIVATION FUNCTIONS
 
 Activation functions introduce nonlinearity into the network.
 
-Without Activation:
-Many layers behave like one linear equation.
-
-With Activation:
-Complex patterns can be learned.
+Without Activation: Many layers behave like one linear equation.
+With Activation: Complex patterns can be learned.
 
 Purpose: Allow learning beyond straight-line boundaries.
 
@@ -433,7 +428,6 @@ PARAMETERS OF A NEURON
 Every neuron has its own weights and bias.
 
 Hidden Neuron 1: w₁₁, w₁₂, b₁
-
 Hidden Neuron 2: w₂₁, w₂₂, b₂
 
 Purpose: Allow different neurons to learn different patterns.

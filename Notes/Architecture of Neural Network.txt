@@ -68,8 +68,7 @@ The neurons in this layer are called Output Neurons.
 ------------------------------------------------------------
 EXAMPLE: DIGIT RECOGNITION
 
-Goal:
-Determine whether an image contains the digit 9.
+Goal: Determine whether an image contains the digit 9.
 
 Input Layer → Receives pixel values
 Hidden Layer(s) → Analyzes edges, curves and shapes
