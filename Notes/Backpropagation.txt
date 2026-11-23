@@ -287,239 +287,142 @@ f'(z(l)) = Local derivative ⊙
 = Element-wise multiplication
 
 ------------------------------------------------------------
-
 WHY IS THE WEIGHT MATRIX TRANSPOSED?
 
 Forward Pass:
-
-Current Layer
-→ W
-→ Next Layer
+Current Layer → W → Next Layer
 
 Backward Pass:
+Next Layer Gradient → Wᵀ → Previous Layer
 
-Next Layer Gradient
-→ Wᵀ
-→ Previous Layer
-
-Purpose:
-Align dimensions correctly during backpropagation.
+Purpose: Align dimensions correctly during backpropagation.
 
 ------------------------------------------------------------
-
 HIDDEN WEIGHT GRADIENT
 
-Hidden Layer Equation:
-
-zh = wx + bh
-
-Derivative:
-
-∂zh/∂w = x
-
-Gradient:
-
-∂L/∂w = δh x
+Hidden Layer Equation: zh = wx + bh
+Derivative: ∂zh/∂w = x
+Gradient: ∂L/∂w = δh x
 
 General Form:
-
-∂L/∂W(l)
-
-=
-δ(l)(a(l−1))ᵀ
+∂L/∂W(l) = δ(l)(a(l−1))ᵀ
 
 ------------------------------------------------------------
-
 HIDDEN BIAS GRADIENT
 
-Derivative:
-
-∂zh/∂bh = 1
-
-Gradient:
-
-∂L/∂bh = δh
+Derivative: ∂zh/∂bh = 1
+Gradient: ∂L/∂bh = δh
 
 Same principle used at every layer.
 
 ------------------------------------------------------------
-
 REPEATING BACKPROP PATTERN
 
 At every layer:
-
-Step 1:
-Receive downstream gradient.
-
-Step 2:
-Multiply by local derivative.
-
-Step 3:
-Compute gradients.
-
-Step 4:
-Pass error backward.
+Step 1: Receive downstream gradient.
+Step 2: Multiply by local derivative.
+Step 3: Compute gradients.
+Step 4: Pass error backward.
 
 Backpropagation repeats this process layer by layer.
 
 ------------------------------------------------------------
-
 PARAMETER UPDATES
 
 Weights:
-
 wnew = wold − η(∂L/∂w)
 
 Biases:
-
 bnew = bold − η(∂L/∂b)
 
 Where:
-
 η = Learning Rate
 
-Purpose:
-Move parameters toward lower loss.
+Purpose: Move parameters toward lower loss.
 
 ------------------------------------------------------------
-
 BIAS UPDATE RULE
 
 Incorrect:
-
 bnew = bold − δ
 
 Correct:
-
 bnew = bold − ηδ
 
-Important:
-
+Important: 
 Learning rate must be applied to both:
-
 • Weights
 • Biases
 
 ------------------------------------------------------------
-
 COMPLETE BACKPROPAGATION WORKFLOW
 
-Forward Pass
-↓
-Prediction
-↓
-Loss
-↓
-Output Error Term (δo)
-↓
-Hidden Error Term (δh)
-↓
-Gradients
-↓
-Parameter Updates
+Forward Pass → Prediction → Loss → Output Error Term (δo) → Hidden Error Term (δh) → Gradients → Parameter Updates
 
-Purpose:
-Train the network by reducing loss.
+Purpose: Train the network by reducing loss.
 
 ------------------------------------------------------------
-
 FORWARD VALUES MUST BE STORED
 
 Backpropagation reuses values from the forward pass.
 
 Example:
-
-Stored Hidden Activation:
-
-h
-
+Stored Hidden Activation: h
 Used In:
-
 ∂L/∂v = δoh
+and h(1 − h)
 
-and
-
-h(1 − h)
-
-Purpose:
-Avoid recalculating activations.
+Purpose: Avoid recalculating activations.
 
 ------------------------------------------------------------
-
 WHY DID THE WEIGHTS INCREASE?
 
-Suppose:
-
-∂L/∂w < 0
+Suppose: ∂L/∂w < 0
 
 Update Rule:
-
 wnew = wold − η(∂L/∂w)
-
 Subtracting a negative value becomes addition.
 
 Example:
-
 wnew = 0.5 − (0.1)(−0.02)
-
 wnew = 0.502
 
-Result:
-
-Weight increases.
+Result: Weight increases.
 
 ------------------------------------------------------------
-
 LOCAL GRADIENTS VS GLOBAL EFFECT
 
 Local Information:
-
 • Input
 • Activation Derivative
 • Downstream Gradient
 
 Chain Rule combines them to measure a parameter's total effect on loss.
 
-Purpose:
-Determine contribution of each parameter to overall error.
+Purpose: Determine contribution of each parameter to overall error.
 
 ------------------------------------------------------------
-
 COMMON MISTAKE 1
 
 Backpropagation does NOT reverse the prediction.
 
-Forward Pass:
+Forward Pass: Produces predictions.
+Backward Pass: Produces gradients.
 
-Produces predictions.
-
-Backward Pass:
-
-Produces gradients.
-
-Purpose:
-Update parameters.
+Purpose: Update parameters.
 
 ------------------------------------------------------------
-
 COMMON MISTAKE 2
 
 Wrong Sigmoid Derivative
 
-Incorrect:
+Incorrect: ŷ(1 − y)
 
-ŷ(1 − y)
+Correct: ŷ(1 − ŷ)
 
-Correct:
-
-ŷ(1 − ŷ)
-
-Reason:
-
-The derivative depends on the sigmoid output itself.
+Reason: The derivative depends on the sigmoid output itself.
 
 ------------------------------------------------------------
-
 COMMON MISTAKE 3
 
 Updating Parameters Too Early
