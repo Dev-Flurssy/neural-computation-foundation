@@ -46,13 +46,12 @@ Therefore each image is represented by:
 ------------------------------------------------------------
 WHAT IS THE GOAL OF TRAINING?
 
-We want:
-Network Output ≈ Correct Output
+We want: Network Output ≈ Correct Output
 
 Example:
 
 Desired Output:
-(0,0,0,0,0,0,1,0,0,0)
+(0, 0, 0, 0, 0, 0, 1, 0, 0, 0)
 
 Meaning:
 The image is a digit 6.
@@ -63,11 +62,8 @@ WHAT IS A COST FUNCTION?
 
 A Cost Function measures how wrong the neural network is.
 
-Small Cost:
-Predictions are accurate.
-
-Large Cost:
-Predictions are inaccurate.
+Small Cost: Predictions are accurate.
+Large Cost: Predictions are inaccurate.
 
 ------------------------------------------------------------
 QUADRATIC COST FUNCTION
@@ -86,15 +82,12 @@ Cost Function = Measure of Error
 INTERPRETING THE COST
 
 If: C ≈ 0
-Then:
-Network predictions are very accurate.
+Then: Network predictions are very accurate.
 
 If: C is large
-Then:
-Network predictions are poor.
+Then: Network predictions are poor.
 
-Therefore:
-Training Goal →  Minimize Cost Function
+Therefore: Training Goal →  Minimize Cost Function
 
 ------------------------------------------------------------
 WHY NOT COUNT CORRECT ANSWERS DIRECTLY?
@@ -121,7 +114,6 @@ Gradient Descent is a method for finding the minimum value of the Cost Function.
 Think of the Cost Function as a valley.
 
 Example:
-
       Hill
        /\
       /  \
@@ -129,7 +121,6 @@ Example:
     /      \
    /        \
 __/__________\__
-
       Minimum
 
 Gradient Descent moves toward the lowest point.
@@ -141,8 +132,7 @@ Imagine placing a ball on a hill.
 The ball naturally rolls downhill.
 Eventually the ball reaches the valley.
 
-Similarly:
-Gradient Descent moves toward lower cost values until a minimum is reached.
+Similarly: Gradient Descent moves toward lower cost values until a minimum is reached.
 
 ------------------------------------------------------------
 WHAT IS THE GRADIENT?
@@ -277,8 +267,7 @@ WHY DOES THIS WORK?
 
 The gradient calculated from a random mini-batch is usually close to the true gradient.
 
-Therefore:
-Small Sample → Good Gradient Estimate → Faster Learning
+Therefore: Small Sample → Good Gradient Estimate → Faster Learning
 
 ------------------------------------------------------------
 HOW SGD WORKS
@@ -306,7 +295,7 @@ Mini-Batch Size = 10
 
 Number of Updates:
 60,000 / 10
-= 6,000 updates
+= 6, 000 updates
 
 After all images have been used once:
 1 Epoch Completed
@@ -445,14 +434,12 @@ PERCEPTRON TRAINING ALGORITHM
 
 Step 1: Initialize weights and bias.
 Step 2: Present a training example.
-Step 3: Calculate
-z = w·x + b
+Step 3: Calculate z = w·x + b
 Step 4: Apply the Step Function.
 If z ≥ 0 → y = 1
 If z < 0 → y = 0
 Step 5: Compare prediction y with target t.
-Step 6: If prediction is wrong:
-Update weights and bias.
+Step 6: If prediction is wrong: Update weights and bias.
 Step 7: Repeat for all training examples.
 Step 8: Repeat additional epochs if necessary.
 
@@ -516,8 +503,7 @@ Multilayer Network:
 PREDICTION
 
 The model already has weights.
-Process:
-Input → z → Output
+Process: Input → z → Output
 This is called the Forward Pass.
 
 Prediction answers: "What class does this input belong to?"
@@ -624,8 +610,7 @@ Example:
 
 These methods can mimic a real rolling ball and may be more accurate.
 
-However:
-If there are 1,000,000 variables,
+However: If there are 1,000,000 variables,
 
 We may need roughly:
 1,000,000²
@@ -636,8 +621,7 @@ This is extremely expensive.
 ------------------------------------------------------------
 WHY GRADIENT DESCENT IS PREFERRED
 
-Gradient Descent only needs:
-First Derivatives
+Gradient Descent only needs: First Derivatives
 
 Example:
 ∂C / ∂w

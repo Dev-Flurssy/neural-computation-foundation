@@ -58,8 +58,7 @@ TARGET
 
 A target is the desired output the model learns to predict.
 
-Notation:
-y
+Notation: y
 
 Example:
 Patient Measurements → Disease
@@ -114,8 +113,7 @@ New Student:
 5 Hours
 80% Attendance
 
-Prediction:
-Pass
+Prediction: Pass
 
 ------------------------------------------------------------
 TRAINING VS PREDICTION
@@ -136,9 +134,7 @@ Perceptron Components:
 Target = t
 Prediction = y
 
-Learning Signal:
-t − y
-
+Learning Signal: t − y
 The perceptron learns from known answers, making it a supervised learning model.
 
 ------------------------------------------------------------
@@ -218,7 +214,7 @@ SEMI-SUPERVISED LEARNING
 Semi-supervised learning uses a small amount of labeled data and a large amount of unlabeled data.
 
 Formula:
-Semi-Supervised Learning=Few Labels + Many Unlabeled Examples
+Semi-Supervised Learning = Few Labels + Many Unlabeled Examples
 
 ------------------------------------------------------------
 SEMI-SUPERVISED LEARNING EXAMPLE
@@ -259,7 +255,7 @@ REINFORCEMENT LEARNING
 Reinforcement learning teaches an agent through rewards and penalties obtained from interacting with an environment.
 
 Cycle:
-StateSemi → Supervised LearningAction → Reward → New State → Repeat
+StateSemi → Supervised Learning Action → Reward → New State → Repeat
 
 ------------------------------------------------------------
 AGENT
@@ -314,7 +310,6 @@ Robot Actions:
 REWARD
 
 A reward evaluates the consequence of an action.
-
 Notation: r
 
 Example:
@@ -329,7 +324,6 @@ Purpose: Guide learning.
 POLICY
 
 A policy tells the agent which action to choose for a given state.
-
 Notation: π(s) = a
 
 Meaning:
