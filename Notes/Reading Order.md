@@ -9,4 +9,6 @@
 7. Learning Paradigm
 8. Classification vs Regression
 9. Feed Forward NN
-10. Loss Function & Learning Rate 
+10. Loss Function & Learning Rate
+11. Backpropagation
+12. 
