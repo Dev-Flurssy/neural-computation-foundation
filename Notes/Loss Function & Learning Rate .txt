@@ -2,10 +2,8 @@ FROM PREDICTION TO LEARNING
 
 A neural network must evaluate how good its prediction is before it can learn.
 
-Flow:
-Input x → Neural Network → Prediction ŷ → Evaluate Prediction Quality
-
-Question: How good is the prediction?
+Flow: Input x → Neural Network → Prediction ŷ → Evaluate Prediction Quality
++Question: How good is the prediction?
 
 ------------------------------------------------------------
 TARGET VS PREDICTION
@@ -254,7 +252,6 @@ Possible Targets:
 y ∈ {0, 1}
 
 Examples:
-
 y = 1
 Meaning: Positive Class
 
@@ -435,7 +432,6 @@ wnew = 2.4
 LEARNING RATE
 
 The learning rate controls how large parameter updates are.
-
 Notation: η
 
 Formula:
