@@ -1,0 +1,398 @@
+LEARNING PARADIGMS
+
+A learning paradigm is a method that determines how a machine learning system learns from data.
+
+The Four Learning Paradigms:
+• Supervised Learning
+• Unsupervised Learning
+• Semi-Supervised Learning
+• Reinforcement Learning
+
+------------------------------------------------------------
+LABEL
+
+A label is the correct or known answer associated with a training example.
+
+Example:
+Input Image → Cat
+
+Input = Example
+Label = Known Answer
+
+Purpose: Used to teach the model the correct output during training.
+
+------------------------------------------------------------
+FEATURES
+
+Features are the input variables used to describe an example.
+
+Notation: x = (x₁, x₂, ..., xₙ)
+
+Example:
+Patient Information:
+• Age
+• Weight
+• Blood Pressure
+
+These measurements become the features.
+
+------------------------------------------------------------
+FEATURE VECTOR
+
+A feature vector is the complete numerical description of an example.
+
+Notation: x = (x₁, x₂, ..., xₙ)
+
+Example:
+Student:
+Hours Studied = 5
+Attendance = 80%
+
+Feature Vector:
+x = (5, 80)
+
+------------------------------------------------------------
+TARGET
+
+A target is the desired output the model learns to predict.
+Notation: y
+
+Example:
+Patient Measurements → Disease
+x → y
+
+Where:
+x = Features
+y = Target
+
+------------------------------------------------------------
+SUPERVISED LEARNING
+
+Supervised learning uses labeled training data to learn a mapping between inputs and outputs.
+
+Training Data: (x, y)
+
+Where:
+x = Input Features
+y = Known Label
+
+Main Question: "What is the correct output for this input?"
+
+------------------------------------------------------------
+HOW SUPERVISED LEARNING WORKS
+
+Input x → Model → Prediction → Compare with Label y → Learning
+The model improves by comparing predictions with known answers.
+
+------------------------------------------------------------
+SUPERVISED LEARNING EXAMPLE
+
+Image Recognition:
+Image → Cat
+Image → Dog
+Image → Cat
+Image → Dog
+
+After Training:
+New Image → Model → Cat or Dog
+
+------------------------------------------------------------
+NUMERICAL SUPERVISED LEARNING EXAMPLE
+
+Study Hours   Attendance   Result
+2             55%          Fail
+4             70%          Pass
+6             85%          Pass
+1             40%          Fail
+
+New Student:
+5 Hours
+80% Attendance
+
+Prediction: Pass
+
+------------------------------------------------------------
+TRAINING VS PREDICTION
+
+TRAINING:
+Input + Correct Answer → Model Learns
+
+PREDICTION (INFERENCE):
+New Input → Trained Model → Predicted Output
+
+Training builds the model.
+Inference uses the model.
+
+------------------------------------------------------------
+PERCEPTRON AS SUPERVISED LEARNING
+
+Perceptron Components:
+Target = t
+Prediction = y
+
+Learning Signal: t − y
+The perceptron learns from known answers, making it a supervised learning model.
+
+------------------------------------------------------------
+UNSUPERVISED LEARNING
+
+Unsupervised learning uses data without labels.
+
+Training Data: Inputs Only
+No Correct Answers Provided.
+
+Main Question: "What hidden patterns exist in the data?"
+
+------------------------------------------------------------
+WHAT DOES UNSUPERVISED LEARNING DISCOVER?
+
+The model searches for:
+• Patterns
+• Similarities
+• Structures
+• Relationships
+
+Purpose: Discover organization hidden inside the data.
+
+------------------------------------------------------------
+UNSUPERVISED LEARNING EXAMPLE
+
+Customer Data:
+Customer   Age   Spending
+A          20    150
+B          22    170
+C          55    900
+D          58    850
+E          23    130
+
+No Labels:
+No "High Spender"
+No "Low Spender"
+
+Goal: Find natural customer groups.
+
+------------------------------------------------------------
+CLUSTERING
+
+Clustering is the process of grouping similar data points together.
+
+Example:
+Group 1 → Young Customers
+Group 2 → Older Customers
+Group 3 → High Spenders
+
+The groups are discovered automatically from similarity.
+
+------------------------------------------------------------
+SUPERVISED VS UNSUPERVISED LEARNING
+
+Supervised:
+• Labels Available
+• Learns Correct Outputs
+• Goal: Prediction
+
+Example:
+Pass / Fail Prediction
+
+Unsupervised:
+• No Labels
+• Learns Patterns
+• Goal: Discover Structure
+
+Example:
+Customer Segmentation
+
+Main Difference: Are labels available during training?
+
+------------------------------------------------------------
+SEMI-SUPERVISED LEARNING
+
+Semi-supervised learning uses a small amount of labeled data and a large amount of unlabeled data.
+
+Formula:
+Semi-Supervised Learning = Few Labels + Many Unlabeled Examples
+
+------------------------------------------------------------
+SEMI-SUPERVISED LEARNING EXAMPLE
+
+Medical Images:
+10,000 Total Images
+500 Labeled
+9,500 Unlabeled
+
+Goal: Use all available data to improve learning.
+
+------------------------------------------------------------
+WHY SEMI-SUPERVISED LEARNING IS NEEDED
+
+Collecting data can be easy.
+Labeling data can be expensive.
+
+Examples:
+• Medical diagnoses need doctors.
+• Speech data needs transcription.
+• Industrial inspection needs experts.
+• Web data often lacks labels.
+
+------------------------------------------------------------
+GOAL OF SEMI-SUPERVISED LEARNING
+
+Use a few labels and many unlabeled examples to achieve better predictions.
+
+Comparison:
+Supervised: Mostly Labeled Data
+Semi-Supervised: Few Labels + Many Unlabeled Examples
+
+Goal Remains: Accurate Prediction
+
+------------------------------------------------------------
+REINFORCEMENT LEARNING
+
+Reinforcement learning teaches an agent through rewards and penalties obtained from interacting with an environment.
+
+Cycle:
+StateSemi → Supervised Learning Action → Reward → New State → Repeat
+
+------------------------------------------------------------
+AGENT
+
+An agent is the learner or decision-maker.
+
+Examples:
+• Robot
+• Self-driving car
+• Game-playing AI
+
+Purpose: Choose actions.
+
+------------------------------------------------------------
+ENVIRONMENT
+
+The environment is the world in which the agent operates.
+
+Examples:
+• Road
+• Game
+• Warehouse
+• Maze
+
+Purpose: Respond to the agent's actions.
+
+------------------------------------------------------------
+STATE
+
+A state describes the current situation of the environment.
+Notation: s or s = (s₁, s₂, ..., sₙ)
+
+Robot State Example:
+• Distance from wall
+• Battery level
+• Current position
+• Direction
+
+------------------------------------------------------------
+ACTION
+
+An action is a decision made by the agent.
+Notation: a
+
+Robot Actions:
+• Move Left
+• Move Right
+• Move Forward
+• Stop
+
+------------------------------------------------------------
+REWARD
+
+A reward evaluates the consequence of an action.
+Notation: r
+
+Example:
+Reach Goal      +10
+Correct Move    +1
+Hit Obstacle    -10
+Waste Energy    -1
+
+Purpose: Guide learning.
+
+------------------------------------------------------------
+POLICY
+
+A policy tells the agent which action to choose for a given state.
+Notation: π(s) = a
+
+Meaning:
+State → Policy → Action
+The policy is what the agent learns.
+
+------------------------------------------------------------
+REINFORCEMENT LEARNING EXAMPLE
+
+Maze Navigation:
+Reach Goal: +10 Reward
+Unnecessary Move: -1 Reward
+
+Goal: Learn actions producing the highest long-term reward.
+
+------------------------------------------------------------
+SUPERVISED VS REINFORCEMENT LEARNING
+
+Supervised Learning:
+Input → Correct Answer Provided
+
+Reinforcement Learning:
+State → Action → Reward
+
+Difference:
+Label tells the correct answer.
+Reward only tells whether the action was good or bad.
+
+------------------------------------------------------------
+COMPARISON OF THE FOUR LEARNING PARADIGMS
+
+SUPERVISED LEARNING
+
+Labels: Yes
+Feedback: Targets
+Goal: Predict Outputs
+
+Example: Disease Prediction
+
+------------------------------------------------------------
+UNSUPERVISED LEARNING
+
+Labels: No
+Feedback: Structure in Data
+Goal: Discover Patterns
+
+Example: Customer Clustering
+
+------------------------------------------------------------
+SEMI-SUPERVISED LEARNING
+
+Labels: Some
+Feedback: Mix of Labeled and Unlabeled Data
+Goal: Prediction with Few Labels
+
+Example: Medical Images
+
+------------------------------------------------------------
+REINFORCEMENT LEARNING
+
+Labels: No Traditional Labels
+Feedback: Rewards
+Goal: Learn Best Actions
+
+Example: Robot Navigation
+
+------------------------------------------------------------
+ONE DATASET, DIFFERENT QUESTIONS
+
+Supervised: Can we predict whether a patient has a disease?
+Unsupervised: Are there natural groups of patients?
+Semi-Supervised: Can we learn effectively when only some patients are labeled?
+Reinforcement: What sequence of actions maximizes long-term reward?
+
+------------------------------------------------------------
+

@@ -1,0 +1,487 @@
+FROM ONE NEURON TO A NETWORK
+
+A neural network is formed by connecting many artificial neurons together in layers.
+
+Single Neuron:
+z = Σ(wᵢxᵢ) + b
+a = f(z)
+
+Neural Network:
+Many neurons perform the same operation repeatedly across multiple layers.
+
+------------------------------------------------------------
+ARTIFICIAL NEURON
+
+An artificial neuron is the basic processing unit of a neural network.
+
+Operation:
+Inputs → Weighted Sum → Add Bias → Activation Function → Output
+
+Formula:
+z = Σ(wᵢxᵢ) + b
+a = f(z)
+
+Where:
+x = Inputs
+w = Weights
+b = Bias
+z = Weighted Sum
+a = Output
+
+------------------------------------------------------------
+WHY IS ONE PERCEPTRON NOT ENOUGH?
+
+A single perceptron can only solve linearly separable problems.
+
+Examples It Can Solve:
+• AND Gate
+• OR Gate
+
+Reason: It uses only one linear decision boundary.
+
+------------------------------------------------------------
+XOR PROBLEM
+
+XOR cannot be separated using a single straight line.
+
+Truth Table:
+x₁   x₂   XOR
+0    0     0
+0    1     1
+1    0     1
+1    1     0
+
+Problem: No single linear boundary can correctly separate the outputs.
+Solution: Use hidden layers inside a neural network.
+
+------------------------------------------------------------
+MULTILAYER PERCEPTRON (MLP)
+
+An MLP is a neural network consisting of multiple layers of neurons.
+
+Structure: Input Layer → Hidden Layer(s) → Output Layer
+Purpose: Allow learning of complex patterns and nonlinear relationships.
+
+------------------------------------------------------------
+BASIC MLP ARCHITECTURE
+
+An MLP is organized into layers through which information flows.
+
+Example:
+x₁   x₂   x₃
+ \   |   /
+  Hidden Layer
+       |
+       y
+
+Information moves from left to right.
+
+------------------------------------------------------------
+THREE MAIN TYPES OF LAYERS
+
+An MLP consists of Input, Hidden, and Output layers.
+
+Input Layer: Receives features.
+Hidden Layer: Performs computations.
+Output Layer: Produces predictions.
+
+Flow: Input → Hidden → Output
+
+------------------------------------------------------------
+INPUT LAYER
+
+The input layer receives the original features.
+Notation: x = [x₁ x₂ x₃]ᵀ
+
+Example:
+Medical Data
+x₁ = Age
+x₂ = Blood Pressure
+x₃ = Glucose
+
+Purpose: Represent the input example.
+
+------------------------------------------------------------
+HIDDEN LAYERS
+
+Hidden layers perform intermediate processing.
+
+Each hidden neuron:
+• Receives inputs
+• Computes weighted sum
+• Adds bias
+• Applies activation function
+
+Formula:
+z = Σ(wx) + b
+h = f(z)
+
+------------------------------------------------------------
+HIDDEN NEURON CALCULATION
+
+A hidden neuron calculates a weighted sum and applies an activation function.
+
+Example:
+x₁ = 1
+x₂ = 0
+w₁ = 0.5
+w₂ = 0.2
+b = -0.1
+
+Calculation:
+z = (0.5)(1) + (0.2)(0) - 0.1
+z = 0.4
+
+Using Sigmoid:
+h = σ(0.4)
+h ≈ 0.599
+
+------------------------------------------------------------
+LAYER-TO-LAYER PROPAGATION
+
+The output of one layer becomes the input of the next layer.
+
+Example:
+h₁ = 0.60
+h₂ = 0.35
+
+These become inputs to the output neuron.
+This process is called propagation.
+
+------------------------------------------------------------
+OUTPUT LAYER
+
+The output layer produces the final prediction.
+
+Examples:
+Binary Classification: Healthy / Sick
+Multiclass Classification: Cat / Dog / Bird
+Regression: House Price
+
+Purpose: Generate the final answer.
+
+------------------------------------------------------------
+MLP FOR CLASSIFICATION
+
+Classification predicts categories or classes.
+
+Example:
+Patient Features → MLP → Healthy or Sick
+
+Output: Class Label
+
+------------------------------------------------------------
+MLP FOR REGRESSION
+
+Regression predicts numerical values.
+
+Example:
+House Features → MLP → House Price
+
+Output: Real Number
+
+------------------------------------------------------------
+FULLY CONNECTED NETWORK
+
+A network is fully connected when every neuron connects to every neuron in the next layer.
+
+Example:
+Input Layer: x₁ x₂ x₃
+Hidden Layer: h₁ h₂ h₃
+Connections: Every input neuron connects to every hidden neuron.
+
+Properties:
+• Maximum information flow
+• Most common MLP architecture
+
+------------------------------------------------------------
+SHALLOW MLP
+
+A shallow MLP contains one hidden layer.
+
+Example:
+4–5–1
+
+Meaning:
+4 Inputs
+5 Hidden Neurons
+1 Output
+
+------------------------------------------------------------
+DEEP MLP
+
+A deep MLP contains multiple hidden layers.
+
+Example:
+6–4–3–1
+
+Meaning:
+6 Inputs
+4 Neurons in Hidden Layer 1
+3 Neurons in Hidden Layer 2
+1 Output
+
+More hidden layers create a deeper network.
+
+------------------------------------------------------------
+FEEDFORWARD NETWORK
+
+A feedforward network passes information only forward.
+
+Flow: Input → Hidden Layer → Output
+
+Properties:
+• No loops
+• No feedback
+• Information moves one direction
+
+------------------------------------------------------------
+FEEDFORWARD VS FEEDBACK NETWORKS
+
+Feedforward:
+Input → Hidden → Output
+No loops
+
+Feedback / Recurrent:
+Input → Hidden → Output
+          ↑
+          │
+         Loop
+
+Contains feedback connections.
+
+------------------------------------------------------------
+FORWARD PROPAGATION
+
+Forward propagation calculates the network output using current weights and biases.
+Purpose: Determine what the network predicts for a given input.
+
+Flow: Input → Weighted Sums → Activations → Output
+Main Question: "What does the network predict?"
+
+------------------------------------------------------------
+FORWARD PROPAGATION EQUATIONS
+
+Forward propagation follows the same operation at every layer.
+
+Weighted Sum: z⁽ˡ⁾ = W⁽ˡ⁾a⁽ˡ⁻¹⁾ + b⁽ˡ⁾
+Activation: a⁽ˡ⁾ = f(z⁽ˡ⁾)
+Input Layer: a⁽⁰⁾ = x
+
+Meaning: Current Layer = Previous Outputs × Weights + Biases
+
+------------------------------------------------------------
+LAYER NOTATION
+
+Special symbols are used for each layer.
+
+W⁽ˡ⁾: Weight Matrix
+b⁽ˡ⁾: Bias Vector
+z⁽ˡ⁾: Weighted Sum
+a⁽ˡ⁾: Activation Output
+l: Layer Number
+
+------------------------------------------------------------
+INTUITION OF FORWARD PROPAGATION
+
+Every layer performs the same two-step process.
+
+Step 1: Weighted Sum
+z⁽ˡ⁾ = W⁽ˡ⁾a⁽ˡ⁻¹⁾ + b⁽ˡ⁾
+
+Step 2: Activation Function
+a⁽ˡ⁾ = f(z⁽ˡ⁾)
+
+Summary:
+Weighted Sum → Activation → Pass to Next Layer
+
+------------------------------------------------------------
+ACTIVATION FUNCTIONS
+
+Activation functions introduce nonlinearity into the network.
+
+Without Activation: Many layers behave like one linear equation.
+With Activation: Complex patterns can be learned.
+
+Purpose: Allow learning beyond straight-line boundaries.
+
+------------------------------------------------------------
+SIGMOID ACTIVATION FUNCTION
+
+Sigmoid converts input values into outputs between 0 and 1.
+
+Formula:
+σ(z) = 1 / (1 + e⁻ᶻ)
+
+Output Range:
+0 < σ(z) < 1
+
+Examples:
+σ(-1) ≈ 0.269
+σ(0) = 0.5
+σ(1) ≈ 0.731
+
+Common Use: Probability estimation.
+
+------------------------------------------------------------
+ReLU ACTIVATION FUNCTION
+
+ReLU returns zero for negative inputs and returns the original value for positive inputs.
+
+Formula:
+ReLU(z) = max(0, z)
+
+Examples:
+ReLU(-2) = 0
+ReLU(3) = 3
+
+Properties:
+• Fast
+• Simple
+• Widely used in modern neural networks
+
+------------------------------------------------------------
+FORWARD PROPAGATION WORKED EXAMPLE
+
+A complete forward pass calculates hidden neurons first and then the output neuron.
+
+Network:
+Inputs:
+x₁ = 1
+x₂ = 0
+
+Hidden Neurons: h₁, h₂
+Output: y
+
+------------------------------------------------------------
+HIDDEN NEURON h₁
+
+Parameters:
+w₁₁ = 0.5
+w₁₂ = 0.4
+b₁ = -0.1
+
+Calculation:
+zₕ₁ = (0.5)(1) + (0.4)(0) - 0.1
+zₕ₁ = 0.4
+
+Step Activation:
+h₁ = 1
+
+------------------------------------------------------------
+HIDDEN NEURON h₂
+
+Parameters:
+w₂₁ = -0.3
+w₂₂ = 0.8
+b₂ = 0.1
+
+Calculation:
+zₕ₂ = (-0.3)(1) + (0.8)(0) + 0.1
+zₕ₂ = -0.2
+
+Step Activation:
+h₂ = 0
+
+------------------------------------------------------------
+OUTPUT NEURON
+
+Inputs:
+h₁ = 1
+h₂ = 0
+
+Parameters:
+v₁ = 0.7
+v₂ = 0.6
+b₀ = -0.5
+
+Calculation:
+z₀ = (0.7)(1) + (0.6)(0) - 0.5
+z₀ = 0.2
+
+Step Activation:
+y = 1
+
+------------------------------------------------------------
+COMPLETE INFORMATION FLOW
+
+Inputs: (1, 0)
+Hidden Sums: (0.4, -0.2)
+
+Hidden Activations: (1, 0)
+Output Sum: 0.2
+
+Final Output: 1
+This complete process is called Forward Propagation.
+
+------------------------------------------------------------
+PARAMETERS OF A NEURON
+
+Every neuron has its own weights and bias.
+
+Hidden Neuron 1: w₁₁, w₁₂, b₁
+Hidden Neuron 2: w₂₁, w₂₂, b₂
+
+Purpose: Allow different neurons to learn different patterns.
+
+------------------------------------------------------------
+WHAT IS LEARNED DURING TRAINING?
+
+Chosen By Designer:
+• Number of Inputs
+• Number of Hidden Layers
+• Number of Neurons
+• Number of Outputs
+
+Learned By Network:
+• Weights (W)
+• Biases (b)
+
+Training adjusts weights and biases.
+
+------------------------------------------------------------
+SINGLE PERCEPTRON VS MLP
+
+Single Perceptron:
+• No Hidden Layers
+• One Computation Stage
+• Very Limited
+• Solves Simple Problems
+
+MLP:
+• Has Hidden Layers
+• Multiple Computation Stages
+• Learns Nonlinear Relationships
+• More Powerful
+
+Key Improvement: Hidden Layers + Nonlinear Activations
+
+------------------------------------------------------------
+WHY HIDDEN LAYERS MATTER
+
+Hidden layers transform raw input features into useful internal representations.
+
+Flow: Original Features → Hidden Representation → Final Decision
+This transformation helps solve problems that a single perceptron cannot solve.
+
+------------------------------------------------------------
+FORWARD PROPAGATION VS TRAINING
+
+FORWARD PROPAGATION
+• Uses Current Weights
+• Computes Prediction
+• No Parameter Updates
+
+Flow: Input → Prediction
+
+------------------------------------------------------------
+TRAINING
+
+• Uses Forward Propagation
+• Compares Prediction With Target
+• Calculates Error
+• Updates Weights and Biases
+
+Flow: Input → Prediction → Target Comparison → Error → Parameter Update
+
+------------------------------------------------------------
