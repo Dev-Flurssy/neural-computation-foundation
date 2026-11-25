@@ -235,7 +235,6 @@ This is possible using Functional API.
 SEQUENTIAL VS FUNCTIONAL
 
 SEQUENTIAL API
-
 • Simple
 • Linear Layers
 • One Input
@@ -286,19 +285,15 @@ This structure forms an Artificial Neural Network (ANN).
 SEQUENTIAL API vs FUNCTIONAL API
 
 Keras provides two main ways to build neural networks:
-
 1. Sequential API
 2. Functional API
 
-Both create deep learning models, but they differ in
-flexibility and complexity.
+Both create deep learning models, but they differ in flexibility and complexity.
 
 ------------------------------------------------------------
-
 WHAT IS SEQUENTIAL API?
 
 Sequential API is the simplest way to build a neural network.
-
 Layers are stacked one after another in a linear sequence.
 
 Input
@@ -314,7 +309,6 @@ Output
 Data flows through only one path.
 
 ------------------------------------------------------------
-
 CHARACTERISTICS OF SEQUENTIAL API
 
 • Linear Structure
@@ -325,24 +319,20 @@ CHARACTERISTICS OF SEQUENTIAL API
 • Beginner Friendly
 
 ------------------------------------------------------------
-
 WHEN TO USE SEQUENTIAL API
 
 Use Sequential API when:
-
 • Building simple neural networks
 • Creating ANN models
 • Creating basic CNN models
 • Learning Deep Learning
 
 Examples:
-
 • House Price Prediction
 • Digit Recognition (MNIST)
 • Simple Image Classification
 
 ------------------------------------------------------------
-
 SEQUENTIAL API EXAMPLE
 
 model = Sequential()
@@ -352,7 +342,6 @@ model.add(Dense(32, activation='relu'))
 model.add(Dense(10, activation='softmax'))
 
 ------------------------------------------------------------
-
 ADVANTAGES OF SEQUENTIAL API
 
 • Easy to Understand
@@ -361,11 +350,9 @@ ADVANTAGES OF SEQUENTIAL API
 • Beginner Friendly
 
 ------------------------------------------------------------
-
 LIMITATIONS OF SEQUENTIAL API
 
 Cannot Support:
-
 • Multiple Inputs
 • Multiple Outputs
 • Shared Layers
@@ -373,14 +360,10 @@ Cannot Support:
 • Complex Architectures
 
 ------------------------------------------------------------
-
 WHAT IS FUNCTIONAL API?
 
-Functional API is a more advanced way of creating
-neural networks.
-
-Layers are connected explicitly instead of being
-stacked linearly.
+Functional API is a more advanced way of creating neural networks.
+Layers are connected explicitly instead of being stacked linearly.
 
 Input Layer
       ↓
@@ -391,7 +374,6 @@ Output Layer
 The developer controls how data flows between layers.
 
 ------------------------------------------------------------
-
 CHARACTERISTICS OF FUNCTIONAL API
 
 • Flexible
@@ -402,11 +384,9 @@ CHARACTERISTICS OF FUNCTIONAL API
 • Skip Connections
 
 ------------------------------------------------------------
-
 WHEN TO USE FUNCTIONAL API
 
 Use Functional API when:
-
 • Building Complex Models
 • Creating CNN Architectures
 • Creating ResNet Models
@@ -415,25 +395,20 @@ Use Functional API when:
 • Creating Multi-Output Networks
 
 ------------------------------------------------------------
-
 FUNCTIONAL API WORKFLOW
 
 STEP 1
 
 Create Input Layer
-
 visible = Input(shape=(10,))
 
 ------------------------------------------------------------
-
 STEP 2
 
 Connect Layers
-
 hidden = Dense(2)(visible)
 
 ------------------------------------------------------------
-
 STEP 3
 
 Create Model
@@ -444,16 +419,13 @@ model = Model(
 )
 
 ------------------------------------------------------------
-
 FUNCTIONAL API EXAMPLE
 
 from keras.layers import Input, Dense
 from keras.models import Model
 
 visible = Input(shape=(10,))
-
 hidden1 = Dense(64, activation='relu')(visible)
-
 output = Dense(1)(hidden1)
 
 model = Model(
@@ -462,7 +434,6 @@ model = Model(
 )
 
 ------------------------------------------------------------
-
 MULTIPLE INPUTS (FUNCTIONAL API)
 
 Input A ──┐
@@ -472,13 +443,10 @@ Input A ──┐
 Input B ──┘
 
 Possible?
-
 Sequential API = NO
-
 Functional API = YES
 
 ------------------------------------------------------------
-
 MULTIPLE OUTPUTS (FUNCTIONAL API)
 
              ┌── Output 1
@@ -486,13 +454,10 @@ Input ───────┤
              └── Output 2
 
 Possible?
-
 Sequential API = NO
-
 Functional API = YES
 
 ------------------------------------------------------------
-
 SKIP CONNECTIONS (FUNCTIONAL API)
 
 Input
@@ -508,18 +473,14 @@ Add ◄────────────┘
 Output
 
 Used In:
-
 • ResNet
 • Modern Deep Learning Models
 
 Possible?
-
 Sequential API = NO
-
 Functional API = YES
 
 ------------------------------------------------------------
-
 LAYER SHARING
 
 A single layer can be used by multiple inputs.
@@ -531,96 +492,63 @@ Input A ── Shared Layer ──┐
 Input B ── Shared Layer ──┘
 
 Possible?
-
 Sequential API = NO
-
 Functional API = YES
 
 ------------------------------------------------------------
-
 COMPARISON
 
 STRUCTURE
 
-Sequential API
-• Linear Stack
-
-Functional API
-• Graph of Layers
+Sequential API: Linear Stack
+Functional API: Graph of Layers
 
 ------------------------------------------------------------
-
 MODEL COMPLEXITY
 
-Sequential API
-• Simple Models
-
-Functional API
-• Complex Models
+Sequential API: Simple Models
+Functional API: Complex Models
 
 ------------------------------------------------------------
-
 INPUTS
 
-Sequential API
-• One Input
-
-Functional API
-• Multiple Inputs Supported
+Sequential API: One Input
+Functional API: Multiple Inputs Supported
 
 ------------------------------------------------------------
-
 OUTPUTS
 
-Sequential API
-• One Output
-
-Functional API
-• Multiple Outputs Supported
+Sequential API: One Output
+Functional API: Multiple Outputs Supported
 
 ------------------------------------------------------------
-
 SKIP CONNECTIONS
 
-Sequential API
-• Not Supported
-
-Functional API
-• Supported
+Sequential API: Not Supported
+Functional API: Supported
 
 ------------------------------------------------------------
-
 LAYER SHARING
 
-Sequential API
-• Not Supported
-
-Functional API
-• Supported
+Sequential API: Not Supported
+Functional API: Supported
 
 ------------------------------------------------------------
-
 EASE OF USE
 
-Sequential API
-• Very Easy
-
-Functional API
-• Moderate
+Sequential API: Very Easy
+Functional API: Moderate
 
 ------------------------------------------------------------
-
 BEST FOR
 
 Sequential API
-
 • Beginners
 • ANN
 • Simple CNN
 • Small Projects
 
 Functional API
-
 • CNN
 • ResNet
 • Siamese Networks
