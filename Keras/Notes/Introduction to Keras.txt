@@ -1,0 +1,418 @@
+KERAS
+
+Keras is a high-level Deep Learning API used to build, train, evaluate, and deploy Artificial Neural Networks.
+
+Originally developed as an independent library, Keras is now integrated into TensorFlow as its official high-level API through tf.keras.
+
+Keras simplifies deep learning by allowing developers to create powerful neural networks without dealing with low-level mathematical operations.
+
+------------------------------------------------------------
+
+WHAT IS KERAS?
+
+Keras is a Deep Learning framework that provides a simple interface for building neural networks.
+
+It acts as a bridge between:
+
+• Neural Network Theory
+• Deep Learning Algorithms
+• TensorFlow Computation Engine
+
+Instead of manually implementing:
+
+• Forward Propagation
+• Backpropagation
+• Gradient Descent
+• Weight Updates
+
+Keras handles these processes automatically.
+
+------------------------------------------------------------
+
+WHY STUDY KERAS?
+
+Deep Learning models can become very complex.
+
+Keras makes deep learning easier by allowing us to:
+
+• Build neural networks quickly
+• Train models using a few lines of code
+• Experiment with different architectures
+• Process large datasets
+• Develop AI applications efficiently
+
+Keras is one of the most widely used tools in Deep Learning research and industry.
+
+------------------------------------------------------------
+
+RELATIONSHIP BETWEEN KERAS AND TENSORFLOW
+
+TensorFlow provides the low-level computation engine.
+
+Keras provides the high-level interface.
+
+Think of it like this:
+
+User
+ ↓
+Keras
+ ↓
+TensorFlow
+ ↓
+CPU / GPU
+
+Keras tells TensorFlow what model to build and TensorFlow performs the computations.
+
+------------------------------------------------------------
+
+HISTORY OF KERAS
+
+Keras was developed by:
+
+• François Chollet
+
+Released:
+
+• March 2015
+
+Primary Goal:
+
+• Enable fast experimentation with Deep Neural Networks
+
+Initially Keras supported multiple backends:
+
+• TensorFlow
+• Theano
+• CNTK (Microsoft Cognitive Toolkit)
+
+Today, Keras is tightly integrated with TensorFlow as tf.keras.
+
+------------------------------------------------------------
+
+INSTALLING KERAS
+
+Since Keras is included with TensorFlow, installation requires only:
+
+pip install tensorflow
+
+Verify installation:
+
+import tensorflow as tf
+
+print("TensorFlow Version:", tf.__version__)
+print("Keras Version:", tf.keras.__version__)
+
+------------------------------------------------------------
+
+CORE COMPONENTS OF KERAS
+
+A neural network built with Keras usually contains:
+
+1. Input Layer
+
+Receives data from the outside world.
+
+Examples:
+
+• Images
+• Text
+• Audio
+• Sensor Data
+
+2. Hidden Layers
+
+Process information and learn patterns.
+
+Examples:
+
+• Dense Layers
+• Convolution Layers (CNN)
+• Recurrent Layers (RNN/LSTM)
+
+3. Output Layer
+
+Produces final predictions.
+
+Examples:
+
+• Classification
+• Regression
+• Forecasting
+
+------------------------------------------------------------
+
+KERAS DEEP LEARNING WORKFLOW
+
+A typical Keras project follows these steps:
+
+Collect Data
+     ↓
+Preprocess Data
+     ↓
+Build Model
+     ↓
+Compile Model
+     ↓
+Train Model
+     ↓
+Evaluate Model
+     ↓
+Make Predictions
+
+------------------------------------------------------------
+
+KEY FEATURES OF KERAS
+
+SIMPLICITY
+
+Provides a clean and easy-to-use interface.
+
+Reduces coding complexity.
+
+MODULARITY
+
+Models are built from reusable components:
+
+• Layers
+• Activations
+• Optimizers
+• Loss Functions
+
+FLEXIBILITY
+
+Supports:
+
+• Simple Neural Networks
+• CNNs
+• RNNs
+• LSTMs
+• Transformers
+
+FAST EXPERIMENTATION
+
+Allows rapid testing of ideas and architectures.
+
+SCALABILITY
+
+Works efficiently on:
+
+• CPU
+• GPU
+• TPU
+
+------------------------------------------------------------
+
+IMPORTANT KERAS CONCEPTS
+
+LAYERS
+
+Layers are the building blocks of neural networks.
+
+Examples:
+
+• Dense
+• Conv2D
+• MaxPooling2D
+• Dropout
+• Flatten
+
+ACTIVATION FUNCTIONS
+
+Determine how neurons respond to signals.
+
+Examples:
+
+• ReLU
+• Sigmoid
+• Tanh
+• Softmax
+
+LOSS FUNCTIONS
+
+Measure prediction error.
+
+Examples:
+
+• Mean Squared Error (MSE)
+• Binary Cross Entropy
+• Categorical Cross Entropy
+
+OPTIMIZERS
+
+Update weights during training.
+
+Examples:
+
+• SGD
+• Adam
+• RMSprop
+
+------------------------------------------------------------
+
+MODEL BUILDING APPROACHES
+
+Keras provides two main methods for building models.
+
+1. SEQUENTIAL API
+
+Used when layers are arranged in a straight line.
+
+Input
+ ↓
+Layer 1
+ ↓
+Layer 2
+ ↓
+Output
+
+Best for:
+
+• Beginners
+• Single Input Models
+• Single Output Models
+
+2. FUNCTIONAL API
+
+Used for more complex architectures.
+
+Supports:
+
+• Multiple Inputs
+• Multiple Outputs
+• Shared Layers
+• Skip Connections
+
+Example Structure:
+
+Input 1 ──┐
+          ├── Hidden Layers ── Output
+Input 2 ──┘
+
+------------------------------------------------------------
+
+COMMON KERAS LAYERS
+
+Dense Layer
+
+Fully connected neural network layer.
+
+Used in:
+
+• Classification
+• Regression
+
+Conv2D Layer
+
+Performs feature extraction on images.
+
+Used in:
+
+• Computer Vision
+• Image Recognition
+
+MaxPooling2D Layer
+
+Reduces image size while retaining important features.
+
+Dropout Layer
+
+Reduces overfitting by randomly deactivating neurons during training.
+
+LSTM Layer
+
+Processes sequence data and remembers previous information.
+
+Used in:
+
+• NLP
+• Time Series Forecasting
+
+------------------------------------------------------------
+
+APPLICATIONS OF KERAS
+
+IMAGE PROCESSING
+
+Used for:
+
+• Image Classification
+• Object Detection
+• Medical Imaging
+• Facial Recognition
+
+NATURAL LANGUAGE PROCESSING (NLP)
+
+Used for:
+
+• Sentiment Analysis
+• Translation
+• Chatbots
+• Text Summarization
+
+TIME SERIES FORECASTING
+
+Used for:
+
+• Stock Prediction
+• Sales Forecasting
+• Weather Prediction
+
+AUTONOMOUS SYSTEMS
+
+Used in:
+
+• Robotics
+• Self-Driving Vehicles
+• Intelligent Sensors
+
+------------------------------------------------------------
+
+ADVANTAGES OF KERAS
+
+• Easy to Learn
+• Beginner Friendly
+• Fast Development
+• Strong TensorFlow Integration
+• Large Community Support
+• Supports Modern Deep Learning Architectures
+
+------------------------------------------------------------
+
+KERAS IN NEURAL COMPUTATION
+
+Neural Computation studies how neurons process information and learn patterns.
+
+Keras provides the practical tools needed to build artificial neural networks that mimic this learning process.
+
+Using Keras, we can implement:
+
+• Artificial Neural Networks (ANN)
+• Convolutional Neural Networks (CNN)
+• Recurrent Neural Networks (RNN)
+• Long Short-Term Memory Networks (LSTM)
+• Deep Learning Systems
+
+Therefore, Keras serves as one of the primary software tools used to apply Neural Computation concepts in real-world AI systems.
+
+------------------------------------------------------------
+
+QUICK EXAM SUMMARY
+
+Neural Computation = Theory
+
+• Neurons
+• Learning
+• Backpropagation
+• Pattern Recognition
+• Intelligence
+
+Keras = Implementation Tool
+
+• Build Networks
+• Train Networks
+• Evaluate Networks
+• Deploy Networks
+
+Neural Computation teaches how neural networks work.
+
+Keras gives you the tools to build them.
