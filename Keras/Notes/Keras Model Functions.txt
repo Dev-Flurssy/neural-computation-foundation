@@ -1,0 +1,294 @@
+SCIKIT-LEARN + KERAS INTEGRATION
+
+------------------------------------------------------------
+
+WHAT IS THE GOAL?
+
+Scikit-Learn and Keras can work together.
+
+This allows us to:
+
+• Build Neural Networks with Keras
+• Use Cross Validation from Scikit-Learn
+• Use GridSearchCV for Hyperparameter Tuning
+• Use Pipelines
+• Evaluate Models Consistently
+
+------------------------------------------------------------
+
+WHY COMBINE THEM?
+
+Keras provides:
+
+• Neural Networks
+• Deep Learning Models
+• Training Functions
+
+Scikit-Learn provides:
+
+• Cross Validation
+• Feature Selection
+• Hyperparameter Tuning
+• Pipelines
+• Model Evaluation
+
+By combining both libraries we get:
+
+Neural Networks + Machine Learning Tools
+
+------------------------------------------------------------
+
+HOW DOES IT WORK?
+
+Normal Keras Model
+
+create_model()
+      ↓
+Keras Model
+
+Scikit-Learn cannot directly use this model.
+
+Therefore we wrap it using:
+
+• KerasClassifier
+• KerasRegressor
+
+These wrappers make Keras models behave like
+Scikit-Learn estimators.
+
+------------------------------------------------------------
+
+KERAS AS AN ESTIMATOR
+
+Scikit-Learn Estimators:
+
+• RandomForestClassifier
+• RandomForestRegressor
+• DecisionTreeClassifier
+• LinearRegression
+
+Keras Wrappers:
+
+• KerasClassifier
+• KerasRegressor
+
+After wrapping, Keras models can be used exactly
+like Scikit-Learn models.
+
+------------------------------------------------------------
+
+MODEL CREATION FUNCTION
+
+A Keras model is usually created inside a function.
+
+Example:
+
+def create_model():
+    build layers
+    compile model
+    return model
+
+The function must return a compiled model.
+
+------------------------------------------------------------
+
+WHY PASS PARAMETERS?
+
+Different datasets need different architectures.
+
+Instead of creating multiple functions:
+
+create_model_1()
+create_model_2()
+create_model_3()
+
+we pass parameters into one function.
+
+Example:
+
+def create_model(hidden_units=12):
+    ...
+
+Now the architecture can change dynamically.
+
+------------------------------------------------------------
+
+COMMON PARAMETERS
+
+Model Structure
+
+• Input Dimension
+• Hidden Units
+• Number of Layers
+• Activation Function
+
+Training Parameters
+
+• Epochs
+• Batch Size
+• Optimizer
+• Learning Rate
+
+------------------------------------------------------------
+
+EXAMPLE
+
+def create_model(input_dim,
+                 hidden_units):
+
+The model architecture changes based on:
+
+• input_dim
+• hidden_units
+
+Example:
+
+create_model(
+    input_dim=20,
+    hidden_units=64
+)
+
+------------------------------------------------------------
+
+SCIKERAS
+
+SciKeras is the modern bridge between
+Keras and Scikit-Learn.
+
+Install:
+
+pip install scikeras
+
+Import:
+
+from scikeras.wrappers import KerasClassifier
+
+------------------------------------------------------------
+
+USING CROSS VALIDATION
+
+Because the model behaves like a
+Scikit-Learn estimator we can do:
+
+cross_val_score()
+
+StratifiedKFold()
+
+KFold()
+
+This is exactly the same process you already use
+for Random Forest and other ML models.
+
+------------------------------------------------------------
+
+EXAMPLE WORKFLOW
+
+Dataset
+   ↓
+Feature Engineering
+   ↓
+Feature Selection
+   ↓
+Keras Model
+   ↓
+Cross Validation
+   ↓
+Performance Metrics
+
+This is similar to your current workflow:
+
+Dataset
+   ↓
+Feature Engineering
+   ↓
+Feature Selection
+   ↓
+Random Forest
+   ↓
+Cross Validation
+   ↓
+Performance Metrics
+
+------------------------------------------------------------
+
+GRID SEARCH WITH KERAS
+
+Just like Random Forest:
+
+GridSearchCV(
+    estimator=model,
+    param_grid=...
+)
+
+can be used to tune:
+
+• Hidden Units
+• Learning Rate
+• Batch Size
+• Epochs
+• Optimizer
+
+------------------------------------------------------------
+
+MACHINE LEARNING VS DEEP LEARNING
+
+Scikit-Learn:
+
+• Random Forest
+• Decision Trees
+• SVM
+• KNN
+• Linear Regression
+
+Keras:
+
+• ANN
+• CNN
+• RNN
+• LSTM
+• Deep Neural Networks
+
+------------------------------------------------------------
+
+WHERE DOES THIS FIT?
+
+Neural Computation
+│
+├── Neural Network Fundamentals
+│
+├── TensorFlow
+│
+├── Keras
+│   ├── Sequential API
+│   ├── Functional API
+│   ├── KerasClassifier
+│   ├── KerasRegressor
+│   └── SciKeras
+│
+└── Scikit-Learn Integration
+    ├── Cross Validation
+    ├── GridSearchCV
+    ├── Pipelines
+    └── Hyperparameter Tuning
+
+------------------------------------------------------------
+
+EXAM SUMMARY
+
+Scikit-Learn
+= Machine Learning Toolkit
+
+Keras
+= Deep Learning Toolkit
+
+SciKeras
+= Connector Between Keras and Scikit-Learn
+
+KerasClassifier/KerasRegressor
+= Wrappers that make Keras models behave like
+  Scikit-Learn estimators.
+
+Main Benefit:
+Build Neural Networks with Keras while using
+Scikit-Learn's Cross Validation, GridSearchCV,
+and Pipeline tools.
