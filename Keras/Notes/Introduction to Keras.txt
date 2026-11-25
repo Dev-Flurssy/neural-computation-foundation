@@ -308,39 +308,31 @@ Deep Learning frameworks provide tools for building, training,
 evaluating, and deploying neural networks.
 
 The three most popular frameworks are:
-
 • Keras
 • TensorFlow
 • PyTorch
 
 ------------------------------------------------------------
-
 WHAT IS KERAS?
 
 Keras is a high-level Deep Learning API.
-
 Its primary goal is simplicity and ease of use.
 
-Keras allows users to build neural networks using simple,
-readable code.
-
+Keras allows users to build neural networks using simple, readable code.
 Today, Keras is integrated into TensorFlow as tf.keras.
 
 Best For:
-
 • Beginners
 • Rapid Prototyping
 • Education
 • Fast Model Development
 
 ------------------------------------------------------------
-
 WHAT IS TENSORFLOW?
 
 TensorFlow is a complete Deep Learning framework developed by Google.
 
 It provides:
-
 • Neural Network Development
 • Model Training
 • Model Deployment
@@ -350,59 +342,47 @@ It provides:
 TensorFlow serves as the computational engine behind Keras.
 
 Best For:
-
 • Large Scale AI Systems
 • Production Environments
 • Industrial Applications
 • Cloud Deployment
 
 ------------------------------------------------------------
-
 WHAT IS PYTORCH?
 
-PyTorch is an open-source Deep Learning framework developed by Meta
-(Facebook AI Research).
+PyTorch is an open-source Deep Learning framework developed by Meta (Facebook AI Research).
 
 It is known for:
-
 • Simplicity
 • Flexibility
 • Dynamic Computation Graphs
 • Research-Oriented Development
 
 PyTorch is widely used in:
-
 • AI Research
 • Academic Projects
 • Experimental Deep Learning
 
 Best For:
-
 • Researchers
 • Experimentation
 • Custom Neural Networks
 • Debugging Complex Models
 
 ------------------------------------------------------------
-
 ANALOGY
 
 Think of building a house.
 
 TensorFlow = Construction Machinery
-
 Keras = Easy Control Panel for the Machinery
-
 PyTorch = Flexible Workshop Tools
 
 TensorFlow provides the power.
-
 Keras makes TensorFlow easier to use.
-
 PyTorch provides flexibility and control.
 
 ------------------------------------------------------------
-
 KEY FEATURES OF KERAS
 
 • Beginner Friendly
@@ -412,18 +392,15 @@ KEY FEATURES OF KERAS
 • Easy Integration with TensorFlow
 
 Advantages:
-
 • Easy to Learn
 • Less Code
 • Faster Development
 
 Disadvantages:
-
 • Less Low-Level Control
 • Limited Flexibility for Complex Custom Operations
 
 ------------------------------------------------------------
-
 KEY FEATURES OF TENSORFLOW
 
 • Complete Deep Learning Framework
@@ -434,18 +411,15 @@ KEY FEATURES OF TENSORFLOW
 • Strong Production Tools
 
 Advantages:
-
 • Scalable
 • Production Ready
 • Excellent Deployment Support
 
 Disadvantages:
-
 • Steeper Learning Curve
 • More Complex Syntax
 
 ------------------------------------------------------------
-
 KEY FEATURES OF PYTORCH
 
 • Dynamic Computation Graph
@@ -455,56 +429,34 @@ KEY FEATURES OF PYTORCH
 • Strong Research Community
 
 Advantages:
-
 • Easy to Experiment
 • Flexible Model Design
 • Popular in Research
 
 Disadvantages:
-
-• Historically Less Deployment Support
-  (although this has improved significantly)
+• Historically Less Deployment Support (although this has improved significantly)
 
 ------------------------------------------------------------
-
 COMPARISON
 
 FEATURE                KERAS            TENSORFLOW       PYTORCH
-
 Difficulty             Easy             Medium-Hard      Medium
-
 Learning Curve         Low              High             Moderate
-
 Flexibility            Moderate         High             Very High
-
 Code Length            Short            Longer           Moderate
-
 Research Usage         Good             Good             Excellent
-
 Production Usage       Good             Excellent        Good
-
 Beginner Friendly      Excellent        Moderate         Good
-
 Deployment             Good             Excellent        Good
 
 ------------------------------------------------------------
-
 WHICH SHOULD I LEARN?
 
-If you are a beginner:
-
-→ Learn Keras first.
-
-If you want industry deployment:
-
-→ Learn TensorFlow.
-
-If you want AI research and experimentation:
-
-→ Learn PyTorch.
+If you are a beginner: → Learn Keras first.
+If you want industry deployment: → Learn TensorFlow.
+If you want AI research and experimentation: → Learn PyTorch.
 
 ------------------------------------------------------------
-
 RELATIONSHIP BETWEEN THEM
 
 Neural Computation
@@ -515,8 +467,6 @@ TensorFlow
         ↓
 Keras
 
-PyTorch is an alternative Deep Learning framework that can be used
-instead of TensorFlow.
-
+PyTorch is an alternative Deep Learning framework that can be used instead of TensorFlow.
 ------------------------------------------------------------
 
