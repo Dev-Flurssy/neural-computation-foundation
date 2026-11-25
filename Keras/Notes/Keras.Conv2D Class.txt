@@ -1,0 +1,780 @@
+KERAS Conv2D LAYER
+
+Conv2D (2-Dimensional Convolution Layer) is one of the
+most important layers in Convolutional Neural Networks (CNNs).
+
+It is used for image processing and computer vision tasks.
+
+Conv2D helps neural networks automatically learn
+important image features such as:
+
+• Edges
+• Corners
+• Shapes
+• Textures
+• Objects
+
+------------------------------------------------------------
+
+WHAT IS Conv2D?
+
+Conv2D applies a filter (kernel) to an image.
+
+The filter slides across the image and extracts useful
+patterns.
+
+Input Image
+      ↓
+Conv2D Filter
+      ↓
+Feature Map
+
+------------------------------------------------------------
+
+WHY USE Conv2D?
+
+Instead of manually telling the computer what features
+to look for:
+
+• Edge Detection
+• Face Detection
+• Shape Recognition
+
+Conv2D automatically learns these features during training.
+
+------------------------------------------------------------
+
+WHAT IS A KERNEL?
+
+A Kernel (Filter) is a small matrix that scans across
+the image.
+
+Example:
+
+3 × 3 Kernel
+
+[ ■ ■ ■ ]
+[ ■ ■ ■ ]
+[ ■ ■ ■ ]
+
+The kernel moves across the image and extracts information.
+
+------------------------------------------------------------
+
+IMAGE PROCESSING FLOW
+
+Input Image
+      ↓
+Conv2D
+      ↓
+Feature Maps
+      ↓
+MaxPooling
+      ↓
+Flatten
+      ↓
+Dense Layers
+      ↓
+Prediction
+
+------------------------------------------------------------
+
+CONV2D SYNTAX
+
+Conv2D(
+    filters,
+    kernel_size,
+    strides=(1,1),
+    padding='valid',
+    activation=None
+)
+
+------------------------------------------------------------
+
+MOST IMPORTANT PARAMETERS
+
+1. filters
+2. kernel_size
+3. strides
+4. padding
+5. activation
+
+These are the parameters you'll use most often.
+
+------------------------------------------------------------
+
+1. FILTERS
+
+Filters determine the number of feature detectors.
+
+Example:
+
+Conv2D(
+    filters=32,
+    kernel_size=(3,3)
+)
+
+------------------------------------------------------------
+
+WHAT DOES filters=32 MEAN?
+
+The network learns 32 different patterns.
+
+Examples:
+
+Filter 1
+→ Vertical Edges
+
+Filter 2
+→ Horizontal Edges
+
+Filter 3
+→ Corners
+
+Filter 4
+→ Curves
+
+...
+
+Total = 32 Feature Detectors
+
+------------------------------------------------------------
+
+COMMON FILTER VALUES
+
+• 16
+• 32
+• 64
+• 128
+• 256
+• 512
+
+Use powers of 2 whenever possible.
+
+------------------------------------------------------------
+
+MEMORY TRICK
+
+More Filters
+
+↓
+
+More Features Learned
+
+↓
+
+More Computation
+
+------------------------------------------------------------
+
+2. KERNEL SIZE
+
+Kernel Size defines the size of the filter.
+
+Examples:
+
+(1,1)
+
+(3,3)
+
+(5,5)
+
+(7,7)
+
+------------------------------------------------------------
+
+EXAMPLE
+
+Conv2D(
+    32,
+    (3,3)
+)
+
+Uses a 3 × 3 Filter
+
+------------------------------------------------------------
+
+COMMON PRACTICE
+
+Most modern CNNs use:
+
+(3,3)
+
+Examples:
+
+• VGGNet
+• ResNet
+• Many CNN Architectures
+
+------------------------------------------------------------
+
+MEMORY TRICK
+
+Small Kernel
+→ More Detail
+
+Large Kernel
+→ Bigger Features
+
+------------------------------------------------------------
+
+3. STRIDES
+
+Stride controls how far the filter moves.
+
+------------------------------------------------------------
+
+stride=(1,1)
+
+Filter moves:
+
+1 Pixel at a Time
+
+□ □ □ □
+□ ■ ■ □
+□ ■ ■ □
+□ □ □ □
+
+Every location is examined.
+
+------------------------------------------------------------
+
+stride=(2,2)
+
+Filter moves:
+
+2 Pixels at a Time
+
+This reduces output size.
+
+------------------------------------------------------------
+
+EXAMPLE
+
+Conv2D(
+    128,
+    (3,3),
+    strides=(2,2)
+)
+
+------------------------------------------------------------
+
+MEMORY TRICK
+
+Larger Stride
+
+↓
+
+Smaller Output
+
+↓
+
+Less Computation
+
+------------------------------------------------------------
+
+4. PADDING
+
+Padding determines what happens at image borders.
+
+Options:
+
+• valid
+• same
+
+------------------------------------------------------------
+
+VALID PADDING
+
+padding='valid'
+
+No extra pixels added.
+
+Input Size decreases.
+
+Example:
+
+Input
+
+28 × 28
+
+↓
+
+Conv2D (3 × 3)
+
+↓
+
+26 × 26
+
+------------------------------------------------------------
+
+SAME PADDING
+
+padding='same'
+
+Zeros are added around image borders.
+
+Input Size is preserved.
+
+Example:
+
+Input
+
+28 × 28
+
+↓
+
+Conv2D
+
+↓
+
+28 × 28
+
+------------------------------------------------------------
+
+MEMORY TRICK
+
+VALID
+=
+Shrink
+
+SAME
+=
+Preserve
+
+------------------------------------------------------------
+
+5. ACTIVATION
+
+Applies an activation function after convolution.
+
+Example:
+
+Conv2D(
+    32,
+    (3,3),
+    activation='relu'
+)
+
+------------------------------------------------------------
+
+MOST COMMON CHOICE
+
+activation='relu'
+
+Why?
+
+• Fast
+• Simple
+• Effective
+
+------------------------------------------------------------
+
+OTHER PARAMETERS
+
+DATA FORMAT
+
+Determines channel ordering.
+
+channels_last
+
+(H, W, C)
+
+Example:
+
+(28,28,1)
+
+Used by TensorFlow
+
+------------------------------------------------------------
+
+channels_first
+
+(C, H, W)
+
+Example:
+
+(1,28,28)
+
+Used by Some Other Frameworks
+
+------------------------------------------------------------
+
+DILATION RATE
+
+Adds spaces inside kernels.
+
+Useful for:
+
+• High Resolution Images
+• Capturing Larger Context
+
+Example:
+
+dilation_rate=(2,2)
+
+------------------------------------------------------------
+
+USE BIAS
+
+use_bias=True
+
+Adds bias values to neurons.
+
+Default:
+
+True
+
+Normally leave unchanged.
+
+------------------------------------------------------------
+
+KERNEL INITIALIZER
+
+Controls how weights start.
+
+Examples:
+
+• glorot_uniform
+• he_normal
+• random_normal
+
+Usually:
+
+glorot_uniform
+
+------------------------------------------------------------
+
+REGULARIZATION
+
+Helps prevent overfitting.
+
+Types:
+
+• L1
+• L2
+
+------------------------------------------------------------
+
+EXAMPLE
+
+from keras.regularizers import l2
+
+Conv2D(
+    128,
+    (3,3),
+    kernel_regularizer=l2(0.0002)
+)
+
+------------------------------------------------------------
+
+WHY REGULARIZATION?
+
+Without Regularization
+
+Training Accuracy
+↑ High
+
+Testing Accuracy
+↓ Low
+
+Overfitting
+
+------------------------------------------------------------
+
+With Regularization
+
+Training Accuracy
+↑ Good
+
+Testing Accuracy
+↑ Good
+
+Better Generalization
+
+------------------------------------------------------------
+
+CONSTRAINTS
+
+kernel_constraint
+
+bias_constraint
+
+Used to restrict weight values.
+
+Rarely used by beginners.
+
+------------------------------------------------------------
+
+COMPLETE CNN EXAMPLE
+
+model = Sequential()
+
+model.add(
+    Conv2D(
+        32,
+        (5,5),
+        activation='relu'
+    )
+)
+
+model.add(
+    MaxPooling2D(
+        pool_size=(2,2)
+    )
+)
+
+model.add(
+    Conv2D(
+        64,
+        (5,5),
+        activation='relu'
+    )
+)
+
+model.add(
+    MaxPooling2D(
+        pool_size=(2,2)
+    )
+)
+
+model.add(Flatten())
+
+model.add(
+    Dense(
+        1000,
+        activation='relu'
+    )
+)
+
+model.add(
+    Dense(
+        num_classes,
+        activation='softmax'
+    )
+)
+
+------------------------------------------------------------
+
+UNDERSTANDING THE FLOW
+
+Input Image
+       ↓
+Conv2D (32 Filters)
+       ↓
+Learn Basic Features
+
+Examples:
+
+• Edges
+• Lines
+• Corners
+
+------------------------------------------------------------
+
+MaxPooling
+
+Reduces Image Size
+
+------------------------------------------------------------
+
+Conv2D (64 Filters)
+
+Learns Advanced Features
+
+Examples:
+
+• Eyes
+• Wheels
+• Shapes
+
+------------------------------------------------------------
+
+MaxPooling
+
+Further Reduces Dimensions
+
+------------------------------------------------------------
+
+Flatten
+
+Converts Feature Maps into a Vector
+
+------------------------------------------------------------
+
+Dense Layer
+
+Performs Classification
+
+------------------------------------------------------------
+
+Softmax Layer
+
+Produces Class Probabilities
+
+------------------------------------------------------------
+
+EXAMPLE
+
+Digit Prediction
+
+Class 0 = 1%
+
+Class 1 = 2%
+
+Class 7 = 92%
+
+Prediction:
+
+Digit 7
+
+------------------------------------------------------------
+
+CONV2D OUTPUT
+
+Input Shape:
+
+(28,28,1)
+
+Conv2D(
+    filters=32,
+    kernel_size=(3,3)
+)
+
+Output:
+
+Feature Maps
+
+(28,28,32)
+
+32 learned feature maps.
+
+------------------------------------------------------------
+
+CONV2D vs DENSE
+
+DENSE
+
+• Uses All Pixels At Once
+• Many Parameters
+• Not Ideal For Images
+
+------------------------------------------------------------
+
+CONV2D
+
+• Looks At Local Regions
+• Fewer Parameters
+• Excellent For Images
+
+------------------------------------------------------------
+
+APPLICATIONS OF Conv2D
+
+• Image Classification
+• Face Recognition
+• Medical Imaging
+• Object Detection
+• Self-Driving Cars
+• Video Analysis
+
+------------------------------------------------------------
+
+NEURAL COMPUTATION CONNECTION
+
+Biological Vision System
+
+Eye
+ ↓
+Visual Cortex
+ ↓
+Feature Detection
+ ↓
+Object Recognition
+
+------------------------------------------------------------
+
+CNN WITH Conv2D
+
+Image
+ ↓
+Conv2D
+ ↓
+Feature Detection
+ ↓
+Classification
+
+Conv2D acts like the visual cortex by learning
+important image features automatically.
+
+------------------------------------------------------------
+
+EXAM SUMMARY
+
+Conv2D
+=
+2D Convolution Layer
+
+Purpose:
+=
+Feature Extraction From Images
+
+------------------------------------------------------------
+
+MOST IMPORTANT PARAMETERS
+
+filters
+=
+Number of Feature Detectors
+
+kernel_size
+=
+Size of Filter
+
+strides
+=
+Movement Step Size
+
+padding
+=
+Border Handling
+
+activation
+=
+Non-Linearity
+
+------------------------------------------------------------
+
+COMMON VALUES
+
+filters:
+32, 64, 128
+
+kernel_size:
+(3,3)
+
+strides:
+(1,1)
+
+padding:
+"same"
+
+activation:
+"relu"
+
+------------------------------------------------------------
+
+MEMORY TRICK
+
+Conv2D
+=
+Eyes of a CNN
+
+It scans images and learns:
+
+• Edges
+• Shapes
+• Textures
+• Objects
+
+Automatically.
