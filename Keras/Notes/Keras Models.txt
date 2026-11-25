@@ -1,0 +1,286 @@
+KERAS MODELS
+
+A Keras model is a collection of layers organized to solve
+a machine learning or deep learning problem.
+
+Models define how data flows from the input layer
+through hidden layers to the output layer.
+
+Keras provides two main approaches for building models:
+• Sequential API
+• Functional API
+
+------------------------------------------------------------
+WHY DO WE NEED MODELS?
+
+A model is responsible for:
+• Learning Patterns
+• Making Predictions
+• Classifying Data
+• Performing Regression
+• Processing Images
+• Processing Text
+
+A neural network is essentially a model made up of layers.
+
+------------------------------------------------------------
+TWO TYPES OF KERAS MODELS
+
+1. Sequential API
+2. Functional API
+
+------------------------------------------------------------
+SEQUENTIAL API
+
+The Sequential API is the simplest method of creating neural networks in Keras.
+Layers are arranged in a straight line.
+Data flows through the network in a single direction.
+
+Input
+  ↓
+Layer 1
+  ↓
+Layer 2
+  ↓
+Layer 3
+  ↓
+Output
+
+------------------------------------------------------------
+WHEN TO USE SEQUENTIAL API
+
+Use Sequential API when:
+• One Input
+• One Output
+• Layers are added linearly
+• Simple Neural Networks
+
+Examples:
+• Digit Classification
+• House Price Prediction
+• Basic Image Classification
+
+------------------------------------------------------------
+SEQUENTIAL MODEL EXAMPLE
+
+model = keras.Sequential([
+    Dense(2, activation='relu'),
+    Dense(3, activation='relu'),
+    Dense(4)
+])
+
+------------------------------------------------------------
+ANOTHER WAY TO BUILD A SEQUENTIAL MODEL
+
+model = keras.Sequential()
+
+model.add(Dense(2, activation='relu'))
+model.add(Dense(3, activation='relu'))
+model.add(Dense(4))
+
+------------------------------------------------------------
+SEQUENTIAL API ADVANTAGES
+
+• Easy to Learn
+• Beginner Friendly
+• Less Code
+• Fast Development
+
+------------------------------------------------------------
+SEQUENTIAL API LIMITATIONS
+
+Cannot Handle:
+• Multiple Inputs
+• Multiple Outputs
+• Shared Layers
+• Complex Architectures
+
+------------------------------------------------------------
+FUNCTIONAL API
+
+The Functional API is Keras's advanced modeling approach.
+It allows users to create highly flexible and custom neural networks.
+Instead of stacking layers in a line, you explicitly define how layers connect.
+
+------------------------------------------------------------
+WHEN TO USE FUNCTIONAL API
+
+Use Functional API when:
+• Multiple Inputs
+• Multiple Outputs
+• Shared Layers
+• Residual Connections
+• Complex Architectures
+
+Examples:
+• CNNs
+• RNNs
+• LSTMs
+• Transformers
+• Siamese Networks
+
+------------------------------------------------------------
+HOW FUNCTIONAL API WORKS
+
+Step 1: Define Input Layer
+Step 2: Connect Hidden Layers
+Step 3: Define Output Layer
+Step 4: Create Model
+
+------------------------------------------------------------
+STEP 1 : DEFINE INPUT
+
+from keras.layers import Input
+visible = Input(shape=(10,))
+
+------------------------------------------------------------
+WHAT DOES shape=(10,) MEAN?
+
+The model expects: 10 Input Features
+
+Example:
+Age
+Income
+Height
+Weight
+...
+10 Features Total
+
+The comma is required because Python treats it as a tuple.
+
+------------------------------------------------------------
+STEP 2 : CONNECT LAYERS
+
+from keras.layers import Dense
+visible = Input(shape=(10,))
+hidden = Dense(2)(visible)
+
+Input Layer
+      ↓
+Dense Layer (2 Neurons)
+
+------------------------------------------------------------
+WHAT IS A DENSE LAYER?
+
+Dense Layer
+= Fully Connected Layer
+Every neuron is connected to every neuron in the next layer.
+
+Example:
+Dense(2)
+Creates 2 neurons.
+
+------------------------------------------------------------
+STEP 3 : CREATE MODEL
+
+from keras.models import Model
+
+model = Model(
+    inputs=visible,
+    outputs=hidden
+)
+
+The model now knows:
+Where data enters
+Where data exits
+
+------------------------------------------------------------
+FUNCTIONAL API FLOW
+
+Input
+  ↓
+Dense
+  ↓
+Dense
+  ↓
+Dense
+  ↓
+Output
+
+Unlike Sequential models, Functional models can also do:
+Input 1 ─┐
+         ├─ Dense ─ Output
+Input 2 ─┘
+
+------------------------------------------------------------
+MULTIPLE INPUTS EXAMPLE
+
+Image Input
+      ↓
+CNN
+      ↓
+      ┐
+      ├── Output
+      │
+Text Input
+      ↓
+LSTM
+      ↓
+
+This is impossible using Sequential API.
+
+------------------------------------------------------------
+MULTIPLE OUTPUTS EXAMPLE
+
+Input
+  ↓
+Shared Layers
+  ├──── Sentiment Prediction
+  │
+  └──── Topic Prediction
+
+This is possible using Functional API.
+
+------------------------------------------------------------
+SEQUENTIAL VS FUNCTIONAL
+
+SEQUENTIAL API
+
+• Simple
+• Linear Layers
+• One Input
+• One Output
+• Beginner Friendly
+
+FUNCTIONAL API
+• Flexible
+• Complex Architectures
+• Multiple Inputs
+• Multiple Outputs
+• Research-Level Models
+
+------------------------------------------------------------
+REAL-WORLD USAGE
+
+Sequential API
+Used For:
+• Basic ANN
+• Simple CNN
+• Beginner Projects
+
+Functional API
+Used For:
+• ResNet
+• Inception
+• Siamese Networks
+• Transformers
+• Multi-Input Models
+
+------------------------------------------------------------
+NEURAL COMPUTATION CONNECTION
+
+Neural Computation studies how neurons process information.
+
+Keras Models provide the software structure that allows these 
+artificial neurons to connect and learn from data.
+
+Input Layer
+      ↓
+Hidden Layers
+      ↓
+Output Layer
+
+This structure forms an Artificial Neural Network (ANN).
+
+------------------------------------------------------------
+
