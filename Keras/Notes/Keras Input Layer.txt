@@ -1,0 +1,418 @@
+KERAS INPUT LAYER
+
+The Input Layer is the first layer of a neural network.
+It acts as the entry point through which data enters the model.
+The Input Layer does not perform calculations.
+
+Its purpose is to tell the neural network:
+• What type of data to expect
+• How many features exist
+• What shape the input has
+• How data should enter the network
+
+------------------------------------------------------------
+WHAT IS AN INPUT LAYER?
+
+The Input Layer defines the structure of incoming data.
+
+Input Data
+      ↓
+Input Layer
+      ↓
+Hidden Layers
+      ↓
+Output Layer
+
+Without an Input Layer, the neural network would
+not know the format of the data being received.
+
+------------------------------------------------------------
+WHY IS THE INPUT LAYER IMPORTANT?
+
+The Input Layer helps the model understand:
+• Input Shape
+• Number of Features
+• Data Type
+• Tensor Dimensions
+• Batch Structure
+
+It prevents shape mismatch errors during training.
+
+------------------------------------------------------------
+WHAT DOES AN INPUT LAYER DO?
+
+The Input Layer specifies:
+1. Number of Features
+2. Data Dimensions
+3. Data Format
+4. Optional Batch Size
+
+It does NOT:
+• Learn
+• Train
+• Predict
+• Extract Features
+
+Those tasks belong to later layers.
+
+------------------------------------------------------------
+WAYS TO CREATE AN INPUT LAYER
+
+Method 1: Using keras.Input()
+Method 2: Using input_shape inside the first layer
+
+------------------------------------------------------------
+METHOD 1
+
+USING keras.Input()
+
+Example:
+from keras import Input
+input_layer = Input(shape=(10,))
+
+------------------------------------------------------------
+WHAT DOES shape=(10,) MEAN?
+
+The model expects: 10 Input Features
+
+Example:
+Age
+Salary
+Height
+Weight
+Experience
+Etc.
+
+Total = 10 Features
+
+------------------------------------------------------------
+WHY IS THERE A COMMA?
+
+shape=(10,)
+The comma indicates a Python tuple.
+
+Without the comma:
+(10) is treated as an integer.
+
+------------------------------------------------------------
+EXAMPLES OF INPUT SHAPES
+
+TABULAR DATA
+
+Input Features = 13
+shape=(13,)
+
+Example:
+Boston Housing Dataset
+
+------------------------------------------------------------
+GRAYSCALE IMAGE
+
+28 x 28 Pixels
+shape=(28, 28, 1)
+
+1 = Single Color Channel
+
+------------------------------------------------------------
+RGB IMAGE
+
+32 x 32 Pixels
+shape=(32, 32, 3)
+
+3 Channels:
+• Red
+• Green
+• Blue
+
+------------------------------------------------------------
+TEXT DATA
+
+Sequence Length = 100
+shape=(100,)
+
+------------------------------------------------------------
+TIME SERIES DATA
+
+100 Time Steps
+shape=(100, 1)
+
+------------------------------------------------------------
+SYNTAX OF keras.Input()
+
+keras.Input(
+    shape=None,
+    batch_size=None,
+    dtype=None,
+    sparse=None,
+    batch_shape=None,
+    name=None,
+    tensor=None )
+
+------------------------------------------------------------
+IMPORTANT PARAMETERS
+
+1. shape: 
+Defines input dimensions.
+
+Example:
+Input(shape=(28,28,1))
+28 × 28 grayscale image
+
+------------------------------------------------------------
+2. batch_size
+
+Defines fixed batch size.
+
+Example:
+Input(
+    shape=(28,28,1),
+    batch_size=32 )
+
+Processes 32 samples at a time.
+
+------------------------------------------------------------
+3. dtype
+
+Specifies data type.
+
+Example:
+dtype='float32'
+
+Common Types:
+• float32
+• int32
+• float64
+
+------------------------------------------------------------
+4. batch_shape
+
+Includes batch size.
+
+Example:
+batch_shape=(32, 28, 28, 1)
+32 Images
+
+Each Image:
+28 × 28 × 1
+
+------------------------------------------------------------
+5. name
+
+Assigns a custom name.
+
+Example:
+Input(
+    shape=(10,),
+    name="Customer_Data" )
+
+------------------------------------------------------------
+6. sparse
+
+Used if data contains mostly zero values.
+Common in NLP applications.
+
+------------------------------------------------------------
+7. tensor
+
+Allows use of existing tensors.
+Mostly advanced usage.
+
+------------------------------------------------------------
+SECOND WAY TO DEFINE INPUTS
+
+USING input_shape
+
+Example:
+model.add(
+    Dense(
+        64,
+        input_shape=(10,)
+    ))
+
+The first layer automatically becomes the Input Layer.
+
+------------------------------------------------------------
+COMPLETE CNN EXAMPLE
+
+Input Layer
+
+Input(shape=(28, 28, 1))
+
+        ↓
+Conv2D
+        ↓
+MaxPooling2D
+        ↓
+Flatten
+        ↓
+Dense
+        ↓
+Output
+
+------------------------------------------------------------
+CODE STRUCTURE
+
+input_layer = Input(
+    shape=(28, 28, 1)
+)
+
+x = Conv2D(
+    16,
+    (3, 3),
+    activation='relu'
+)(input_layer)
+
+x = MaxPooling2D(
+    (2, 2)
+)(x)
+
+x = Flatten()(x)
+
+output_layer = Dense(
+    10,
+    activation='softmax'
+)(x)
+
+------------------------------------------------------------
+UNDERSTANDING THIS CNN
+
+Input Layer Receives:
+28 × 28 Grayscale Images
+
+------------------------------------------------------------
+Conv2D Layer
+
+Detects:
+• Edges
+• Corners
+• Shapes
+• Patterns
+
+------------------------------------------------------------
+MaxPooling Layer
+
+Reduces image dimensions.
+Improves efficiency.
+
+------------------------------------------------------------
+Flatten Layer
+
+Converts image data into a vector.
+
+Example:
+(13, 13, 16)
+Becomes 2704
+
+------------------------------------------------------------
+Dense Layer
+
+Makes the final prediction.
+
+------------------------------------------------------------
+Softmax Layer
+
+Outputs probabilities.
+
+Example:
+Digit 0 → 1%
+Digit 1 → 4%
+Digit 2 → 2%
+Digit 7 → 90%
+
+Prediction:
+Digit 7
+
+------------------------------------------------------------
+KEY FEATURES OF INPUT LAYER
+
+INPUT SHAPE DEFINITION
+Defines expected input dimensions.
+
+------------------------------------------------------------
+COMPATIBILITY
+
+Ensures layers receive correctly formatted data.
+
+------------------------------------------------------------
+FLEXIBILITY
+
+Can handle:
+• Images
+• Text
+• Sequences
+• Tabular Data
+• Time-Series Data
+
+------------------------------------------------------------
+INPUT SHAPE CHEAT SHEET
+
+TABULAR DATA
+
+Example:
+House Prices
+shape=(13,)
+
+------------------------------------------------------------
+TEXT DATA
+
+Example:
+Movie Reviews
+shape=(100,)
+
+------------------------------------------------------------
+GRAYSCALE IMAGE
+
+Example:
+MNIST
+shape=(28, 28, 1)
+
+------------------------------------------------------------
+RGB IMAGE
+
+Example:
+CIFAR-10
+shape=(32, 32, 3)
+
+------------------------------------------------------------
+TIME SERIES
+
+Example:
+Stock Prices
+shape=(100, 1)
+
+------------------------------------------------------------
+INPUT LAYER vs HIDDEN LAYER
+
+INPUT LAYER
+• Receives Data
+• No Learning
+• No Calculations
+
+------------------------------------------------------------
+HIDDEN LAYER
+
+• Learns Patterns
+• Updates Weights
+• Performs Calculations
+
+------------------------------------------------------------
+NEURAL COMPUTATION CONNECTION
+
+Biological Neural System
+Sensory Input
+      ↓
+Neurons
+      ↓
+Response
+
+Artificial Neural Network
+Input Layer
+      ↓
+Hidden Layers
+      ↓
+Output Layer
+
+The Input Layer acts like sensory receptors,
+collecting information before processing begins.
+
+------------------------------------------------------------
