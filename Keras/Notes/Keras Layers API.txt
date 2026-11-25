@@ -1,0 +1,638 @@
+KERAS LAYERS API
+
+The Keras Layers API is the foundation of building neural networks.
+
+A layer is a computational unit that:
+
+• Receives Input Data
+• Processes Information
+• Produces Output Data
+
+Layers are the building blocks used to create
+Artificial Neural Networks (ANNs).
+
+------------------------------------------------------------
+
+WHAT IS A LAYER?
+
+A layer performs a mathematical transformation
+on input data.
+
+Input
+  ↓
+Layer
+  ↓
+Output
+
+Every neural network is made by connecting
+multiple layers together.
+
+------------------------------------------------------------
+
+WHY ARE LAYERS IMPORTANT?
+
+Layers help a neural network:
+
+• Learn Patterns
+• Extract Features
+• Make Decisions
+• Generate Predictions
+
+Different layer types perform different tasks.
+
+------------------------------------------------------------
+
+GENERAL FLOW OF A NEURAL NETWORK
+
+Input Layer
+      ↓
+Hidden Layers
+      ↓
+Output Layer
+
+The hidden layers contain the actual learning process.
+
+------------------------------------------------------------
+
+COMMON LAYER PARAMETERS
+
+Most Keras layers support the following settings.
+
+------------------------------------------------------------
+
+ACTIVATION
+
+Applies a non-linear function.
+
+Examples:
+
+• ReLU
+• Sigmoid
+• Tanh
+• Softmax
+
+Example:
+
+Dense(64, activation='relu')
+
+------------------------------------------------------------
+
+KERNEL INITIALIZER
+
+Determines how weights are initialized before training.
+
+Examples:
+
+• glorot_uniform
+• he_normal
+• random_normal
+
+Good initialization improves learning speed.
+
+------------------------------------------------------------
+
+KERNEL REGULARIZER
+
+Adds penalties to reduce overfitting.
+
+Examples:
+
+• L1
+• L2
+
+------------------------------------------------------------
+
+KERNEL CONSTRAINT
+
+Restricts weight values during training.
+
+Helps improve training stability.
+
+------------------------------------------------------------
+
+TYPES OF KERAS LAYERS
+
+1. Dense Layer
+2. Conv2D Layer
+3. Pooling Layer
+4. Flatten Layer
+5. Dropout Layer
+6. Embedding Layer
+7. Activation Layer
+8. Recurrent Layers
+
+------------------------------------------------------------
+
+1. DENSE LAYER
+
+(Dense = Fully Connected Layer)
+
+Every neuron connects to every neuron
+in the next layer.
+
+Input
+  ↓
+Dense
+  ↓
+Output
+
+Example:
+
+layers.Dense(
+    units=128,
+    activation='relu'
+)
+
+------------------------------------------------------------
+
+PARAMETERS
+
+units
+
+Number of neurons
+
+Example:
+
+Dense(128)
+
+Creates 128 neurons.
+
+activation
+
+Function applied after processing.
+
+Example:
+
+activation='relu'
+
+------------------------------------------------------------
+
+USES
+
+• Classification
+• Regression
+• ANN Models
+
+------------------------------------------------------------
+
+2. CONVOLUTIONAL LAYER (Conv2D)
+
+Used mainly for image processing.
+
+Conv2D scans images using filters
+to detect important features.
+
+Examples:
+
+• Edges
+• Shapes
+• Corners
+• Textures
+
+------------------------------------------------------------
+
+CONV2D EXAMPLE
+
+layers.Conv2D(
+    filters=32,
+    kernel_size=(3,3),
+    activation='relu',
+    padding='same'
+)
+
+------------------------------------------------------------
+
+PARAMETERS
+
+filters
+
+Number of feature detectors.
+
+Example:
+
+filters=32
+
+Creates 32 filters.
+
+------------------------------------------------------------
+
+kernel_size
+
+Size of the filter.
+
+Example:
+
+(3,3)
+
+------------------------------------------------------------
+
+padding='same'
+
+Output size remains equal to input size.
+
+------------------------------------------------------------
+
+USES
+
+• Image Classification
+• Object Detection
+• Computer Vision
+
+------------------------------------------------------------
+
+3. POOLING LAYER
+
+Pooling layers reduce image size while keeping
+important information.
+
+Input Feature Map
+         ↓
+Pooling
+         ↓
+Smaller Feature Map
+
+------------------------------------------------------------
+
+TYPES
+
+MaxPooling2D
+
+Takes the largest value from each region.
+
+------------------------------------------------------------
+
+EXAMPLE
+
+layers.MaxPooling2D(
+    pool_size=(2,2),
+    strides=(2,2)
+)
+
+------------------------------------------------------------
+
+BENEFITS
+
+• Reduces Computation
+• Reduces Memory Usage
+• Reduces Overfitting
+
+------------------------------------------------------------
+
+EXAMPLE
+
+Input Shape
+
+(64,64,32)
+
+After MaxPooling
+
+(32,32,32)
+
+------------------------------------------------------------
+
+4. FLATTEN LAYER
+
+Converts multidimensional data into
+a single vector.
+
+Before
+
+(8,8,64)
+
+After
+
+(4096)
+
+------------------------------------------------------------
+
+EXAMPLE
+
+layers.Flatten()
+
+------------------------------------------------------------
+
+WHY IS IT NEEDED?
+
+CNN Layers produce multidimensional outputs.
+
+Dense Layers need one-dimensional vectors.
+
+Flatten acts as a bridge between them.
+
+------------------------------------------------------------
+
+CNN Output
+      ↓
+Flatten
+      ↓
+Dense Layers
+
+------------------------------------------------------------
+
+5. DROPOUT LAYER
+
+A regularization layer used to reduce overfitting.
+
+During training, some neurons are randomly ignored.
+
+------------------------------------------------------------
+
+EXAMPLE
+
+layers.Dropout(
+    rate=0.5
+)
+
+------------------------------------------------------------
+
+WHAT DOES rate=0.5 MEAN?
+
+50% of neurons are temporarily turned off
+during training.
+
+------------------------------------------------------------
+
+BENEFITS
+
+• Reduces Overfitting
+• Improves Generalization
+• Makes Models More Robust
+
+------------------------------------------------------------
+
+6. EMBEDDING LAYER
+
+Primarily used in NLP.
+
+Converts words into dense numerical vectors.
+
+Word
+ ↓
+Vector Representation
+
+------------------------------------------------------------
+
+EXAMPLE
+
+layers.Embedding(
+    input_dim=10000,
+    output_dim=64,
+    input_length=100
+)
+
+------------------------------------------------------------
+
+PARAMETERS
+
+input_dim
+
+Vocabulary Size
+
+Example:
+
+10000 Words
+
+------------------------------------------------------------
+
+output_dim
+
+Vector Length
+
+Example:
+
+64-Dimensional Word Vector
+
+------------------------------------------------------------
+
+input_length
+
+Maximum Sequence Length
+
+------------------------------------------------------------
+
+USES
+
+• NLP
+• Sentiment Analysis
+• Language Modeling
+• Text Classification
+
+------------------------------------------------------------
+
+7. ACTIVATION LAYER
+
+Applies activation functions explicitly.
+
+Example:
+
+layers.Activation('relu')
+
+------------------------------------------------------------
+
+COMMON ACTIVATIONS
+
+ReLU
+
+Most common hidden-layer activation.
+
+------------------------------------------------------------
+
+Sigmoid
+
+Produces outputs between 0 and 1.
+
+Common in binary classification.
+
+------------------------------------------------------------
+
+Softmax
+
+Produces probabilities.
+
+Common in multiclass classification.
+
+------------------------------------------------------------
+
+Tanh
+
+Outputs values from -1 to 1.
+
+------------------------------------------------------------
+
+8. RECURRENT LAYERS
+
+Designed for sequence data.
+
+These layers remember previous information.
+
+------------------------------------------------------------
+
+TYPES
+
+SimpleRNN
+
+Basic recurrent layer.
+
+------------------------------------------------------------
+
+LSTM
+
+(Long Short-Term Memory)
+
+Stores long-range information.
+
+------------------------------------------------------------
+
+GRU
+
+(Gated Recurrent Unit)
+
+Simpler and faster version of LSTM.
+
+------------------------------------------------------------
+
+USES
+
+• NLP
+• Text Generation
+• Speech Recognition
+• Time Series Forecasting
+
+------------------------------------------------------------
+
+LAYER SUMMARY
+
+Dense
+→ Fully Connected Layer
+
+Conv2D
+→ Image Feature Extraction
+
+MaxPooling2D
+→ Downsampling
+
+Flatten
+→ Convert 3D Data to 1D
+
+Dropout
+→ Reduce Overfitting
+
+Embedding
+→ Convert Words to Vectors
+
+Activation
+→ Add Non-Linearity
+
+LSTM / GRU
+→ Process Sequential Data
+
+------------------------------------------------------------
+
+EXAMPLE CNN ARCHITECTURE
+
+Input Image
+       ↓
+Conv2D
+       ↓
+MaxPooling2D
+       ↓
+Conv2D
+       ↓
+MaxPooling2D
+       ↓
+Flatten
+       ↓
+Dense
+       ↓
+Dense (Softmax)
+       ↓
+Prediction
+
+------------------------------------------------------------
+
+WHICH LAYER FOR WHICH TASK?
+
+Image Classification
+
+• Conv2D
+• MaxPooling2D
+• Flatten
+• Dense
+
+------------------------------------------------------------
+
+Text Classification
+
+• Embedding
+• LSTM / GRU
+• Dense
+
+------------------------------------------------------------
+
+Regression
+
+• Dense
+• Dense
+• Dense
+
+------------------------------------------------------------
+
+Time Series Prediction
+
+• LSTM
+• GRU
+• Dense
+
+------------------------------------------------------------
+
+NEURAL COMPUTATION CONNECTION
+
+Biological Neuron
+       ↓
+Artificial Neuron
+       ↓
+Layer
+       ↓
+Neural Network
+
+Layers are the computational units that allow
+artificial neural networks to learn patterns,
+make decisions, and perform intelligent tasks.
+
+------------------------------------------------------------
+
+EXAM SUMMARY
+
+Dense Layer
+= Fully Connected Layer
+
+Conv2D
+= Feature Extraction From Images
+
+Pooling Layer
+= Reduce Image Size
+
+Flatten Layer
+= Convert Multi-Dimensional Data to 1-D
+
+Dropout Layer
+= Prevent Overfitting
+
+Embedding Layer
+= Word Vector Representation
+
+Activation Layer
+= Non-Linearity
+
+LSTM / GRU
+= Sequential Data Processing
+
+Most Important Layers:
+
+ANN → Dense
+
+CNN → Conv2D + MaxPooling2D + Flatten + Dense
+
+RNN → LSTM / GRU
+
+NLP → Embedding + LSTM
