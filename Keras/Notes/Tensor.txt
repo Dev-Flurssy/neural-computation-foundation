@@ -35,14 +35,13 @@ Tensors allow us to:
 
 Nearly every modern AI system uses tensors.
 
-============================================================
+------------------------------------------------------------
 
 WHY ARE TENSORS IMPORTANT?
 
 As Deep Learning models became larger, traditional computing became too slow.
 
 Tensors solve this problem by:
-
 • Supporting parallel computation
 • Working efficiently on GPUs and TPUs
 • Handling millions of parameters
@@ -55,28 +54,20 @@ Without tensors, modern deep learning would not be practical.
 
 DIMENSIONS OF A TENSOR
 
-0D Tensor (Scalar)
-A single value.
-
+0D Tensor (Scalar): A single value.
 Example:
 5
 
-1D Tensor (Vector)
-A list of values.
-
+1D Tensor (Vector): A list of values.
 Example:
 [1, 2, 3, 4]
 
-2D Tensor (Matrix)
-Rows and columns.
-
+2D Tensor (Matrix): Rows and columns.
 Example:
 [[1, 2, 3],
  [4, 5, 6]]
 
-3D Tensor
-A collection of matrices.
-
+3D Tensor: A collection of matrices.
 Example:
 [[[1,2],[3,4]],
  [[5,6],[7,8]]]
@@ -240,7 +231,7 @@ IMPORTANT CHARACTERISTICS OF A TENSOR
 1. Shape
 Defines the dimensions of a tensor.
 Example:
-(3,4)
+(3, 4)
 
 2. Data Type (dtype)
 Examples:
@@ -395,7 +386,6 @@ Common Use:
 SEQUENCE DATA RESHAPING
 
 Used frequently in RNNs, LSTMs, and Sequence Models.
-
 Example Shape: (batch_size, time_steps, features)
 
 Example:
@@ -457,7 +447,7 @@ Original Tensor:
  [4, 5, 6]]
 
 Shape: (2, 3)
-After: tf.transpose(tensor, perm=[1,0])
+After: tf.transpose(tensor, perm=[1, 0])
 
 Result:
 [[1, 4],
@@ -525,7 +515,6 @@ Benefits:
 DISTRIBUTED TRAINING
 
 TensorFlow supports training across multiple GPUs.
-
 Function: tf.distribute.MirroredStrategy()
 
 Benefits:
