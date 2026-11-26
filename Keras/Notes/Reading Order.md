@@ -4,4 +4,4 @@
 4. Keras Models
 5. Keras Layers API
 6. Keras Input Layer
-8. Keras.Conv2D Class
+7. Keras.Conv2D Class

@@ -1,7 +1,7 @@
 KERAS
 
-Keras is a high-level Deep Learning API used to build, train, evaluate, =
-and deploy Artificial Neural Networks. Originally developed as an independent library.
+Keras is a high-level Deep Learning API used to build, train, evaluate,and deploy Artificial Neural Networks. 
+Originally developed as an independent library.
 Keras is now integrated into TensorFlow as its official high-level API through tf.keras.
 Keras simplifies deep learning by allowing developers to create powerful neural networks
 without dealing with low-level mathematical operations.
@@ -59,9 +59,7 @@ Keras tells TensorFlow what model to build and TensorFlow performs the computati
 HISTORY OF KERAS
 
 Keras was developed by: François Chollet
-
 Released: March 2015
-
 Primary Goal: Enable fast experimentation with Deep Neural Networks
 
 Initially Keras supported multiple backends:
@@ -87,8 +85,8 @@ print("Keras Version:", tf.keras.__version__)
 CORE COMPONENTS OF KERAS
 
 A neural network built with Keras usually contains:
-1. Input Layer: Receives data from the outside world.
 
+1. Input Layer: Receives data from the outside world.
 Examples:
 • Images
 • Text
@@ -96,14 +94,12 @@ Examples:
 • Sensor Data
 
 2. Hidden Layers: Process information and learn patterns.
-
 Examples:
 • Dense Layers
 • Convolution Layers (CNN)
 • Recurrent Layers (RNN/LSTM)
 
 3. Output Layer: Produces final predictions.
-
 Examples:
 • Classification
 • Regression
@@ -163,7 +159,6 @@ Works efficiently on:
 IMPORTANT KERAS CONCEPTS
 
 LAYERS: Layers are the building blocks of neural networks.
-
 Examples:
 • Dense
 • Conv2D
@@ -172,7 +167,6 @@ Examples:
 • Flatten
 
 ACTIVATION FUNCTIONS: Determine how neurons respond to signals.
-
 Examples:
 • ReLU
 • Sigmoid
@@ -180,14 +174,12 @@ Examples:
 • Softmax
 
 LOSS FUNCTIONS: Measure prediction error.
-
 Examples:
 • Mean Squared Error (MSE)
 • Binary Cross Entropy
 • Categorical Cross Entropy
 
 OPTIMIZERS: Update weights during training.
-
 Examples:
 • SGD
 • Adam
