@@ -2,7 +2,7 @@ TENSORS
 
 Tensors are the fundamental data structures used in Deep Learning and Artificial Intelligence.
 
-============================================================
+------------------------------------------------------------
 
 WHAT ARE TENSORS?
 
@@ -21,12 +21,11 @@ Tensors can represent:
 • Time-Series Data
 • Machine Learning Datasets
 
-============================================================
+------------------------------------------------------------
 
 WHY STUDY TENSORS?
 
 Tensors allow us to:
-
 • Store large amounts of data efficiently
 • Perform fast mathematical computations
 • Train deep learning models
@@ -52,7 +51,7 @@ Tensors solve this problem by:
 
 Without tensors, modern deep learning would not be practical.
 
-============================================================
+------------------------------------------------------------
 
 DIMENSIONS OF A TENSOR
 
@@ -84,7 +83,7 @@ Example:
 
 Higher-dimensional tensors are commonly used in images, videos, NLP, and deep learning.
 
-============================================================
+------------------------------------------------------------
 
 TENSORS AND PARALLEL COMPUTING
 
@@ -103,7 +102,7 @@ Execute Together
 
 Tensors are optimized for parallel processing, making deep learning much faster.
 
-============================================================
+------------------------------------------------------------
 
 TENSORS IN DEEP LEARNING
 
@@ -123,14 +122,13 @@ Updated Weights
 
 Everything inside a neural network is represented as tensors.
 
-============================================================
+------------------------------------------------------------
 
 TENSORS IN TENSORFLOW
 
 TensorFlow uses tensors as its primary data structure.
 
 TensorFlow can:
-
 • Create tensors
 • Manipulate tensors
 • Perform mathematical operations
@@ -138,12 +136,11 @@ TensorFlow can:
 • Train neural networks
 • Run computations on CPUs, GPUs, and TPUs
 
-============================================================
+------------------------------------------------------------
 
 TENSORS VS NUMPY ARRAYS
 
 Similarities:
-
 • Store multidimensional data
 • Support mathematical operations
 • Support broadcasting
@@ -151,40 +148,34 @@ Similarities:
 • Easy conversion between each other
 
 NumPy Arrays:
-
 • CPU-focused
 • Mutable by default
 • No automatic differentiation
 • Used for numerical computing
 
 TensorFlow Tensors:
-
 • GPU and TPU optimized
 • Usually immutable
 • Support automatic differentiation
 • Designed for deep learning
 • Support graph optimization
 
-============================================================
+------------------------------------------------------------
 
 GPU SUPPORT
 
 CPUs contain a few powerful cores.
-
 GPUs contain thousands of smaller cores.
-
 Tensor operations run efficiently on GPUs because many calculations can execute simultaneously.
-
 This greatly accelerates deep learning training.
 
-============================================================
+------------------------------------------------------------
 
 AUTOMATIC DIFFERENTIATION
 
 Automatic Differentiation automatically computes gradients needed for backpropagation.
 
 Benefits:
-
 • Faster training
 • Automatic gradient calculation
 • Easier optimization
@@ -192,40 +183,35 @@ Benefits:
 
 TensorFlow tensors support Automatic Differentiation while NumPy arrays do not.
 
-============================================================
+------------------------------------------------------------
 
 EAGER EXECUTION
 
 Eager Execution allows TensorFlow operations to execute immediately.
 
 Benefits:
-
 • Easier debugging
 • Faster experimentation
 • Similar behavior to NumPy
 
-============================================================
+------------------------------------------------------------
 
 BROADCASTING
 
 Broadcasting allows tensors with different shapes to perform arithmetic operations.
 
 Example:
-
 [1, 2, 3] + 3
 
-Result:
-
-[4, 5, 6]
+Result: [4, 5, 6]
 
 Broadcasting works when:
-
 • Dimensions are equal
 • One dimension equals 1
 
 Otherwise, TensorFlow raises a broadcasting error.
 
-============================================================
+------------------------------------------------------------
 
 CREATING TENSORS
 
@@ -234,31 +220,29 @@ CREATING TENSORS
 • tf.ones() → Create tensors filled with ones
 • tf.random.normal() → Create tensors with random values
 
-============================================================
+------------------------------------------------------------
 
 CONVERTING NUMPY ARRAYS TO TENSORS
 
 • tf.convert_to_tensor()
 • tf.constant()
 
-============================================================
+------------------------------------------------------------
 
 CONVERTING TENSORS TO NUMPY ARRAYS
 
 • tensor.numpy()
 
-============================================================
+------------------------------------------------------------
 
 IMPORTANT CHARACTERISTICS OF A TENSOR
 
 1. Shape
 Defines the dimensions of a tensor.
-
 Example:
 (3,4)
 
 2. Data Type (dtype)
-
 Examples:
 • int32
 • int64
@@ -268,14 +252,13 @@ Examples:
 
 3. Rank
 The number of dimensions.
-
 Examples:
 • Scalar = Rank 0
 • Vector = Rank 1
 • Matrix = Rank 2
 • 3D Tensor = Rank 3
 
-============================================================
+------------------------------------------------------------
 
 KEY FEATURES OF TENSORS
 
@@ -290,7 +273,7 @@ KEY FEATURES OF TENSORS
 • Computational Graph Optimization
 • Deep Learning Scalability
 
-============================================================
+------------------------------------------------------------
 
 RELATIONSHIP BETWEEN KERAS, TENSORFLOW, AND TENSORS
 
@@ -305,26 +288,7 @@ Tensors
 CPU / GPU / TPU
 
 Keras builds and trains neural networks.
-
 TensorFlow performs the computations.
-
 Tensors store and process the data.
 
-============================================================
-
-SUMMARY
-
-A tensor is a multidimensional data structure used to store and process information in Deep Learning.
-
-Tensors provide:
-
-• Data Representation
-• Parallel Computation
-• GPU Acceleration
-• Automatic Gradient Computation
-• Efficient Memory Usage
-• High-Speed Processing
-• Neural Network Training
-• AI Scalability
-
-Tensors are the core building blocks of TensorFlow, Keras, and modern Deep Learning systems.
+------------------------------------------------------------
