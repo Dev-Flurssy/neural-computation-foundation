@@ -301,17 +301,14 @@ TensorFlow provides built-in operations for creating, modifying, and manipulatin
 
 CREATING TENSORS
 
-Constant Tensor (fixed values):
-• tf.constant()
-
-Variable Tensor (modifiable values):
-• tf.Variable()
+Constant Tensor (fixed values): tf.constant()
+Variable Tensor (modifiable values): tf.Variable()
 
 Example:
 tensor_const = tf.constant([[1, 2], [3, 4]])
 tensor_var = tf.Variable([[1, 2], [3, 4]])
 
-============================================================
+------------------------------------------------------------
 
 MATHEMATICAL OPERATIONS
 
@@ -348,8 +345,7 @@ New Shape = (3, 2)
  [3, 4],
  [5, 6]]
 
-Function:
-• tf.reshape()
+Function: tf.reshape()
 
 ------------------------------------------------------------
 
@@ -361,11 +357,8 @@ Example:
 Original Shape = (2, 3)
 New Shape = (6,)
 
-Function:
-• tf.reshape(tensor, [-1])
-
-Common Use:
-• Connecting Convolutional Layers to Dense Layers
+Function: tf.reshape(tensor, [-1])
+Common Use: Connecting Convolutional Layers to Dense Layers
 
 ------------------------------------------------------------
 
@@ -377,9 +370,7 @@ Example:
 Original Shape = (2, 3)
 New Shape = (1, 2, 3)
 
-Function:
-• tf.expand_dims()
-
+Function:  tf.expand_dims()
 Common Use:
 • Adding Batch Dimensions
 • Broadcasting Compatibility
@@ -394,9 +385,7 @@ Example:
 Original Shape = (2, 1)
 New Shape = (2,)
 
-Function:
-• tf.squeeze()
-
+Function: tf.squeeze()
 Common Use:
 • Cleaning Tensor Shapes
 • Post-processing Results
@@ -407,8 +396,7 @@ SEQUENCE DATA RESHAPING
 
 Used frequently in RNNs, LSTMs, and Sequence Models.
 
-Example Shape:
-(batch_size, time_steps, features)
+Example Shape: (batch_size, time_steps, features)
 
 Example:
 (1, 2, 3)
@@ -461,9 +449,7 @@ Used by some Deep Learning frameworks.
 TRANSPOSING TENSORS
 
 Transposing rearranges tensor dimensions.
-
-Function:
-• tf.transpose()
+Function: tf.transpose()
 
 Example:
 Original Tensor:
@@ -484,118 +470,97 @@ Common Use:
 • Switching Channel Orders
 • Rearranging Data Dimensions
 
-============================================================
+------------------------------------------------------------
 
 AUTOMATIC DIMENSION CALCULATION
 
 TensorFlow can automatically calculate one dimension.
 
 Example:
-
 tf.reshape(tensor, [3, -1, 1])
 
 Here:
-
 • 3 = Fixed First Dimension
 • -1 = Automatically Calculated
 • 1 = Fixed Last Dimension
 
 Benefits:
-
 • Easier Reshaping
 • Less Manual Calculation
 • Reduces Errors
 
-============================================================
+------------------------------------------------------------
 
 PARALLELISM IN TENSORFLOW
 
 TensorFlow is designed for parallel computation.
-
-Best Practice:
-
-Use TensorFlow's built-in operations instead of manual loops.
+Best Practice: Use TensorFlow's built-in operations instead of manual loops.
 
 Good:
-
 • tf.matmul()
 • tf.add()
 • tf.multiply()
 
-Avoid:
-
-• Manual for-loops for tensor calculations
+Avoid: Manual for-loops for tensor calculations
 
 Built-in TensorFlow operations are heavily optimized for:
-
 • CPUs
 • GPUs
 • TPUs
 
-============================================================
+------------------------------------------------------------
 
 BATCH MATRIX MULTIPLICATION
 
 TensorFlow can perform multiple matrix multiplications simultaneously.
-
-Function:
-
-• tf.matmul()
+Function: tf.matmul()
 
 Benefits:
-
 • Faster Training
 • Better GPU Utilization
 • Parallel Processing Across Batches
 
-============================================================
+------------------------------------------------------------
 
 DISTRIBUTED TRAINING
 
 TensorFlow supports training across multiple GPUs.
 
-Function:
-
-• tf.distribute.MirroredStrategy()
+Function: tf.distribute.MirroredStrategy()
 
 Benefits:
-
 • Faster Model Training
 • Better Hardware Usage
 • Scalable Deep Learning
 
-============================================================
+------------------------------------------------------------
 
 OPTIMIZING DATA PIPELINES
 
 TensorFlow uses tf.data for efficient data loading.
 
 Common Operations:
-
 • cache()
 • shuffle()
 • batch()
 • prefetch()
 
 Benefits:
-
 • Faster Data Loading
 • Reduced Bottlenecks
 • Improved Training Performance
 
-============================================================
+------------------------------------------------------------
 
 GPU UTILIZATION
 
 TensorFlow automatically uses available GPUs.
 
 Benefits:
-
 • Faster Computation
 • Parallel Processing
 • Reduced Training Time
 
 NVIDIA GPUs are commonly used for Deep Learning.
 
-============================================================
-
+------------------------------------------------------------
