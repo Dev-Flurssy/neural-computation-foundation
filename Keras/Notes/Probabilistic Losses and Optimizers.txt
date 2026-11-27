@@ -1,0 +1,763 @@
+PROBABILISTIC LOSSES, OPTIMIZERS & GENERALIZATION ERRORS
+
+------------------------------------------------------------
+
+WHAT ARE PROBABILISTIC LOSSES?
+
+Probabilistic loss functions are used for classification problems.
+
+Instead of predicting numerical values, the model predicts probabilities of belonging to different classes.
+
+Examples:
+
+• Dog or Cat
+• Spam or Not Spam
+• Positive or Negative Review
+• Red, Blue, or Green
+• Digits 0–9
+
+These loss functions measure how close the predicted probabilities are to the actual classes.
+
+------------------------------------------------------------
+
+WHEN ARE PROBABILISTIC LOSSES USED?
+
+Use probabilistic losses when the output is a category rather than a numeric value.
+
+Examples:
+
+Image Classification:
+
+Input:
+Image
+
+Output:
+Dog, Cat, Bird, Fish
+
+Text Classification:
+
+Input:
+Review
+
+Output:
+Positive or Negative
+
+Disease Classification:
+
+Input:
+Patient Data
+
+Output:
+Healthy or Sick
+
+------------------------------------------------------------
+
+MAIN PROBABILISTIC LOSS FUNCTIONS
+
+The most commonly used probabilistic losses are:
+
+• Binary Cross-Entropy
+• Categorical Cross-Entropy
+• Sparse Categorical Cross-Entropy
+
+------------------------------------------------------------
+
+BINARY CROSS-ENTROPY
+
+Binary Cross-Entropy (BCE) is used for binary classification problems.
+
+Binary means:
+
+Only two possible outcomes.
+
+Examples:
+
+• Dog or Cat
+• Yes or No
+• True or False
+• Spam or Not Spam
+• Happy or Sad
+
+------------------------------------------------------------
+
+HOW BINARY CROSS-ENTROPY WORKS
+
+The network outputs a probability between 0 and 1.
+
+Examples:
+
+0.95 = 95% confidence
+
+0.10 = 10% confidence
+
+0.50 = Uncertain
+
+The loss function measures how different the prediction is from the actual answer.
+
+------------------------------------------------------------
+
+BINARY CROSS-ENTROPY FORMULA
+
+For a single sample:
+
+L(y) = -y log(p) - (1-y) log(1-p)
+
+Where:
+
+• y = Actual Label
+• p = Predicted Probability
+
+Possible labels:
+
+• y = 1
+• y = 0
+
+------------------------------------------------------------
+
+INTERPRETING BINARY CROSS-ENTROPY
+
+Case 1:
+
+Actual = 1
+
+Predicted = 1
+
+Loss ≈ 0
+
+Perfect prediction.
+
+Case 2:
+
+Actual = 1
+
+Predicted ≈ 0
+
+Loss = Very Large
+
+Very poor prediction.
+
+The loss becomes larger as the prediction becomes more incorrect.
+
+------------------------------------------------------------
+
+ACTIVATION FUNCTION FOR BCE
+
+Use:
+
+• Sigmoid Activation
+
+Reason:
+
+Sigmoid outputs values between:
+
+0 and 1
+
+which represent probabilities.
+
+Common Pair:
+
+Sigmoid + Binary Cross-Entropy
+
+------------------------------------------------------------
+
+WHEN TO USE BINARY CROSS-ENTROPY
+
+Use BCE when:
+
+• Output has two classes
+• Binary classifier
+• Probability prediction
+
+Examples:
+
+• Cancer Detection
+• Fraud Detection
+• Email Spam Detection
+• Customer Churn Prediction
+
+------------------------------------------------------------
+
+CATEGORICAL CROSS-ENTROPY
+
+Categorical Cross-Entropy is used for multi-class classification.
+
+Multi-class means:
+
+More than two categories.
+
+Examples:
+
+• Cat
+• Dog
+• Bird
+• Fish
+
+Only one category can be correct.
+
+------------------------------------------------------------
+
+ONE-HOT ENCODING
+
+Categorical Cross-Entropy requires One-Hot Encoding.
+
+Each category is represented by a vector containing one 1 and all remaining values set to 0.
+
+Example:
+
+Red:
+
+[1,0,0]
+
+Yellow:
+
+[0,1,0]
+
+Blue:
+
+[0,0,1]
+
+This encoding is called One-Hot Encoding.
+
+------------------------------------------------------------
+
+ACTIVATION FUNCTION FOR CATEGORICAL CROSS-ENTROPY
+
+Use:
+
+• Softmax Activation
+
+Reason:
+
+Softmax converts outputs into probabilities.
+
+Example:
+
+Cat = 0.05
+
+Dog = 0.90
+
+Bird = 0.03
+
+Fish = 0.02
+
+Total:
+
+0.05 + 0.90 + 0.03 + 0.02 = 1
+
+The highest probability becomes the prediction.
+
+------------------------------------------------------------
+
+WHEN TO USE CATEGORICAL CROSS-ENTROPY
+
+Use when:
+
+• Multiple classes exist
+• Exactly one class is correct
+• Labels are one-hot encoded
+
+Examples:
+
+• Digit Recognition
+• Animal Classification
+• Fruit Classification
+• Face Recognition
+
+------------------------------------------------------------
+
+SPARSE CATEGORICAL CROSS-ENTROPY
+
+Sparse Categorical Cross-Entropy is similar to Categorical Cross-Entropy.
+
+However:
+
+It does not require One-Hot Encoding.
+
+------------------------------------------------------------
+
+LABEL REPRESENTATION
+
+Categorical Cross-Entropy:
+
+Red = [1,0,0]
+
+Yellow = [0,1,0]
+
+Blue = [0,0,1]
+
+Sparse Categorical Cross-Entropy:
+
+Red = 0
+
+Yellow = 1
+
+Blue = 2
+
+Only integers are used.
+
+------------------------------------------------------------
+
+ADVANTAGES OF SPARSE CATEGORICAL CROSS-ENTROPY
+
+Benefits:
+
+• Less memory usage
+• Faster processing
+• Simpler labels
+• No One-Hot Encoding required
+
+Large datasets often benefit from Sparse Cross-Entropy.
+
+------------------------------------------------------------
+
+CHOOSING THE CORRECT LOSS FUNCTION
+
+Binary Classification:
+
+Output Classes = 2
+
+Use:
+
+• Binary Cross-Entropy
+• Sigmoid Activation
+
+------------------------------------------------------------
+
+Multi-Class Classification
+(One-Hot Encoded Labels)
+
+Use:
+
+• Categorical Cross-Entropy
+• Softmax Activation
+
+------------------------------------------------------------
+
+Multi-Class Classification
+(Integer Labels)
+
+Use:
+
+• Sparse Categorical Cross-Entropy
+• Softmax Activation
+
+------------------------------------------------------------
+
+WHAT IS AN OPTIMIZER?
+
+The optimizer is responsible for improving the neural network.
+
+Responsibilities:
+
+• Adjust weights
+• Reduce loss
+• Improve predictions
+• Guide learning
+
+Without an optimizer, the network cannot learn.
+
+------------------------------------------------------------
+
+OPTIMIZATION IN MACHINE LEARNING
+
+Optimization means:
+
+Finding the best weights that minimize error.
+
+Goal:
+
+Lowest Possible Loss
+
+The optimizer repeatedly modifies weights to improve performance.
+
+------------------------------------------------------------
+
+MOUNTAIN ANALOGY FOR OPTIMIZATION
+
+Imagine standing on a mountain in complete darkness.
+
+Goal:
+
+Reach the lowest point.
+
+Strategy:
+
+• Check surrounding area
+• Move downhill
+• Check again
+• Continue moving
+
+Eventually, you reach a low point.
+
+Optimizers use a similar approach.
+
+They continuously move toward lower loss values.
+
+------------------------------------------------------------
+
+GRADIENT DESCENT
+
+The most fundamental optimization algorithm.
+
+Purpose:
+
+Reduce error by moving toward lower loss values.
+
+Process:
+
+Step 1:
+Calculate Loss
+
+Step 2:
+Calculate Gradient
+
+Step 3:
+Update Weights
+
+Step 4:
+Repeat
+
+Over Time:
+
+Loss ↓
+
+Accuracy ↑
+
+------------------------------------------------------------
+
+LEARNING RATE
+
+The Learning Rate controls the size of weight updates.
+
+Think of it as:
+
+Step Size
+
+during optimization.
+
+------------------------------------------------------------
+
+SMALL LEARNING RATE
+
+Characteristics:
+
+• Slow learning
+• Stable updates
+• Better precision
+
+Advantages:
+
+• More accurate convergence
+
+Disadvantages:
+
+• Long training time
+
+------------------------------------------------------------
+
+LARGE LEARNING RATE
+
+Characteristics:
+
+• Faster learning
+• Large updates
+
+Advantages:
+
+• Faster convergence
+
+Disadvantages:
+
+• May overshoot optimal solution
+• Unstable training
+
+------------------------------------------------------------
+
+IDEAL LEARNING RATE
+
+The best learning rate:
+
+• Learns efficiently
+• Avoids instability
+• Converges quickly
+
+Choosing a good learning rate is one of the most important training decisions.
+
+------------------------------------------------------------
+
+ADAM OPTIMIZER
+
+Adam is one of the most popular optimizers.
+
+Advantages:
+
+• Fast convergence
+• Adaptive learning rates
+• Works well in many situations
+• Requires little tuning
+
+For most problems:
+
+Try Adam first.
+
+------------------------------------------------------------
+
+MINI-BATCH GRADIENT DESCENT
+
+Instead of updating weights after every sample:
+
+The optimizer updates weights after processing a small batch.
+
+Advantages:
+
+• Faster training
+• More stable updates
+• Better memory usage
+
+Common Batch Sizes:
+
+• 16
+• 32
+• 64
+• 128
+
+------------------------------------------------------------
+
+LEARNING RATE SCHEDULING
+
+Sometimes changing the learning rate during training improves performance.
+
+This is called:
+
+Learning Rate Scheduling
+
+Purpose:
+
+• Faster initial learning
+• Better final accuracy
+
+------------------------------------------------------------
+
+TIME-BASED DECAY
+
+The learning rate decreases gradually over time.
+
+Characteristics:
+
+• Smooth reduction
+• More stable convergence
+
+------------------------------------------------------------
+
+STEP DECAY
+
+The learning rate decreases suddenly after a fixed number of epochs.
+
+Example:
+
+Epoch 1-10 → 0.01
+
+Epoch 11-20 → 0.005
+
+Epoch 21-30 → 0.0025
+
+------------------------------------------------------------
+
+EXPONENTIAL DECAY
+
+Learning rate decreases exponentially.
+
+Characteristics:
+
+• Rapid reduction initially
+• Small adjustments later
+
+Useful for deep networks.
+
+------------------------------------------------------------
+
+GENERALIZATION ERROR
+
+A good model should perform well on unseen data.
+
+The difference between training performance and real-world performance is called Generalization Error.
+
+------------------------------------------------------------
+
+WHAT IS OVERFITTING?
+
+Overfitting occurs when a model memorizes training data rather than learning general patterns.
+
+Characteristics:
+
+• Very high training accuracy
+• Poor testing accuracy
+• Poor real-world performance
+
+------------------------------------------------------------
+
+EXAMPLE OF OVERFITTING
+
+Suppose all training images are written by one person.
+
+The model may learn:
+
+• Handwriting style
+
+instead of:
+
+• Actual digit shapes
+
+The model performs poorly when new handwriting appears.
+
+------------------------------------------------------------
+
+OVERFITTING IS ALSO CALLED
+
+Variance Error
+
+or
+
+High Variance
+
+Characteristics:
+
+• Model too complex
+• Learns noise
+• Poor generalization
+
+------------------------------------------------------------
+
+HOW TO REDUCE OVERFITTING
+
+Methods:
+
+• Add more training data
+• Simplify the network
+• Use regularization
+• Use dropout
+• Early stopping
+
+------------------------------------------------------------
+
+WHAT IS UNDERFITTING?
+
+Underfitting occurs when the model is too simple.
+
+Characteristics:
+
+• Poor training accuracy
+• Poor testing accuracy
+• Cannot learn patterns
+
+------------------------------------------------------------
+
+EXAMPLE OF UNDERFITTING
+
+Suppose:
+
+Millions of training samples
+
+but
+
+Very few neurons
+
+The network lacks the capacity to learn the data.
+
+------------------------------------------------------------
+
+UNDERFITTING IS ALSO CALLED
+
+Bias Error
+
+or
+
+High Bias
+
+Characteristics:
+
+• Model too simple
+• Misses important patterns
+• Weak predictions
+
+------------------------------------------------------------
+
+HOW TO REDUCE UNDERFITTING
+
+Methods:
+
+• Increase model complexity
+• Add more neurons
+• Add more layers
+• Train longer
+• Improve features
+
+------------------------------------------------------------
+
+OVERFITTING VS UNDERFITTING
+
+Overfitting:
+
+• High Training Accuracy
+• Low Testing Accuracy
+• High Variance
+
+Underfitting:
+
+• Low Training Accuracy
+• Low Testing Accuracy
+• High Bias
+
+Good Model:
+
+• High Training Accuracy
+• High Testing Accuracy
+• Good Generalization
+
+------------------------------------------------------------
+
+LEARNING CURVE
+
+A Learning Curve shows how a model improves during training.
+
+It visualizes:
+
+• Training Performance
+• Validation Performance
+• Generalization Ability
+
+Learning curves help identify:
+
+• Overfitting
+• Underfitting
+• Training Progress
+
+------------------------------------------------------------
+
+KEY TAKEAWAYS
+
+• Binary Cross-Entropy is used for binary classification problems.
+• Categorical Cross-Entropy is used for multi-class problems with one-hot labels.
+• Sparse Categorical Cross-Entropy is used for multi-class problems with integer labels.
+• Sigmoid pairs with Binary Cross-Entropy.
+• Softmax pairs with Categorical and Sparse Categorical Cross-Entropy.
+• Optimizers update weights to minimize loss.
+• Adam is the most commonly used optimizer.
+• Learning Rate controls update size.
+• Overfitting means memorizing the training data.
+• Underfitting means failing to learn enough patterns.
+• The goal is strong generalization on unseen data.
+
+------------------------------------------------------------
+
+MEMORY FORMULA
+
+Prediction
+→ Loss Function
+→ Optimizer
+→ Weight Update
+→ Better Prediction
+
+OR
+
+Data → Prediction → Error → Optimization → Learning → Generalization
