@@ -1,7 +1,9 @@
-1. Introduction to Keras
-2. Scikit-Learn and Keras
-3. Datasets in Keras
-4. Keras Models
-5. Keras Layers API
-6. Keras Input Layer
-7. Keras.Conv2D Class
+1. Tensors
+2. Universal Approximation Theorem
+3. Introduction to Keras
+4. Scikit-Learn and Keras
+5. Datasets in Keras
+6. Keras Models
+7. Keras Layers API
+8. Keras Input Layer
+9. Keras.Conv2D Class
