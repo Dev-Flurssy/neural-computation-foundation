@@ -1,0 +1,474 @@
+TENSORBOARD
+
+------------------------------------------------------------
+
+WHAT IS TENSORBOARD?
+
+TensorBoard is a visualization and monitoring tool provided by TensorFlow.
+It helps us observe, analyze, and understand how a neural network is learning during training.
+
+TensorBoard provides graphical insights into:
+• Loss
+• Accuracy
+• Model Architecture
+• Weights
+• Biases
+• Embeddings
+• Images
+• Audio
+• Hyperparameters
+• Performance Metrics
+
+It is one of the most important debugging and monitoring tools in Deep Learning.
+
+------------------------------------------------------------
+
+WHY USE TENSORBOARD?
+
+Training a neural network can take:
+• Minutes
+• Hours
+• Days
+• Even Weeks
+
+During training, we need to monitor:
+• Is the model improving?
+• Is the loss decreasing?
+• Is the accuracy increasing?
+• Is the model overfitting?
+• Is the model underfitting?
+
+TensorBoard helps answer these questions visually.
+
+------------------------------------------------------------
+
+WHY IS TENSORBOARD IMPORTANT?
+
+TensorBoard allows us to:
+• Monitor model performance
+• Visualize training progress
+• Detect overfitting
+• Detect underfitting
+• Debug model architectures
+• Analyze weights and biases
+• Compare experiments
+• Optimize hyperparameters
+
+Without monitoring tools, debugging deep learning models becomes difficult.
+
+------------------------------------------------------------
+
+HOW DOES TENSORBOARD WORK?
+
+Step 1: Train a TensorFlow/Keras model.
+Step 2: Save training information as log files.
+Step 3: Launch TensorBoard.
+Step 4: Visualize results in a web browser.
+
+TensorBoard reads the logs and displays charts and visualizations.
+
+------------------------------------------------------------
+
+KEY FEATURES OF TENSORBOARD
+
+TensorBoard provides:
+• Metric Visualization
+• Graph Visualization
+• Weight Histograms
+• Bias Histograms
+• Embedding Visualization
+• Image Visualization
+• Audio Visualization
+• Hyperparameter Tracking
+• Performance Profiling
+
+------------------------------------------------------------
+
+METRIC VISUALIZATION
+
+Metric visualization is one of TensorBoard's most useful features.
+
+It displays training metrics such as:
+• Training Loss
+• Validation Loss
+• Training Accuracy
+• Validation Accuracy
+
+Benefits:
+• Monitor learning progress
+• Detect convergence
+• Identify training issues
+
+------------------------------------------------------------
+
+EXAMPLE OF METRIC VISUALIZATION
+
+TensorBoard can show:
+Epoch 1: Loss = 0.90
+Epoch 5: Loss = 0.50
+Epoch 10: Loss = 0.15
+
+Observation: Loss is decreasing.
+This indicates successful learning.
+
+------------------------------------------------------------
+
+DETECTING OVERFITTING
+
+TensorBoard helps identify overfitting.
+
+Signs:
+Training Loss ↓
+Validation Loss ↑
+
+Interpretation: The model memorizes training data but performs poorly on unseen data.
+
+------------------------------------------------------------
+
+DETECTING UNDERFITTING
+
+TensorBoard helps identify underfitting.
+
+Signs:
+Training Loss High
+Validation Loss High
+
+Interpretation: The model has not learned enough patterns.
+
+------------------------------------------------------------
+
+GRAPH VISUALIZATION
+
+TensorBoard can visualize the structure of a neural network.
+
+Graph visualization shows:
+• Layers
+• Neurons
+• Tensor Flow
+• Connections
+
+Benefits:
+• Understand architecture
+• Verify model structure
+• Debug network connections
+
+------------------------------------------------------------
+
+MODEL ARCHITECTURE VISUALIZATION
+
+TensorBoard automatically records:
+Input Layer
+↓
+Hidden Layers
+↓
+Output Layer
+
+This allows us to inspect how tensors move through the network.
+
+------------------------------------------------------------
+
+WEIGHT HISTOGRAMS
+
+TensorBoard can visualize weight distributions.
+
+Benefits:
+• Monitor learning
+• Detect exploding weights
+• Detect vanishing weights
+• Analyze layer behavior
+
+Weights can be observed changing over time.
+
+------------------------------------------------------------
+
+BIAS HISTOGRAMS
+
+TensorBoard can also display bias distributions.
+
+Benefits:
+• Understand network updates
+• Track bias evolution
+• Detect abnormal behavior
+
+------------------------------------------------------------
+
+WHY MONITOR WEIGHTS?
+
+Weight visualization helps answer:
+• Are weights updating?
+• Are gradients vanishing?
+• Are gradients exploding?
+• Is learning progressing?
+
+Large abnormal weight changes may indicate training problems.
+
+------------------------------------------------------------
+
+EMBEDDING VISUALIZATION
+
+TensorBoard includes an Embedding Projector.
+Purpose: Visualize high-dimensional embeddings.
+
+Common Applications:
+• Natural Language Processing
+• Word Embeddings
+• Recommendation Systems
+
+------------------------------------------------------------
+
+WHAT IS AN EMBEDDING?
+
+An embedding is a numerical representation of data.
+
+Examples:
+Word: "Dog"
+
+Embedding: [0.21, -0.44, 0.12, ...]
+Embeddings convert complex objects into vectors.
+
+------------------------------------------------------------
+
+BENEFITS OF EMBEDDING VISUALIZATION
+
+TensorBoard can project embeddings into:
+• 2D Space
+• 3D Space
+
+This allows us to see:
+• Similar words
+• Similar images
+• Clusters
+• Relationships
+
+------------------------------------------------------------
+
+IMAGE VISUALIZATION
+
+TensorBoard can display images directly.
+
+Useful for:
+• Image Classification
+• Object Detection
+• GANs
+• Computer Vision
+
+Benefits:
+• Verify training data
+• Inspect predictions
+• Debug image processing pipelines
+
+------------------------------------------------------------
+
+AUDIO VISUALIZATION
+
+TensorBoard can also play audio.
+
+Applications:
+• Speech Recognition
+• Voice Classification
+• Audio Generation
+
+Benefits:
+• Listen to predictions
+• Evaluate model outputs
+
+------------------------------------------------------------
+
+HYPERPARAMETER TUNING
+
+TensorBoard provides the HParams Dashboard.
+Purpose: Compare multiple experiments using different hyperparameters.
+
+Examples of Hyperparameters:
+• Learning Rate
+• Batch Size
+• Number of Layers
+• Dropout Rate
+• Optimizer
+
+------------------------------------------------------------
+
+WHY HYPERPARAMETER TUNING?
+
+Different hyperparameter values produce different results.
+
+Example:
+
+Learning Rate = 0.001
+Accuracy = 92%
+
+Learning Rate = 0.01
+Accuracy = 97%
+
+TensorBoard helps identify the best configuration.
+
+------------------------------------------------------------
+
+HParams DASHBOARD FEATURES
+
+TensorBoard HParams allows us to:
+• Compare experiments
+• Sort runs
+• Filter results
+• Visualize trends
+• Analyze performance differences
+
+This greatly simplifies model tuning.
+
+------------------------------------------------------------
+
+PERFORMANCE PROFILING
+
+TensorBoard includes performance profiling tools.
+Purpose: Identify computational bottlenecks.
+
+It shows:
+• CPU Usage
+• GPU Usage
+• Memory Usage
+• Training Bottlenecks
+
+------------------------------------------------------------
+
+WHY PERFORMANCE PROFILING?
+
+Benefits:
+• Faster models
+• Better GPU utilization
+• Lower training time
+• Improved scalability
+
+Profiling helps optimize training efficiency.
+
+------------------------------------------------------------
+
+USING TENSORBOARD WITH KERAS
+
+Typical workflow:
+Step 1: Build Model
+Step 2: Compile Model
+Step 3: Create TensorBoard Callback
+Step 4: Train Model
+Step 5: Launch TensorBoard
+Step 6: Analyze Results
+
+------------------------------------------------------------
+
+TENSORBOARD CALLBACK
+
+TensorBoard integrates into Keras using a callback.
+The callback records training information and saves logs automatically.
+
+During training, TensorBoard stores:
+• Loss
+• Accuracy
+• Graph Information
+• Histograms
+• Embeddings
+
+------------------------------------------------------------
+
+VIEWING TENSORBOARD
+
+After training: Launch TensorBoard and point it to the log directory.
+
+Common URL: http://localhost:6006
+TensorBoard opens in a web browser and displays all logged experiments.
+
+------------------------------------------------------------
+
+USING TENSORBOARD IN GOOGLE COLAB
+
+TensorBoard works directly inside Google Colab.
+
+Benefits:
+• No local installation required
+• Cloud-based visualization
+• Easy monitoring
+
+Command: %tensorboard --logdir logs_directory
+
+------------------------------------------------------------
+
+COMMON TENSORBOARD TABS
+
+Scalars:
+• Loss
+• Accuracy
+• Other Metrics
+
+Graphs:
+• Model Architecture
+• Tensor Flow
+
+Histograms:
+• Weights
+• Biases
+
+Projector:
+• Embeddings
+
+HParams:
+• Hyperparameter Tuning
+
+Profile:
+• Performance Analysis
+
+------------------------------------------------------------
+
+TENSORBOARD WORKFLOW
+
+Build Model
+↓
+Train Model
+↓
+Generate Logs
+↓
+Open TensorBoard
+↓
+Monitor Metrics
+↓
+Analyze Results
+↓
+Improve Model
+
+------------------------------------------------------------
+
+BENEFITS OF TENSORBOARD
+
+• Easy visualization of training progress
+• Detects overfitting and underfitting
+• Shows network architecture
+• Displays weight distributions
+• Visualizes embeddings
+• Supports images and audio
+• Helps tune hyperparameters
+• Profiles computational performance
+• Simplifies debugging
+
+------------------------------------------------------------
+
+COMMON TRAINING ISSUES TENSORBOARD CAN REVEAL
+
+Problem:
+Loss Not Changing
+
+Possible Cause: Learning Rate Too Low
+
+Problem:
+Loss Exploding
+Possible Cause: Learning Rate Too High
+
+Problem:
+Training Accuracy High
+Validation Accuracy Low
+
+Possible Cause: Overfitting
+
+Problem:
+Training Accuracy Low
+Validation Accuracy Low
+
+Possible Cause: Underfitting
+
+------------------------------------------------------------
