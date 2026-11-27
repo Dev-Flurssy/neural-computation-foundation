@@ -242,7 +242,6 @@ Together, these components enable a neural network to learn and solve complex pr
 WHY STUDY THE COMPONENTS OF A NEURAL NETWORK?
 
 Understanding the components helps us:
-
 • Understand how neural networks learn
 • Design better AI models
 • Troubleshoot training problems
@@ -257,18 +256,15 @@ Every neural network is built using these fundamental building blocks.
 NEURONS: THE BUILDING BLOCKS
 
 At the heart of every neural network are artificial neurons.
-
 Neurons are inspired by biological neurons found in the human brain.
 
 A neuron:
-
 • Receives information
 • Processes information
 • Produces an output
 • Passes information to other neurons
 
 Modern neural networks can contain:
-
 • Thousands of neurons
 • Millions of neurons
 • Even billions of neurons
@@ -278,7 +274,6 @@ Modern neural networks can contain:
 PARTS OF A NEURON
 
 Every neuron contains three important elements:
-
 • Input Weights
 • Bias
 • Activation Function
@@ -286,11 +281,9 @@ Every neuron contains three important elements:
 The neuron combines these components to generate an output.
 
 Mathematical Formula:
-
 y = f(w₁x₁ + w₂x₂ + w₃x₃ + b)
 
 Where:
-
 • x = Inputs
 • w = Weights
 • b = Bias
@@ -304,7 +297,6 @@ INPUTS
 Inputs are the data entering a neuron.
 
 Examples:
-
 • Pixel values from an image
 • Audio signals
 • Text embeddings
@@ -312,7 +304,6 @@ Examples:
 • Outputs from previous neurons
 
 Example:
-
 x₁ = 2
 x₂ = 3
 x₃ = 5
@@ -324,11 +315,9 @@ These values are fed into the neuron for processing.
 WEIGHTS
 
 Weights determine the importance of each input.
-
 They control how much influence a particular input has on the final output.
 
 Examples:
-
 w₁ = 0.2
 w₂ = 0.8
 w₃ = 1.5
@@ -336,7 +325,6 @@ w₃ = 1.5
 Larger weights indicate more important inputs.
 
 During training:
-
 • Weights are adjusted continuously
 • Learning occurs by updating weights
 • Better weights lead to better predictions
@@ -348,7 +336,6 @@ BIAS
 The bias is an additional adjustable value added to the weighted sum.
 
 Purpose of bias:
-
 • Shifts the output
 • Increases flexibility
 • Helps fit data more accurately
@@ -362,13 +349,11 @@ ACTIVATION FUNCTIONS
 After computing the weighted sum, the neuron applies an activation function.
 
 Purpose:
-
 • Introduces nonlinearity
 • Enables learning of complex patterns
 • Allows neural networks to solve difficult problems
 
 Without activation functions:
-
 • The network behaves like linear regression
 • Complex patterns cannot be learned
 
@@ -376,16 +361,12 @@ Without activation functions:
 
 WHY NONLINEARITY IS IMPORTANT
 
-Without activation functions:
-
+Without activation functions: 
 y = w₁x₁ + w₂x₂ + w₃x₃ + b
-
 This is simply a straight-line equation.
-
 The network could only learn linear relationships.
 
 With activation functions:
-
 • Curves can be learned
 • Complex decision boundaries can be formed
 • Real-world problems become solvable
@@ -397,7 +378,6 @@ This is one of the key reasons deep learning works.
 COMMON ACTIVATION FUNCTIONS
 
 The most widely used activation functions are:
-
 • Sigmoid
 • Tanh
 • ReLU
@@ -408,40 +388,28 @@ The most widely used activation functions are:
 SIGMOID FUNCTION
 
 Formula:
-
 σ(x) = 1 / (1 + e⁻ˣ)
-
-Output Range:
-
-0 to 1
+Output Range: 0 to 1
 
 Characteristics:
-
 • Produces probabilities
 • Commonly used in binary classification
 • Smooth and nonlinear
 
 Applications:
-
 • Spam detection
 • Disease prediction
 • Binary classification tasks
 
 Example:
-
 Output = 0.85
-
-Interpretation:
-
-The model is 85% confident in its prediction.
+Interpretation: The model is 85% confident in its prediction.
 
 Advantages:
-
 • Easy to interpret
 • Probability output
 
 Disadvantages:
-
 • Suffers from vanishing gradients
 • Slower learning in deep networks
 
@@ -452,14 +420,12 @@ VANISHING GRADIENT PROBLEM
 The vanishing gradient problem occurs when gradients become extremely small during backpropagation.
 
 Consequences:
-
 • Earlier layers learn very slowly
 • Weight updates become tiny
 • Training becomes inefficient
 • Deep networks struggle to learn
 
 This problem is common with:
-
 • Sigmoid
 • Tanh
 
@@ -468,26 +434,20 @@ This problem is common with:
 TANH FUNCTION
 
 Formula:
-
 tanh(x) = (eˣ − e⁻ˣ) / (eˣ + e⁻ˣ)
 
-Output Range:
-
--1 to 1
+Output Range: -1 to 1
 
 Characteristics:
-
 • Zero-centered output
 • Often performs better than sigmoid
 • Useful in hidden layers
 
 Advantages:
-
 • Stronger gradients than sigmoid
 • Easier optimization
 
 Disadvantages:
-
 • Still suffers from vanishing gradients
 
 ------------------------------------------------------------
@@ -495,28 +455,23 @@ Disadvantages:
 ReLU FUNCTION (RECTIFIED LINEAR UNIT)
 
 Formula:
-
 ReLU(x) = max(0, x)
 
 Output:
-
 • x if x > 0
 • 0 if x ≤ 0
 
 Characteristics:
-
 • Simple
 • Fast
 • Efficient
 
 Advantages:
-
 • Reduces vanishing gradients
 • Faster training
 • Default choice for many neural networks
 
 Applications:
-
 • Deep Neural Networks
 • Convolutional Neural Networks (CNNs)
 
@@ -527,7 +482,6 @@ DYING ReLU PROBLEM
 Sometimes a ReLU neuron outputs zero for all inputs.
 
 When this happens:
-
 • The neuron stops learning
 • The neuron becomes inactive
 • The neuron is considered "dead"
@@ -539,26 +493,21 @@ This issue is known as the Dying ReLU Problem.
 LEAKY ReLU
 
 Leaky ReLU is a modified version of ReLU.
-
 Instead of outputting zero for negative values, it outputs a small value.
 
 Formula:
-
 LeakyReLU(x) = x if x > 0
 LeakyReLU(x) = αx if x ≤ 0
 
 Where:
-
 α = small positive value
 
 Advantages:
-
 • Reduces dying ReLU problem
 • Keeps neurons active
 • Better gradient flow
 
 Disadvantages:
-
 • Requires choosing an appropriate α value
 
 ------------------------------------------------------------
@@ -568,12 +517,10 @@ INPUT LAYER
 The input layer is the first layer in a neural network.
 
 Responsibilities:
-
 • Receives raw data
 • Passes information to hidden layers
 
 Examples:
-
 • Image pixels
 • Text features
 • Audio signals
@@ -588,13 +535,11 @@ HIDDEN LAYERS
 Hidden layers perform most of the learning.
 
 Responsibilities:
-
 • Detect patterns
 • Learn relationships
 • Extract features
 
 A network may contain:
-
 • One hidden layer
 • Multiple hidden layers
 • Hundreds of layers in deep learning
@@ -610,22 +555,16 @@ The output layer produces the final prediction.
 Examples:
 
 Binary Classification:
-
 Output:
-
 Dog = 1
 Not Dog = 0
 
 Multi-Class Classification:
-
 Outputs:
-
 0, 1, 2, 3, 4, 5, 6, 7, 8, 9
 
 Regression:
-
 Output:
-
 Predicted House Price = $250,000
 
 ------------------------------------------------------------
@@ -635,31 +574,25 @@ SOFTMAX ACTIVATION
 Softmax is commonly used for multi-class classification.
 
 Characteristics:
-
 • Converts outputs into probabilities
 • Probabilities sum to 1
 • Highest probability becomes the prediction
 
 Example:
-
 Digit Recognition:
-
 0 → 0.01
 1 → 0.02
 2 → 0.03
 8 → 0.90
 9 → 0.04
 
-Prediction:
-
-8
+Prediction: 8
 
 ------------------------------------------------------------
 
 SIGMOID FOR BINARY CLASSIFICATION
 
 When there are only two outcomes:
-
 • Yes / No
 • True / False
 • Spam / Not Spam
@@ -667,36 +600,20 @@ When there are only two outcomes:
 Sigmoid is usually used in the output layer.
 
 Example:
-
 Output = 0.95
-
-Interpretation:
-
-95% probability the prediction belongs to the positive class.
+Interpretation: 95% probability the prediction belongs to the positive class.
 
 ------------------------------------------------------------
 
 HOW A NETWORK LEARNS
 
 Training follows these steps:
-
-Step 1:
-Receive input data
-
-Step 2:
-Calculate output predictions
-
-Step 3:
-Compare prediction with actual value
-
-Step 4:
-Calculate error (Loss)
-
-Step 5:
-Adjust weights and biases
-
-Step 6:
-Repeat many times
+Step 1: Receive input data
+Step 2: Calculate output predictions
+Step 3: Compare prediction with actual value
+Step 4: Calculate error (Loss)
+Step 5: Adjust weights and biases
+Step 6: Repeat many times
 
 This process allows the network to gradually improve.
 
@@ -707,7 +624,6 @@ BACKPROPAGATION
 Backpropagation is the learning algorithm used to update weights.
 
 Responsibilities:
-
 • Calculates gradients
 • Determines weight adjustments
 • Propagates errors backward
@@ -719,20 +635,15 @@ Without backpropagation, neural networks cannot learn efficiently.
 GRADIENT DESCENT
 
 Gradient Descent is the optimization algorithm used to minimize error.
-
-Goal:
-
-Find the weights that produce the smallest loss.
+Goal: Find the weights that produce the smallest loss.
 
 Process:
-
 • Compute loss
 • Compute gradients
 • Update weights
 • Repeat
 
 Over time:
-
 Loss ↓
 Accuracy ↑
 
