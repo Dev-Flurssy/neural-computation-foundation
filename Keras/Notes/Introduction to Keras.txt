@@ -1,6 +1,6 @@
 KERAS
 
-Keras is a high-level Deep Learning API used to build, train, evaluate,and deploy Artificial Neural Networks. 
+Keras is a high-level Deep Learning API used to build, train, evaluate, and deploy Artificial Neural Networks. 
 Originally developed as an independent library.
 Keras is now integrated into TensorFlow as its official high-level API through tf.keras.
 Keras simplifies deep learning by allowing developers to create powerful neural networks

@@ -1,14 +1,11 @@
 KERAS DATASETS
 
-Keras provides built-in datasets through:
-from keras import datasets
+Keras provides built-in datasets through: from keras import datasets
+These datasets are automatically downloaded, preprocessed, 
+and ready for training and testing.
 
-These datasets are automatically downloaded,
-preprocessed, and ready for training and testing.
-
-The purpose of keras.datasets is to help developers
-focus on building neural networks rather than
-collecting and preparing data.
+The purpose of keras.datasets is to help developers focus on 
+building neural networks rather than collecting and preparing data.
 
 ------------------------------------------------------------
 WHY USE KERAS DATASETS?
