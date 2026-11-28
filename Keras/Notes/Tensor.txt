@@ -69,8 +69,8 @@ Example:
 
 3D Tensor: A collection of matrices.
 Example:
-[[[1,2],[3,4]],
- [[5,6],[7,8]]]
+[[[1, 2],[3 4]],
+ [[5, 6],[7, 8]]]
 
 Higher-dimensional tensors are commonly used in images, videos, NLP, and deep learning.
 

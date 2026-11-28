@@ -450,25 +450,18 @@ BENEFITS OF TENSORBOARD
 
 COMMON TRAINING ISSUES TENSORBOARD CAN REVEAL
 
-Problem:
-Loss Not Changing
-
+Problem: Loss Not Changing
 Possible Cause: Learning Rate Too Low
 
-Problem:
-Loss Exploding
+Problem: Loss Exploding
 Possible Cause: Learning Rate Too High
 
-Problem:
-Training Accuracy High
+Problem: Training Accuracy High
 Validation Accuracy Low
-
 Possible Cause: Overfitting
 
-Problem:
-Training Accuracy Low
+Problem: Training Accuracy Low
 Validation Accuracy Low
-
 Possible Cause: Underfitting
 
 ------------------------------------------------------------

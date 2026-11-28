@@ -5,7 +5,6 @@ UNIVERSAL APPROXIMATION THEOREM
 WHAT IS THE UNIVERSAL APPROXIMATION THEOREM?
 
 The Universal Approximation Theorem is one of the most important concepts in Machine Learning and Deep Learning.
-
 It states that a neural network with a single hidden layer can approximate almost any continuous function, 
 provided it has enough neurons and uses suitable activation functions.
 
@@ -18,7 +17,8 @@ provided it has enough neurons and uses suitable activation functions.
 
 WHAT DOES THE THEOREM MEAN?
 
-A neural network can learn the relationship between inputs and outputs without explicitly being given the mathematical formula.
+A neural network can learn the relationship between inputs and outputs 
+without explicitly being given the mathematical formula.
 Instead of: Input → Rules → Output
 A neural network learns: Input → Learning → Output
 
@@ -79,11 +79,11 @@ Machine learning follows an iterative learning process.
 
 Step 1: Provide Training Data
 Examples:
-{0,0}
-{1,1}
-{2,4}
+{0, 0}
+{1, 1}
+{2, 4}
 ...
-{10,100}
+{10, 100}
 
 Step 2: Create a Neural Network
 The network starts with random values for:
