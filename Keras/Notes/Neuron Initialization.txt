@@ -44,9 +44,7 @@ Keras uses:
 • Glorot Uniform Initialization
 • Also known as Xavier Initialization
 
-Biases are usually initialized to:
-• Zero
-
+Biases are usually initialized to: Zero
 These defaults work well for many deep learning problems.
 
 ------------------------------------------------------------
@@ -281,9 +279,7 @@ FEEDFORWARD NETWORK
 The simplest neural network architecture is called a Feedforward Network.
 
 Data flows only in one direction:
-Input
-→ Hidden Layer
-→ Output
+Input → Hidden Layer → Output
 
 Characteristics:
 • Simple design

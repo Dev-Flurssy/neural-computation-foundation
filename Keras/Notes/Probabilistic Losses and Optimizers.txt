@@ -110,8 +110,7 @@ The loss becomes larger as the prediction becomes more incorrect.
 
 ACTIVATION FUNCTION FOR BCE
 
-Use:
-• Sigmoid Activation
+Use: Sigmoid Activation
 Reason: Sigmoid outputs values between: 0 and 1
 
 which represent probabilities.
@@ -137,7 +136,6 @@ Examples:
 CATEGORICAL CROSS-ENTROPY
 
 Categorical Cross-Entropy is used for multi-class classification.
-
 Multi-class means: More than two categories.
 
 Examples:
@@ -153,7 +151,6 @@ Only one category can be correct.
 ONE-HOT ENCODING
 
 Categorical Cross-Entropy requires One-Hot Encoding.
-
 Each category is represented by a vector containing one 1 and all remaining values set to 0.
 
 Example:
@@ -167,9 +164,7 @@ This encoding is called One-Hot Encoding.
 
 ACTIVATION FUNCTION FOR CATEGORICAL CROSS-ENTROPY
 
-Use:
-• Softmax Activation
-
+Use: Softmax Activation
 Reason: Softmax converts outputs into probabilities.
 
 Example:
@@ -208,7 +203,6 @@ However: It does not require One-Hot Encoding.
 LABEL REPRESENTATION
 
 Categorical Cross-Entropy:
-
 Red = [1, 0, 0]
 Yellow = [0, 1, 0]
 Blue = [0, 0, 1]
@@ -279,7 +273,6 @@ The optimizer repeatedly modifies weights to improve performance.
 MOUNTAIN ANALOGY FOR OPTIMIZATION
 
 Imagine standing on a mountain in complete darkness.
-
 Goal: Reach the lowest point.
 
 Strategy:
